@@ -1,0 +1,11 @@
+{
+  "name": "catiyochan-backend",
+  "version": "1.0.0",
+  "description": "a gaming app to download game roms and emulators",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "inzamam",
+  "license": "ISC"
+}
