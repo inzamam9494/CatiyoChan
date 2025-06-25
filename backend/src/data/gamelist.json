@@ -1,0 +1,214 @@
+{
+    "gamelist" : {
+        "Nintendo Switch Game List" : [
+            {
+                "game_name" : "The Legend of Zelda: Breath of the Wild",
+                "slug" : "the-legend-of-zelda-breath-of-the-wild",
+                "game_id" : 1,
+                "gmae_image" : "https://upload.wikimedia.org/wikipedia/en/thumb/c/c6/The_Legend_of_Zelda_Breath_of_the_Wild.jpg/250px-The_Legend_of_Zelda_Breath_of_the_Wild.jpg",
+                "game_size" : "13.4 GB",
+                "game_category" : "Action-adventure",
+                "game_details" : [
+                    {
+                        "Console" : "Nintendo Switch",
+                        "Publisher" : "Nintendo",
+                        "Released" : "March 3, 2017",
+                        "Developer" : "Nintendo EPD",
+                        "File Size" : "13.4 GB",
+                        "Genre" : "Action-adventure",
+                        "download_links" : "https://gplinks.co/WauU4",
+                        "description" :" The Legend of Zelda: Breath of the Wild is an action-adventure game set in an open world, where players control Link to explore the kingdom of Hyrule, solve puzzles, and defeat enemies."
+                    }
+                ]
+            },
+            {
+                "game_name" : "Super Mario Odyssey",
+                "slug" : "super-mario-odyssey",
+                "game_id" : 2,
+                "gmae_image" : "https://upload.wikimedia.org/wikipedia/en/8/8d/Super_Mario_Odyssey.jpg",
+                "game_size" : "5.7 GB",
+                "game_category" : "Platform",
+                "game_details" : [
+                    {
+                        "Console" : "Nintendo Switch",
+                        "Publisher" : "Nintendo",
+                        "Released" : "October 27, 2017",
+                        "Developer" : "Nintendo EPD",
+                        "File Size" : "5.7 GB",
+                        "Genre" : "Platform",
+                        "download_links" : "https://gplinks.co/3b1a2",
+                        "description" :" Super Mario Odyssey is a 3D platform game where players control Mario as he travels across various kingdoms to rescue Princess Peach from Bowser."
+                    }
+                ]
+            }
+        ],
+        "PS3 Game List" : [
+            {
+                "game_name" : "The Last of Us",
+                "slug" : "the-last-of-us",
+                "game_id" : 1,
+                "gmae_image" : "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSmD0uYmcc5JnUJ4s4ZThckSB-JRUTCZdJLkw&s",
+                "game_size" : "35.2 GB",
+                "game_category" : "Action-adventure",
+                "game_details" : [
+                    {
+                        "Console" : "PlayStation 3",
+                        "Publisher" : "Sony Computer Entertainment",
+                        "Released" : "June 14, 2013",
+                        "Developer" : "Naughty Dog",
+                        "File Size" : "35.2 GB",
+                        "Genre" : "Action-adventure, Survival horror",
+                        "download_links" : "https://gplinks.co/4d5f6",
+                        "description" :" The Last of Us is an action-adventure game set in a post-apocalyptic world where players control Joel and Ellie as they navigate through dangerous environments and combat infected creatures."
+                    }
+                ]
+            },
+            {
+                "game_name" : "God of War III",
+                "slug" : "god-of-war-iii",
+                "game_id" : 2,
+                "gmae_image" : "https://upload.wikimedia.org/wikipedia/en/8/8b/God_of_War_III_cover_art.jpg",
+                "game_size" : "35 GB",
+                "game_category" : "Action-adventure",
+                "game_details" : [
+                    {
+                        "Console" : "PlayStation 3",
+                        "Publisher" : "Sony Computer Entertainment",
+                        "Released" : "March 16, 2010",
+                        "Developer" : "Santa Monica Studio",
+                        "File Size" : "35 GB",
+                        "Genre" : "Action-adventure, Hack and slash",
+                        "download_links" : "https://gplinks.co/JBe0y",
+                        "description" :" God of War III is an action-adventure game where players control Kratos as he seeks revenge against the gods of Olympus in a mythological setting."
+                    }
+                ]
+            }
+        ],
+        "PS4 Game List" : [
+            {
+                "game_name" : "GTA 5",
+                "slug" : "gta-5",
+                "game_id" : 1,
+                "gmae_image" : "https://m.media-amazon.com/images/I/916T5H6sCtL._SL1500_.jpg",
+                "game_size" : "89.57 GB",
+                "game_category" : "Action-adventure",
+                "game_details" : [
+                    {
+                        "Console" : "PlayStation 4",
+                        "Publisher" : "Rockstar Games",
+                        "Released" : "September 17, 2013",
+                        "Developer" : "Rockstar North",
+                        "File Size" : "89.57 GB",
+                        "Genre" : "Action-adventure, Open world",
+                        "download_links" : "https://gplinks.co/5f6g7",
+                        "description" :" Grand Theft Auto V is an action-adventure game set in an open world where players control three criminals and complete missions while exploring the fictional state of San Andreas."
+                    }
+                ]
+            },
+            {
+                "game_name" : "Watch Dogs 2",
+                "slug" : "watch-dogs-2",
+                "game_id" : 2,
+                "gmae_image" : "https://romsfun.com/wp-content/uploads/2021/04/1618736315-8934a4a8-4808-4177-8a5a-b29d6293f6f5.jpg",
+                "game_size" : "40.5 GB",
+                "game_category" : "Action-adventure, Shooter",
+                "game_details" : [
+                    {
+                        "Console" : "PlayStation 4",
+                        "Publisher" : "Ubisoft",
+                        "Released" : "November 15, 2016",
+                        "Developer" : "Ubisoft Montreal",
+                        "File Size" : "40.5 GB",
+                        "Genre" : "Action-adventure, Open world, Shooter",
+                        "download_links" : "https://gplinks.co/8h9i0",
+                        "description" :" Watch Dogs 2 is an action-adventure game set in an open world where players control a hacker named Marcus Holloway as he fights against a corrupt corporation in the San Francisco Bay Area."
+                    }
+                ]
+            }
+        ],
+        "PS2 Game List" : [
+            {
+                "game_name" : "Grand Theft Auto: San Andreas",
+                "slug" : "gta-san-andreas",
+                "game_id" : 1,
+                "gmae_image" : "https://m.media-amazon.com/images/I/71-hQSqBXTL.jpg",
+                "game_size" : "4.7 GB",
+                "game_category" : "Action-adventure",
+                "game_details" : [
+                    {
+                        "Console" : "PlayStation 2",
+                        "Publisher" : "Rockstar Games",
+                        "Released" : "October 26, 2004",
+                        "Developer" : "Rockstar North",
+                        "File Size" : "4.7 GB",
+                        "Genre" : "Action-adventure, Open world",
+                        "download_links" : "https://gplinks.co/1a2b3",
+                        "description" :" Grand Theft Auto: San Andreas is an action-adventure game set in an open world where players control Carl Johnson as he returns to his hometown and fights against gangs and corruption."
+                    }
+                ]
+            },
+            {
+                "game_name" : "Final Fantasy X",
+                "slug" : "final-fantasy-x",
+                "game_id" : 2,
+                "gmae_image" : "https://upload.wikimedia.org/wikipedia/en/a/a7/Ffxboxart.jpg",
+                "game_size" : "3.5 GB",
+                "game_category" : "Role-playing",
+                "game_details" : [
+                    {
+                        "Console" : "PlayStation 2",
+                        "Publisher" : "Square Enix",
+                        "Released" : "July 19, 2001",
+                        "Developer" : "Square",
+                        "File Size" : "3.5 GB",
+                        "Genre" : "Role-playing, Turn-based",
+                        "download_links" : "https://gplinks.co/4c5d6",
+                        "description" :" Final Fantasy X is a role-playing game where players control Tidus and Yuna as they journey through the world of Spira to defeat the monstrous creature Sin."
+                    }
+                ]
+            }
+        ],
+        "Windows Game List" : [
+            {
+                "game_name" : "The Witcher 3: Wild Hunt",
+                "slug" : "the-witcher-3-wild-hunt",
+                "game_id" : 1,
+                "gmae_image" : "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRpnX7KBdyovl2GCFkqTpUzBTxmuRijJ4Ew-Q&s",
+                "game_size" : "35 GB",
+                "game_category" : "Role-playing",
+                "game_details" : [
+                    {
+                        "Console" : "Windows",
+                        "Publisher" : "CD Projekt",
+                        "Released" : "May 19, 2015",
+                        "Developer" : "CD Projekt Red",
+                        "File Size" : "35 GB",
+                        "Genre" : "Role-playing, Open world",
+                        "download_links" : "https://gplinks.co/7h8i9",
+                        "description" :" The Witcher 3: Wild Hunt is an open-world role-playing game where players control Geralt of Rivia as he searches for his adopted daughter and battles various monsters in a richly detailed fantasy world."
+                    }
+                ]
+            },
+            {
+                "game_name" : "DOOM Eternal",
+                "slug" : "doom-eternal",
+                "game_id" : 2,
+                "gmae_image" : "https://cdn.hobbyconsolas.com/sites/navi.axelspringer.es/public/media/image/2020/01/doom-eternal-portada-ficha-02-1856821.jpg",
+                "game_size" : "18.8 GB",
+                "game_category" : "First-person shooter",
+                "game_details" : [
+                    {
+                        "Console" : "Windows",
+                        "Publisher" : "Bethesda Softworks",
+                        "Released" : "March 20, 2020",
+                        "Developer" : "id Software",
+                        "File Size" : "18.8 GB",
+                        "Genre" : "First-person shooter, Action",
+                        "download_links" : "https://gplinks.co/0a1b2",
+                        "description" :" DOOM Eternal is a first-person shooter where players control the Doom Slayer as he battles demons from Hell in a fast-paced and action-packed environment."
+                    }
+                ]
+            }
+        ]
+    }
+}

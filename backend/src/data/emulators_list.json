@@ -1,0 +1,126 @@
+{
+    "Emulators List" : {
+        "Nintendo Switch Virtual Console" : [
+            {
+                "name": "Yuzu",
+                "slug": "yuzu",
+                "description": "Nintendo Switch emulator for Windows, Linux, and Android.",
+                "icon": "https://yuzu-emu.org/static/assets/img/yuzu-logo.png",
+                "emulator_details":[
+                    {
+                        "publisher": "Yuzu Emulator Team",
+                        "release_date": "2018-01-14",
+                        "platforms": ["Windows", "Linux", "Android"],
+                        "website": "https://yuzu-emu.org/",
+                        "developer": "Yuzu Emulator Team",
+                        "download_links" : "https://yuzu-emu.org/downloads/"
+                    }
+                ]
+            },
+            {
+                "name": "Ryujinx",
+                "slug": "ryujinx",
+                "description": "Nintendo Switch emulator for Windows, Linux, and macOS.",
+                "icon": "https://ryujinx.org/assets/logo.png",
+                "emulator_details":[
+                    {
+                        "publisher": "Ryujinx Team",
+                        "release_date": "2018-10-08",
+                        "platforms": ["Windows", "Linux", "macOS"],
+                        "website": "https://ryujinx.org/",
+                        "developer": "Ryujinx Team",
+                        "download_links" : "https://ryujinx.org/download/"
+                    }
+                ]
+            }
+        ],
+        "Windows Emulators" : [
+            {
+                "name": "DOSBox",
+                "slug": "dosbox",
+                "description": "DOS emulator for running old DOS games on modern systems.",
+                "icon": "https://www.dosbox.com/images/dosbox_logo.png",
+                "emulator_details":[
+                    {
+                        "publisher": "DOSBox Team",
+                        "release_date": "2002-07-27",
+                        "platforms": ["Windows", "Linux", "macOS"],
+                        "website": "https://www.dosbox.com/",
+                        "developer": "DOSBox Team",
+                        "download_links" : "https://www.dosbox.com/download.php?main=1"
+                    }
+                ]
+            },
+            {
+                "name": "Wine",
+                "slug": "wine",
+                "description": "Compatibility layer for running Windows applications on Unix-like operating systems.",
+                "icon": "https://www.winehq.org/images/winehq-logo.png",
+                "emulator_details":[
+                    {
+                        "publisher": "WineHQ",
+                        "release_date": "1993-06-17",
+                        "platforms": ["Linux", "macOS"],
+                        "website": "https://www.winehq.org/",
+                        "developer": "WineHQ Team",
+                        "download_links" : "https://www.winehq.org/download"
+                    }
+                ]
+            }
+        ],
+        "PlayStation 3 Emulators" : [
+            {
+                "name": "RPCS3",
+                "slug": "rpcs3",
+                "description": "PlayStation 3 emulator for Windows, Linux, and macOS.",
+                "icon": "https://rpcs3.net/static/img/logo.png",
+                "emulator_details":[
+                    {
+                        "publisher": "RPCS3 Team",
+                        "release_date": "2011-05-01",
+                        "platforms": ["Windows", "Linux", "macOS"],
+                        "website": "https://rpcs3.net/",
+                        "developer": "RPCS3 Team",
+                        "download_links" : "https://rpcs3.net/download"
+                    }
+                ]
+            }
+        ],
+        "PlayStation 4 Emulators" : [
+            {
+                "name": "shadPS4",
+                "slug": "shadps4",
+                "description": "PlayStation 4 emulator for Windows.",
+                "icon": "https://shadps4.com/assets/img/logo.png",
+                "emulator_details":[
+                    {
+                        "publisher": "shadPS4 Team",
+                        "release_date": "2020-01-01",
+                        "platforms": ["Windows"],
+                        "website": "https://shadps4.com/",
+                        "developer": "shadPS4 Team",
+                        "download_links" : "https://shadps4.com/download"
+                    }
+                ]
+            }
+        ],
+        "PlayStation 2 Emulators" : [
+            {
+                "name": "PCSX2",
+                "slug": "pcsx2",
+                "description": "PlayStation 2 emulator for Windows, Linux, and macOS.",
+                "icon": "https://pcsx2.net/static/img/logo.png",
+                "emulator_details":[
+                    {
+                        "publisher": "PCSX2 Team",
+                        "release_date": "2002-07-12",
+                        "platforms": ["Windows", "Linux", "macOS"],
+                        "website": "https://pcsx2.net/",
+                        "developer": "PCSX2 Team",
+                        "download_links" : "https://pcsx2.net/download"
+                    }
+                ]
+            }
+        ]
+    }
+}
