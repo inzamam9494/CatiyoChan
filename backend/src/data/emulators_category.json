@@ -1,0 +1,29 @@
+{
+    "emulators_category": [
+        {
+            "name" : "Nintendo Switch",
+            "slug" : "nintendo-switch",
+            "icon" : "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f0/Nintendo_Switch_logo.svg/1200px-Nintendo_Switch_logo.svg.png"
+        },
+        {
+            "name" : "Windows",
+            "slug" : "windows",
+            "icon" : "https://cdn-icons-png.flaticon.com/512/5804/5804809.png"
+        },
+        {
+            "name" : "PS3",
+            "slug" : "ps3",
+            "icon" : "https://1000logos.net/wp-content/uploads/2025/03/PS3-Logo-768x432.png"
+        },
+        {
+            "name" : "PS4",
+            "slug" : "ps4",
+            "icon" : "https://logos-world.net/wp-content/uploads/2025/01/PS4-Logo-500x281.png"
+        },
+        {
+            "name" : "PS2",
+            "slug" : "ps2",
+            "icon" : "https://logowik.com/content/uploads/images/ps2-playstation-2-monogram5452.logowik.com.webp"
+        }
+    ]
+}
