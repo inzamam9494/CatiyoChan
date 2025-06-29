@@ -1,6 +1,7 @@
 import App from '../App'
 import HomeScreen from '../pages/HomeScreen'
 import { createBrowserRouter } from 'react-router-dom'
+import RomsScreen from '../pages/RomsScreen'
 
 // Industrial Standard: Export the router directly instead of a function
 export const router = createBrowserRouter([
@@ -15,6 +16,10 @@ export const router = createBrowserRouter([
       {
         path: 'home',
         element: <HomeScreen />
+      },
+      {
+        path: 'roms',
+        element: <RomsScreen />
       }
     ]
   }
