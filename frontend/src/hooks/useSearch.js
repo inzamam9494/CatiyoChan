@@ -10,7 +10,7 @@ export const useSearch = (initialQuery = '') => {
 
   // Handle search action
   const handleSearch = useCallback((e) => {
-    if (e) {
+    if (e) { 
       e.preventDefault()
     }
     

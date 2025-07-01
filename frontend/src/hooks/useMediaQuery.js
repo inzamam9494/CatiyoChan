@@ -8,7 +8,7 @@ export const useResponsive = () => {
   const isMobile = useMediaQuery({ maxWidth: 767 })
   const isTablet = useMediaQuery({ minWidth: 768, maxWidth: 1023 })
   const isDesktop = useMediaQuery({ minWidth: 1024 })
-  const isSmallMobile = useMediaQuery({ maxWidth: 480 })
+  const isSmallMobile = useMediaQuery({ maxWidth: 480 }) 
 
   return {
     isMobile,
