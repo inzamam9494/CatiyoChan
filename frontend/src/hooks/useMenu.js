@@ -10,7 +10,7 @@ export const useMenu = (initialState = false) => {
 
   // Toggle menu open/close
   const toggleMenu = useCallback(() => {
-    setIsMenuOpen(prev => !prev)
+    setIsMenuOpen(prev => !prev) 
   }, [])
 
   // Open menu
