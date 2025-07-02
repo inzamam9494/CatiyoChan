@@ -25,11 +25,11 @@ export const router = createBrowserRouter([
         element: <RomsScreen />,
       },
       {
-        path: "games",
+        path: "games/:category",
         element: <GameScreen />,
       },
       {
-        path: "games/:id",
+        path: "games/:category/:id",
         element: <GameDetailScreen />,
       },
     ],
