@@ -1,43 +1,67 @@
 import React from "react";
 import { useResponsive } from "../hooks/useMediaQuery";
+import { useRomsCategories } from "../hooks/useApi";
 import RomsCard from "../components/ui/RomsCard";
 import { useNavigate } from "react-router-dom";
 
 const RomsScreen = () => {
   const { isMobile, isDesktop } = useResponsive();
   const navigate = useNavigate();
+  const { categories, loading, error } = useRomsCategories();
 
-  const handleNavigateToGames = () => {
-    navigate("/games"); 
+  const handleNavigateToGames = (category) => {
+    // Create URL-friendly slug from category name
+    const categorySlug = category.name.toLowerCase()
+      .replace(/\s+/g, '-')
+      .replace(/[^\w-]/g, '');
+    navigate(`/games/${categorySlug}`); 
   };
   return (
     <div>
+      {/* Loading state */}
+      {loading && (
+        <div className="text-center p-4">
+          <p>Loading ROM categories...</p>
+        </div>
+      )}
+
+      {/* Error state */}
+      {error && (
+        <div className="text-center p-4 text-red-500">
+          <p>Failed to load ROM categories. Please try again later.</p>
+        </div>
+      )}
+
       {/* is Desktop */}
-      {isDesktop && (
-        <div>
-            <h1 className="my-6 p-2 text-4xl font-bold">List of Available Roms</h1>
-          <div className="">
-            <RomsCard
-            onClick={handleNavigateToGames}
-            title={"Nintendo Switch 1"}
-            imageUrl={"https://upload.wikimedia.org/wikipedia/commons/5/5d/Nintendo_Switch_Logo.svg"} />
+      {!loading && !error && isDesktop && (
+        <div className="ml-60 mr-60">
+          <h1 className="my-6 p-2 text-4xl font-bold">List of Available Roms</h1>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-1">
+            {categories.map((category, index) => (
+              <RomsCard
+                key={category._id || index}
+                onClick={() => handleNavigateToGames(category)}
+                title={category.name}
+                imageUrl={category.icon || "https://via.placeholder.com/300x200?text=ROM"}
+              />
+            ))}
           </div>
         </div>
       )}
 
       {/* is Mobile */}
-      {isMobile && (
+      {!loading && !error && isMobile && (
         <div>
           <h1 className="my-4 p-2 text-2xl font-bold">List of Available Roms</h1>
-          <div className="flex grid-cols-2 gap-1 items-center justify-around overflow-hidden">
-            <RomsCard
-            onClick={handleNavigateToGames}
-            title={"Nintendo Switch 1"}
-            imageUrl={"https://upload.wikimedia.org/wikipedia/commons/5/5d/Nintendo_Switch_Logo.svg"} />
-            <RomsCard 
-            onClick={handleNavigateToGames}
-            title={"PS3"}
-            imageUrl={"https://brandlogos.net/wp-content/uploads/2011/06/sony-ps3-slim-logo-vector-01.png"} />
+          <div className="grid grid-cols-2 gap-1">
+            {categories.map((category, index) => (
+              <RomsCard
+                key={category._id || index}
+                onClick={() => handleNavigateToGames(category)}
+                title={category.name}
+                imageUrl={category.icon || "https://via.placeholder.com/300x200?text=ROM"}
+              />
+            ))}
           </div>
         </div>
       )}

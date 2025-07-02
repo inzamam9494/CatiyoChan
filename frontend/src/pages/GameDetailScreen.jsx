@@ -1,49 +1,114 @@
 import React from "react";
 import { useResponsive } from "../hooks/useMediaQuery.js";
-import { Download, Flag } from 'lucide-react'
+import { useGameDetails } from "../hooks/useApi";
+import { useParams } from "react-router-dom";
+import {
+  Download,
+  Flag,
+  Monitor,
+  Building2,
+  Calendar,
+  Code,
+  HardDrive,
+  Gamepad2,
+} from "lucide-react";
 import RequestHelpCard from "../components/ui/RequestHelpCard.jsx";
 import CommentCard from "../components/ui/CommentCard.jsx";
 
 const GameDetailScreen = () => {
   const { isMobile, isDesktop } = useResponsive();
+  const { category, id } = useParams();
+  const { gameDetails, loading, error } = useGameDetails(category, id);
+
+  // Handle download click
+  const handleDownload = () => {
+    if (gameDetails?.game_details?.downloadLink) {
+      window.open(gameDetails.game_details.downloadLink, "_blank");
+    }
+  };
+
+  if (loading) {
+    return (
+      <div className="text-center p-4">
+        <p>Loading game details...</p>
+      </div>
+    );
+  }
+
+  if (error || !gameDetails) {
+    return (
+      <div className="text-center p-4 text-red-500">
+        <p>Failed to load game details. Please try again later.</p>
+      </div>
+    );
+  }
+
+  const details = gameDetails.game_details;
   return (
     <div>
       {/* isDesktop */}
       {isDesktop && (
-        <div className="desktop-view">
-          <h1 className="my-6 p-2 text-4xl font-bold">God of War 3</h1>
+        <div className="desktop-view ml-60 mr-60">
+          <h1 className="my-6 p-2 text-4xl font-bold">
+            {gameDetails.game_name}
+          </h1>
           {/* Game details section */}
           <div className="flex flex-row justify-between items-center p-4">
             <div className="flex flex-col justify-center items-start">
-              <h2 className="text-2xl font-semibold">Game Details</h2>
-              <p className="text-lg">Console: PlayStation 3</p>
-              <p className="text-lg">Publisher: Sony</p>
-              <p className="text-lg">Release Date: March 16, 2010</p>
-              <p className="text-lg">Developer: Santa Monica Studio</p>
-              <p className="text-lg">Size: 3.5 GB</p>
-              <p className="text-lg">Genre: Action-adventure, Hack and slash</p>
-              <button className="mt-4 bg-cyan-600 text-white px-4 py-2 rounded hover:bg-cyan-800 transition-colors cursor-pointer font-semibold">
+              <h2 className="text-2xl font-semibold text-cyan-400 mb-4">
+                Game Details
+              </h2>
+              <div className="space-y-3">
+                <div className="flex items-center gap-3 text-lg text-cyan-400">
+                  <Monitor className="w-5 h-5" />
+                  <span>Console: {details.console}</span>
+                </div>
+
+                <div className="flex items-center gap-3 text-lg text-cyan-400">
+                  <Building2 className="w-5 h-5" />
+                  <span>Publisher: {details.publisher}</span>
+                </div>
+
+                <div className="flex items-center gap-3 text-lg text-cyan-400">
+                  <Calendar className="w-5 h-5" />
+                  <span>Release Date: {details.released}</span>
+                </div>
+
+                <div className="flex items-center gap-3 text-lg text-cyan-400">
+                  <Code className="w-5 h-5" />
+                  <span>Developer: {details.developer}</span>
+                </div>
+
+                <div className="flex items-center gap-3 text-lg text-cyan-400">
+                  <HardDrive className="w-5 h-5" />
+                  <span>Size: {details.filesize}</span>
+                </div>
+
+                <div className="flex items-center gap-3 text-lg text-cyan-400">
+                  <Gamepad2 className="w-5 h-5" />
+                  <span>Genre: {details.genre}</span>
+                </div>
+              </div>
+              <button
+                onClick={handleDownload}
+                className="mt-4 bg-cyan-600 text-white px-4 py-2 rounded hover:bg-cyan-800 transition-colors cursor-pointer font-semibold"
+              >
                 <Download className="inline mr-2" />
                 DOWNLOAD GAME
               </button>
             </div>
             <div>
               <img
-                src="https://upload.wikimedia.org/wikipedia/en/thumb/8/8b/God_of_War_III_cover_art.jpg/250px-God_of_War_III_cover_art.jpg"
-                alt=""
+                src={gameDetails.game_image}
+                alt={gameDetails.game_name}
+                className="w-64 h-auto m-2 border-2 border-cyan-400 rounded-xl p-2"
               />
             </div>
           </div>
           {/* Description section  */}
           <div className="flex flex-col justify-center items-start p-4">
             <h2 className="text-2xl font-semibold">Description</h2>
-            <p className="text-lg">
-              God of War III is an action-adventure game developed by Santa Monica
-              Studio and published by Sony Computer Entertainment. It is the fifth
-              installment in the God of War series and the seventh chronologically.
-              The game continues the story of Kratos, a former Greek god, as he
-              seeks revenge against Zeus and the Olympian gods.
-            </p>
+            <p className="text-lg">{details.description}</p>
           </div>
           <RequestHelpCard />
           <CommentCard />
@@ -52,49 +117,73 @@ const GameDetailScreen = () => {
 
       {/* isMobile */}
       {isMobile && (
-        <div className="mobile-view">
+        <div className="mobile-view ml-4 mr-4">
           <h1 className="my-4 p-2 text-2xl font-bold">
-            God of War 3
+            {gameDetails.game_name}
           </h1>
           <div className="flex flex-col justify-between items-center p-4">
             <div>
               <img
-                src="https://upload.wikimedia.org/wikipedia/en/thumb/8/8b/God_of_War_III_cover_art.jpg/250px-God_of_War_III_cover_art.jpg"
-                alt=""
+                src={gameDetails.game_image}
+                alt={gameDetails.game_name}
+                className="w-48 h-auto border-2 border-cyan-400 rounded-xl p-2 mb-4"
               />
             </div>
-            <div className="flex flex-col justify-center items-start">
-              <h2 className="text-2xl font-semibold">Game Details</h2>
-              <p className="text-lg">Console: PlayStation 3</p>
-              <p className="text-lg">Publisher: Sony</p>
-              <p className="text-lg">Release Date: March 16, 2010</p>
-              <p className="text-lg">Developer: Santa Monica Studio</p>
-              <p className="text-lg">Size: 3.5 GB</p>
-              <p className="text-lg">Genre: Action-adventure, Hack and slash</p>
-              <button className="mt-4 bg-cyan-600 text-white px-4 py-2 rounded hover:bg-cyan-800 transition-colors cursor-pointer font-semibold">
+            <div className="flex flex-col justify-center items-center">
+              
+              <h2 className="text-2xl font-semibold text-cyan-400 mb-4">
+                Game Details
+              </h2>
+              <div className="space-y-3 ">
+                <div className="flex items-center gap-3 text-lg text-cyan-400">
+                  <Monitor className="w-5 h-5" />
+                  <span>Console: {details.console}</span>
+                </div>
+
+                <div className="flex items-center gap-3 text-lg text-cyan-400">
+                  <Building2 className="w-5 h-5" />
+                  <span>Publisher: {details.publisher}</span>
+                </div>
+
+                <div className="flex items-center gap-3 text-lg text-cyan-400">
+                  <Calendar className="w-5 h-5" />
+                  <span>Release Date: {details.released}</span>
+                </div>
+
+                <div className="flex items-center gap-3 text-lg text-cyan-400">
+                  <Code className="w-5 h-5" />
+                  <span>Developer: {details.developer}</span>
+                </div>
+
+                <div className="flex items-center gap-3 text-lg text-cyan-400">
+                  <HardDrive className="w-5 h-5" />
+                  <span>Size: {details.filesize}</span>
+                </div>
+
+                <div className="flex items-center gap-3 text-lg text-cyan-400">
+                  <Gamepad2 className="w-5 h-5" />
+                  <span>Genre: {details.genre}</span>
+                </div>
+              </div>
+
+              <button
+                onClick={handleDownload}
+                className="mt-4 bg-cyan-600 text-white px-4 py-2 rounded hover:bg-cyan-800 transition-colors cursor-pointer font-semibold"
+              >
                 <Download className="inline mr-2" />
                 DOWNLOAD GAME
               </button>
             </div>
-            
           </div>
           {/* Description section  */}
           <div className="flex flex-col justify-center items-start p-4">
             <h2 className="text-2xl font-semibold">Description</h2>
-            <p className="text-lg">
-              God of War III is an action-adventure game developed by Santa Monica
-              Studio and published by Sony Computer Entertainment. It is the fifth
-              installment in the God of War series and the seventh chronologically.
-              The game continues the story of Kratos, a former Greek god, as he
-              seeks revenge against Zeus and the Olympian gods.
-            </p>
+            <p className="text-lg">{details.description}</p>
           </div>
           <RequestHelpCard />
           <CommentCard />
-
         </div>
       )}
-      
     </div>
   );
 };

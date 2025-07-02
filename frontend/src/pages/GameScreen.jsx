@@ -1,58 +1,73 @@
 import React from "react";
 import { useResponsive } from "../hooks";
+import { useGamesByCategory } from "../hooks/useApi";
 import GameCard from "../components/ui/GameCard";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 const GameScreen = () => {
   const { isMobile, isDesktop } = useResponsive();
   const navigate = useNavigate();
+  const { category } = useParams();
+  const { games, loading, error } = useGamesByCategory(category);
   
   const handleGameClick = (gameId) => {
-    navigate(`/games/${gameId}`); 
+    navigate(`/games/${category}/${gameId}`); 
   };
+
+  // Convert category slug back to readable name
+  const categoryName = category ? category.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase()) : '';
 
   return (
     <div>
-      {/* isDesktop */}
-      {isDesktop && (
-        <div>
-            <h1 className="my-6 p-2 text-4xl font-bold">Nintendo Switch 1 Roms</h1>
-            <div className="grid grid-cols-3 gap-4">
-                <GameCard
-                onClick={() => handleGameClick(1)}
-                title={"God of War 3"}
-                imgUrl={"https://upload.wikimedia.org/wikipedia/en/thumb/8/8b/God_of_War_III_cover_art.jpg/250px-God_of_War_III_cover_art.jpg"}
-                size={"3.5 GB"}/>
-                <GameCard
-                onClick={() => handleGameClick(2)}
-                title={"Spider-Man Miles Morales"}
-                imgUrl={"https://upload.wikimedia.org/wikipedia/en/0/0b/Spider-Man_Miles_Morales_cover.jpg"}
-                size={"2.8 GB"}/>
-                <GameCard
-                onClick={() => handleGameClick(3)}
-                title={"The Last of Us"}
-                imgUrl={"https://upload.wikimedia.org/wikipedia/en/4/46/Video_Game_Cover_-_The_Last_of_Us.jpg"}
-                size={"4.2 GB"}/>
-            </div>
+      {/* Loading state */}
+      {loading && (
+        <div className="text-center p-4">
+          <p>Loading games...</p>
         </div>
-        )}
+      )}
+
+      {/* Error state */}
+      {error && (
+        <div className="text-center p-4 text-red-500">
+          <p>Failed to load games. Please try again later.</p>
+        </div>
+      )}
+
+      {/* isDesktop */}
+      {!loading && !error && isDesktop && (
+        <div className="ml-60 mr-60">
+          <h1 className="my-6 p-2 text-4xl font-bold">{categoryName} Roms</h1>
+          <div className="grid grid-cols-4 gap-4">
+            {games.map((game, index) => (
+              <GameCard
+                key={game._id || index}
+                onClick={() => handleGameClick(game._id || game.game_id)}
+                title={game.game_name}
+                imgUrl={game.game_image || "https://via.placeholder.com/250x350?text=Game"}
+                size={game.game_size}
+              />
+            ))}
+          </div>
+        </div>
+      )}
 
       {/* isMobile */}
-      {isMobile && (<div>
-            <h1 className="my-4 p-2 text-2xl font-bold">Nintendo Switch 1 Roms</h1>
-            <div className="flex grid-cols-2 gap-1 items-center justify-around overflow-hidden">
-                <GameCard
-                onClick={() => handleGameClick(1)}
-                title={"God of War 3"}
-                imgUrl={"https://upload.wikimedia.org/wikipedia/en/thumb/8/8b/God_of_War_III_cover_art.jpg/250px-God_of_War_III_cover_art.jpg"}
-                size={"3.5 GB"}/>
-                <GameCard
-                onClick={() => handleGameClick(2)}
-                title={"Spider-Man Miles Morales"}
-                imgUrl={"https://upload.wikimedia.org/wikipedia/en/0/0b/Spider-Man_Miles_Morales_cover.jpg"}
-                size={"2.8 GB"}/>
-            </div>
-      </div>)}
+      {!loading && !error && isMobile && (
+        <div className="ml-4 mr-4">
+          <h1 className="my-4 p-2 text-2xl font-bold">{categoryName} Roms</h1>
+          <div className="grid grid-cols-2 gap-2">
+            {games.map((game, index) => (
+              <GameCard
+                key={game._id || index}
+                onClick={() => handleGameClick(game._id || game.game_id)}
+                title={game.game_name}
+                imgUrl={game.game_image || "https://via.placeholder.com/250x350?text=Game"}
+                size={game.game_size}
+              />
+            ))}
+          </div>
+        </div>
+      )}
     </div>
   );
 };
