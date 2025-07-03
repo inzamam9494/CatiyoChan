@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useResponsive } from "../hooks/useMediaQuery.js";
 import { useGameDetails } from "../hooks/useApi";
 import { useParams } from "react-router-dom";
@@ -14,11 +14,15 @@ import {
 } from "lucide-react";
 import RequestHelpCard from "../components/ui/RequestHelpCard.jsx";
 import CommentCard from "../components/ui/CommentCard.jsx";
+import CommentProfileCard from "../components/ui/CommentProfileCard.jsx";
+import HelpModal from "../components/ui/HelpModal.jsx";
+import { useModel } from "../hooks/useModel.js";
 
 const GameDetailScreen = () => {
   const { isMobile, isDesktop } = useResponsive();
   const { category, id } = useParams();
   const { gameDetails, loading, error } = useGameDetails(category, id);
+  const { showModal, openModal, closeModal } = useModel();
 
   // Handle download click
   const handleDownload = () => {
@@ -110,8 +114,15 @@ const GameDetailScreen = () => {
             <h2 className="text-2xl font-semibold">Description</h2>
             <p className="text-lg">{details.description}</p>
           </div>
-          <RequestHelpCard />
+          <RequestHelpCard 
+          onClick={openModal}/>
           <CommentCard />
+          <div className="flex flex-col justify-center items-start p-2 border-2 border-cyan-400 rounded-lg mt-12">
+            <h1 className="font-bold text-2xl m-2">Comments</h1>
+            <CommentProfileCard/>
+            <CommentProfileCard/>
+            <CommentProfileCard/>
+          </div>
         </div>
       )}
 
@@ -180,10 +191,17 @@ const GameDetailScreen = () => {
             <h2 className="text-2xl font-semibold">Description</h2>
             <p className="text-lg">{details.description}</p>
           </div>
-          <RequestHelpCard />
+          <RequestHelpCard onClick={openModal} />
           <CommentCard />
         </div>
       )}
+
+      {/* Help Modal */}
+      <HelpModal 
+        showModal={showModal}
+        closeModal={closeModal}
+        gameName={gameDetails?.game_name}
+      />
     </div>
   );
 };
