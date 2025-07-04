@@ -8,6 +8,8 @@ export const BASE_URL = 'http://localhost:4000/api/v1/public/user';
 
 export const ROMS_CATEGORIES = `${BASE_URL}/roms-categories`;
 
+export const COMMENT = `${BASE_URL}/comments`;
+
 // API Endpoints
 // export const API_ENDPOINTS = {
 //   // ROM Categories
