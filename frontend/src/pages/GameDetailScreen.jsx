@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useResponsive } from "../hooks/useMediaQuery.js";
-import { useGameDetails } from "../hooks/useApi";
+import { useGameDetails, useGameComments } from "../hooks/useApi";
 import { useParams } from "react-router-dom";
 import {
   Download,
@@ -14,15 +14,23 @@ import {
 } from "lucide-react";
 import RequestHelpCard from "../components/ui/RequestHelpCard.jsx";
 import CommentCard from "../components/ui/CommentCard.jsx";
-import CommentProfileCard from "../components/ui/CommentProfileCard.jsx";
 import HelpModal from "../components/ui/HelpModal.jsx";
 import { useModel } from "../hooks/useModel.js";
+import CommentProfileCard from "../components/ui/CommentProfileCard.jsx";
 
 const GameDetailScreen = () => {
   const { isMobile, isDesktop } = useResponsive();
   const { category, id } = useParams();
   const { gameDetails, loading, error } = useGameDetails(category, id);
   const { showModal, openModal, closeModal } = useModel();
+  
+  // Get comments for this game
+  const { comments, loading: commentsLoading, error: commentsError, refetchComments } = useGameComments(id);
+
+  // Handle comment posted successfully
+  const handleCommentPosted = () => {
+    refetchComments();
+  };
 
   // Handle download click
   const handleDownload = () => {
@@ -116,9 +124,12 @@ const GameDetailScreen = () => {
           </div>
           <RequestHelpCard 
           onClick={openModal}/>
-          <CommentCard />
+          <CommentCard
+          gameId={gameDetails._id} />
+          
           <div className="flex flex-col justify-center items-start p-2 border-2 border-cyan-400 rounded-lg mt-12">
             <h1 className="font-bold text-2xl m-2">Comments</h1>
+            
             <CommentProfileCard/>
             <CommentProfileCard/>
             <CommentProfileCard/>
@@ -192,8 +203,15 @@ const GameDetailScreen = () => {
             <p className="text-lg">{details.description}</p>
           </div>
           <RequestHelpCard onClick={openModal} />
-          <CommentCard />
+          <CommentCard gameId={gameDetails._id} />
+           <div className="flex flex-col justify-center items-start p-2 border-2 border-cyan-400 rounded-lg mt-12">
+            <h1 className="font-bold text-2xl m-2">Comments</h1>
+            <CommentProfileCard/>
+            <CommentProfileCard/>
+            <CommentProfileCard/>
+          </div>
         </div>
+        
       )}
 
       {/* Help Modal */}

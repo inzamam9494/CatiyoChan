@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { ROMS_CATEGORIES } from '../constant/baseUrl';
+import { COMMENT, ROMS_CATEGORIES } from '../constant/baseUrl';
 
 export const getRomsCategories = async () => {
   try {
@@ -40,6 +40,28 @@ export const getGameById = async (categorySlug, gameId) => {
     return game;
   } catch (error) {
     console.error('Error fetching game by ID:', error);
+    throw error;
+  }
+};
+
+export const postComment = async (commentData) => {
+  try {
+    const response = await axios.post(`${COMMENT}`, commentData);
+    console.log('Comment posted successfully:', response.data);
+    return response.data; // Return full response data
+  } catch (error) {
+    console.error('Error posting comment:', error);
+    throw error;
+  }
+};
+
+export const getGameComments = async (gameId) => {
+  try {
+    const response = await axios.get(`${COMMENT}/game/${gameId}`);
+    console.log('Fetched game comments:', response.data.message);
+    return response.data.message;
+  } catch (error) {
+    console.error('Error fetching game comments:', error);
     throw error;
   }
 };

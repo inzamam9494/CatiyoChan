@@ -1,0 +1,39 @@
+import mongoose, { Schema } from "mongoose";
+
+const gameCommentSchema = new Schema(
+  {
+    content: {
+      type: String,
+      required: true,
+    },
+    name: {
+      type: String,
+      required: true,
+    },
+    email: {
+      type: String,
+      require: true,
+      unique: true,
+      lowercase: true,
+      trim: true,
+    },
+    game: {
+      type: Schema.Types.ObjectId,
+      ref: "GameList",
+    },
+    emulator: {
+      type: Schema.Types.ObjectId,
+      ref: "EmulatorsList",
+    },
+    commentType: {
+      type: String,
+      enum: ["game", "emulator"],
+      required: true,
+    },
+  },
+  {
+    timestamps: true,
+  }
+);
+
+export const GameComment = mongoose.model("GameComment", gameCommentSchema);

@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { getRomsCategories, getGamesByCategory, getGameById } from '../services/apiService';
+import { getRomsCategories, getGamesByCategory, getGameById, postComment, getGameComments } from '../services/apiService';
 
 // Simple hook for ROM categories - fetches data automatically
 export const useRomsCategories = () => {
@@ -81,4 +81,68 @@ export const useGameDetails = (categorySlug, gameId) => {
   }, [categorySlug, gameId]);
 
   return { gameDetails, loading, error };
+};
+
+// Hook for posting comments
+export const usePostComment = () => {
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
+  const [success, setSuccess] = useState(false);
+
+  const submitComment = async (commentData) => {
+    try {
+      setLoading(true);
+      setError(null);
+      setSuccess(false);
+      
+      const response = await postComment(commentData);
+      setSuccess(true);
+      return response;
+    } catch (err) {
+      setError(err);
+      console.error('Failed to post comment:', err);
+      throw err;
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  return { submitComment, loading, error, success };
+};
+
+// Hook for fetching game comments
+export const useGameComments = (gameId) => {
+  const [comments, setComments] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    if (!gameId) return;
+
+    const fetchComments = async () => {
+      try {
+        setLoading(true);
+        const data = await getGameComments(gameId);
+        setComments(data);
+      } catch (err) {
+        setError(err);
+        console.error('Failed to fetch comments:', err);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchComments();
+  }, [gameId]);
+
+  const refetchComments = async () => {
+    try {
+      const data = await getGameComments(gameId);
+      setComments(data);
+    } catch (err) {
+      console.error('Failed to refetch comments:', err);
+    }
+  };
+
+  return { comments, loading, error, refetchComments };
 };
