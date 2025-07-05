@@ -10,6 +10,8 @@ export const ROMS_CATEGORIES = `${BASE_URL}/roms-categories`;
 
 export const COMMENT = `${BASE_URL}/comments`;
 
+export const HELP_CENTER = `${BASE_URL}/help`;
+
 // API Endpoints
 // export const API_ENDPOINTS = {
 //   // ROM Categories

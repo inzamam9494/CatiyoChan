@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { COMMENT, ROMS_CATEGORIES } from '../constant/baseUrl';
+import { COMMENT, ROMS_CATEGORIES, HELP_CENTER } from '../constant/baseUrl';
 
 export const getRomsCategories = async () => {
   try {
@@ -58,10 +58,25 @@ export const postComment = async (commentData) => {
 export const getGameComments = async (gameId) => {
   try {
     const response = await axios.get(`${COMMENT}/game/${gameId}`);
-    console.log('Fetched game comments:', response.data.message);
-    return response.data.message;
+    console.log('Fetched game comments response:', response.data);
+    // The backend returns comments in response.data.data (from ApiResponse)
+    const comments = response.data.data || [];
+    console.log('Extracted comments array:', comments);
+    return comments;
   } catch (error) {
     console.error('Error fetching game comments:', error);
+    throw error;
+  }
+};
+
+// Help Center API functions
+export const reportIssue = async (issueData) => {
+  try {
+    const response = await axios.post(`${HELP_CENTER}/report`, issueData);
+    console.log('Issue reported successfully:', response.data);
+    return response.data;
+  } catch (error) {
+    console.error('Error reporting issue:', error);
     throw error;
   }
 };

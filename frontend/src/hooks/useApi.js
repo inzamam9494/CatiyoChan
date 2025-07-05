@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { getRomsCategories, getGamesByCategory, getGameById, postComment, getGameComments } from '../services/apiService';
+import { getRomsCategories, getGamesByCategory, getGameById, postComment, getGameComments, reportIssue } from '../services/apiService';
 
 // Simple hook for ROM categories - fetches data automatically
 export const useRomsCategories = () => {
@@ -123,9 +123,12 @@ export const useGameComments = (gameId) => {
       try {
         setLoading(true);
         const data = await getGameComments(gameId);
-        setComments(data);
+        console.log('useGameComments - received data:', data, 'Type:', typeof data, 'Is array:', Array.isArray(data));
+        // Ensure data is always an array
+        setComments(Array.isArray(data) ? data : []);
       } catch (err) {
         setError(err);
+        setComments([]); // Set empty array on error
         console.error('Failed to fetch comments:', err);
       } finally {
         setLoading(false);
@@ -138,11 +141,41 @@ export const useGameComments = (gameId) => {
   const refetchComments = async () => {
     try {
       const data = await getGameComments(gameId);
-      setComments(data);
+      console.log('useGameComments - refetch data:', data, 'Type:', typeof data, 'Is array:', Array.isArray(data));
+      // Ensure data is always an array
+      setComments(Array.isArray(data) ? data : []);
     } catch (err) {
       console.error('Failed to refetch comments:', err);
+      setComments([]); // Set empty array on error
     }
   };
 
   return { comments, loading, error, refetchComments };
+};
+
+// Hook for reporting issues to help center
+export const useReportIssue = () => {
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
+  const [success, setSuccess] = useState(false);
+
+  const submitReport = async (issueData) => {
+    try {
+      setLoading(true);
+      setError(null);
+      setSuccess(false);
+      
+      const response = await reportIssue(issueData);
+      setSuccess(true);
+      return response;
+    } catch (err) {
+      setError(err);
+      console.error('Failed to report issue:', err);
+      throw err;
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  return { submitReport, loading, error, success };
 };
