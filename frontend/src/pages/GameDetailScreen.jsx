@@ -24,8 +24,24 @@ const GameDetailScreen = () => {
   const { gameDetails, loading, error } = useGameDetails(category, id);
   const { showModal, openModal, closeModal } = useModel();
   
-  // Get comments for this game
-  const { comments, loading: commentsLoading, error: commentsError, refetchComments } = useGameComments(id);
+  // Debug: Check what IDs we have
+  console.log('URL id:', id);
+  console.log('gameDetails._id:', gameDetails?._id);
+  console.log('gameDetails.game_id:', gameDetails?.game_id);
+  
+  // Get comments for this game - use the actual game ID from gameDetails
+  const gameId = gameDetails?._id || gameDetails?.game_id || id;
+  const { comments, loading: commentsLoading, error: commentsError, refetchComments } = useGameComments(gameId);
+  
+  // Debug: Check comments data type and structure
+  console.log('Comments data:', comments);
+  console.log('Comments type:', typeof comments);
+  console.log('Is comments array?:', Array.isArray(comments));
+  console.log('Comments loading:', commentsLoading);
+  console.log('Comments error:', commentsError);
+
+  // Ensure comments is always an array
+  const commentsArray = Array.isArray(comments) ? comments : [];
 
   // Handle comment posted successfully
   const handleCommentPosted = () => {
@@ -125,14 +141,30 @@ const GameDetailScreen = () => {
           <RequestHelpCard 
           onClick={openModal}/>
           <CommentCard
-          gameId={gameDetails._id} />
+            gameId={gameId}
+            onCommentPosted={handleCommentPosted} 
+          />
           
           <div className="flex flex-col justify-center items-start p-2 border-2 border-cyan-400 rounded-lg mt-12">
             <h1 className="font-bold text-2xl m-2">Comments</h1>
+            {commentsLoading && <p>Loading comments...</p>}
+            {commentsError && <p className="text-red-500">Error loading comments</p>}
+            {commentsArray.length === 0 && !commentsLoading && (
+              <p className="text-gray-500 m-2">No comments yet. Be the first to comment!</p>
+            )}
+            {commentsArray.map((comment, index) => (
+              <CommentProfileCard
+                key={comment._id || index}
+                username={comment.name}
+                commentDescription={comment.content}
+                date={new Date(comment.createdAt).toLocaleDateString("en-US", {
+                  month: "long",
+                  day: "numeric",
+                  year: "numeric",
+                })}
+                />
+            ))}
             
-            <CommentProfileCard/>
-            <CommentProfileCard/>
-            <CommentProfileCard/>
           </div>
         </div>
       )}
@@ -203,12 +235,29 @@ const GameDetailScreen = () => {
             <p className="text-lg">{details.description}</p>
           </div>
           <RequestHelpCard onClick={openModal} />
-          <CommentCard gameId={gameDetails._id} />
+          <CommentCard 
+            gameId={id}
+            onCommentPosted={handleCommentPosted}
+          />
            <div className="flex flex-col justify-center items-start p-2 border-2 border-cyan-400 rounded-lg mt-12">
             <h1 className="font-bold text-2xl m-2">Comments</h1>
-            <CommentProfileCard/>
-            <CommentProfileCard/>
-            <CommentProfileCard/>
+            {commentsLoading && <p>Loading comments...</p>}
+            {commentsError && <p className="text-red-500">Error loading comments</p>}
+            {commentsArray.length === 0 && !commentsLoading && (
+              <p className="text-gray-500 m-2">No comments yet. Be the first to comment!</p>
+            )}
+            {commentsArray.map((comment, index) => (
+              <CommentProfileCard
+                key={comment._id || index}
+                username={comment.name}
+                commentDescription={comment.content}
+                date={new Date(comment.createdAt).toLocaleDateString("en-US", {
+                  month: "long",
+                  day: "numeric", 
+                  year: "numeric",
+                })}
+              />
+            ))}
           </div>
         </div>
         

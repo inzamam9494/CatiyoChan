@@ -15,7 +15,7 @@ export const router = createBrowserRouter([
       {
         index: true, // Default route for '/'
         element: <HomeScreen />,
-      },
+      }, 
       {
         path: "home",
         element: <HomeScreen />,
