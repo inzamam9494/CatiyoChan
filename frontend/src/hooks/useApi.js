@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { getRomsCategories, getGamesByCategory, getGameById, postComment, getGameComments, reportIssue } from '../services/apiService';
+import { getRomsCategories, getGamesByCategory, getGameById, postComment, getGameComments, reportIssue, getEmulatorsList } from '../services/apiService';
 
 // Simple hook for ROM categories - fetches data automatically
 export const useRomsCategories = () => {
@@ -179,3 +179,27 @@ export const useReportIssue = () => {
 
   return { submitReport, loading, error, success };
 };
+
+// Hook for fetching emulators list
+export const useEmulatorsList = () => {
+  const [emulatorsList, setEmulatorsList] = useState([]);
+  const [loading, setloading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    const fetchEmulatorsList = async () => {
+      try {
+        const data = await getEmulatorsList();
+        setEmulatorsList(data);
+      } catch (error) {
+        setError(error);
+        console.error('Error fetching emulators list:', error);
+        throw error;
+      } finally {
+        setloading(false);
+      }
+    };
+    fetchEmulatorsList();
+  }, []);
+  return { emulatorsList, loading, error };
+}
