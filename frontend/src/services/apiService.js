@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { COMMENT, ROMS_CATEGORIES, HELP_CENTER } from '../constant/baseUrl';
+import { COMMENT, ROMS_CATEGORIES, HELP_CENTER, EMULATORS_CATEGORIES } from '../constant/baseUrl';
 
 export const getRomsCategories = async () => {
   try {
@@ -80,3 +80,15 @@ export const reportIssue = async (issueData) => {
     throw error;
   }
 };
+
+// Emulator API functions
+export const getEmulatorsList = async () => {
+  try {
+    const response = await axios.get(EMULATORS_CATEGORIES);
+    console.log('Fetched emulators list:', response.data.message);
+    return response.data.message;
+  } catch (error) {
+    console.log('Error fetching emulators list:', error);
+    throw error
+  }
+}

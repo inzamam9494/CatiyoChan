@@ -36,7 +36,13 @@ const Header = () => {
                     ROMS
                   </Link>
                 </li>
-                <li className="text-lg cursor-pointer hover:text-cyan-200 transition-colors">EMULATORS</li>
+                <li className="text-lg cursor-pointer hover:text-cyan-200 transition-colors">
+                  <Link
+                    to="/emulators"
+                    className="text-lg cursor-pointer hover:text-cyan-200 transition-colors">
+                    EMULATORS
+                  </Link>
+                </li>
                 <li className="text-lg cursor-pointer hover:text-cyan-200 transition-colors">REQUEST</li>
                 <li className="text-lg cursor-pointer hover:text-cyan-200 transition-colors">BLOG</li>
               </ul>
@@ -98,13 +104,13 @@ const Header = () => {
                   >
                     ROMS
                   </Link>
-                  <a 
-                    href="#" 
+                  <Link 
+                    to="/emulators" 
                     className="block text-white text-xl font-semibold py-4 px-4 border-b border-white/10 hover:text-cyan-300 hover:bg-white/5 rounded-lg transition-all duration-200"
                     onClick={toggleMenu}
                   >
                     EMULATORS
-                  </a>
+                  </Link>
                   <a 
                     href="#" 
                     className="block text-white text-xl font-semibold py-4 px-4 border-b border-white/10 hover:text-cyan-300 hover:bg-white/5 rounded-lg transition-all duration-200"
