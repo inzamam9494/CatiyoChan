@@ -1,5 +1,15 @@
-import { useState, useEffect } from 'react';
-import { getRomsCategories, getGamesByCategory, getGameById, postComment, getGameComments, reportIssue, getEmulatorsList } from '../services/apiService';
+import { useState, useEffect } from "react";
+import {
+  getRomsCategories,
+  getGamesByCategory,
+  getGameById,
+  postComment,
+  getGameComments,
+  reportIssue,
+  getEmulatorsList,
+  getEmulatorsBySlug,
+  getEmulatorsDetailById,
+} from "../services/apiService";
 
 // Simple hook for ROM categories - fetches data automatically
 export const useRomsCategories = () => {
@@ -15,7 +25,7 @@ export const useRomsCategories = () => {
         setCategories(data);
       } catch (err) {
         setError(err);
-        console.error('Failed to fetch categories:', err);
+        console.error("Failed to fetch categories:", err);
       } finally {
         setLoading(false);
       }
@@ -43,7 +53,7 @@ export const useGamesByCategory = (categorySlug) => {
         setGames(data);
       } catch (err) {
         setError(err);
-        console.error('Failed to fetch games:', err);
+        console.error("Failed to fetch games:", err);
       } finally {
         setLoading(false);
       }
@@ -71,7 +81,7 @@ export const useGameDetails = (categorySlug, gameId) => {
         setGameDetails(data);
       } catch (err) {
         setError(err);
-        console.error('Failed to fetch game details:', err);
+        console.error("Failed to fetch game details:", err);
       } finally {
         setLoading(false);
       }
@@ -94,13 +104,13 @@ export const usePostComment = () => {
       setLoading(true);
       setError(null);
       setSuccess(false);
-      
+
       const response = await postComment(commentData);
       setSuccess(true);
       return response;
     } catch (err) {
       setError(err);
-      console.error('Failed to post comment:', err);
+      console.error("Failed to post comment:", err);
       throw err;
     } finally {
       setLoading(false);
@@ -123,13 +133,20 @@ export const useGameComments = (gameId) => {
       try {
         setLoading(true);
         const data = await getGameComments(gameId);
-        console.log('useGameComments - received data:', data, 'Type:', typeof data, 'Is array:', Array.isArray(data));
+        console.log(
+          "useGameComments - received data:",
+          data,
+          "Type:",
+          typeof data,
+          "Is array:",
+          Array.isArray(data)
+        );
         // Ensure data is always an array
         setComments(Array.isArray(data) ? data : []);
       } catch (err) {
         setError(err);
         setComments([]); // Set empty array on error
-        console.error('Failed to fetch comments:', err);
+        console.error("Failed to fetch comments:", err);
       } finally {
         setLoading(false);
       }
@@ -141,11 +158,18 @@ export const useGameComments = (gameId) => {
   const refetchComments = async () => {
     try {
       const data = await getGameComments(gameId);
-      console.log('useGameComments - refetch data:', data, 'Type:', typeof data, 'Is array:', Array.isArray(data));
+      console.log(
+        "useGameComments - refetch data:",
+        data,
+        "Type:",
+        typeof data,
+        "Is array:",
+        Array.isArray(data)
+      );
       // Ensure data is always an array
       setComments(Array.isArray(data) ? data : []);
     } catch (err) {
-      console.error('Failed to refetch comments:', err);
+      console.error("Failed to refetch comments:", err);
       setComments([]); // Set empty array on error
     }
   };
@@ -164,13 +188,13 @@ export const useReportIssue = () => {
       setLoading(true);
       setError(null);
       setSuccess(false);
-      
+
       const response = await reportIssue(issueData);
       setSuccess(true);
       return response;
     } catch (err) {
       setError(err);
-      console.error('Failed to report issue:', err);
+      console.error("Failed to report issue:", err);
       throw err;
     } finally {
       setLoading(false);
@@ -193,7 +217,7 @@ export const useEmulatorsList = () => {
         setEmulatorsList(data);
       } catch (error) {
         setError(error);
-        console.error('Error fetching emulators list:', error);
+        console.error("Error fetching emulators list:", error);
         throw error;
       } finally {
         setloading(false);
@@ -202,4 +226,53 @@ export const useEmulatorsList = () => {
     fetchEmulatorsList();
   }, []);
   return { emulatorsList, loading, error };
-}
+};
+
+export const useEmulatorsBySlug = (categorySlug) => {
+  const [emulators, setEmulators] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    if (!categorySlug) return;
+    const fetchEmulators = async () => {
+      try {
+        setLoading(true);
+        const data = await getEmulatorsBySlug(categorySlug);
+        setEmulators(data);
+      } catch (error) {
+        setError(error);
+        console.error("Error fetching emulators by slug:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchEmulators();
+  }, [categorySlug]);
+  return { emulators, loading, error };
+};
+
+export const useEmulatorDetails = (categorySlug, emulatorId) => {
+  const [emulatorDetails, setEmulatorDetails] = useState(null);
+  const [loading, setloading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    if (!categorySlug || !emulatorId) return;
+
+    const fetchEmulatorsDetails = async () => {
+      try {
+        const data = await getEmulatorsDetailById(categorySlug, emulatorId);
+        setEmulatorDetails(data);
+      } catch (error) {
+        setError(error);
+        console.error("Error fetching emulator details:", error);
+      } finally {
+        setloading(false);
+      }
+    };
+    fetchEmulatorsDetails();
+  }, [categorySlug, emulatorId]);
+
+  return { emulatorDetails, loading, error };
+};

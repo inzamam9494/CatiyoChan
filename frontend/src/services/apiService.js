@@ -92,3 +92,31 @@ export const getEmulatorsList = async () => {
     throw error
   }
 }
+
+export const getEmulatorsBySlug = async (categorySlug) => {
+  try {
+    const response = await axios.get(`${EMULATORS_CATEGORIES}/${categorySlug}`);
+    console.log('Fetched emulators for category:', response.data.message);
+    return response.data.message;
+  } catch (error) {
+    console.log('Error fetching emulators by slug:', error);
+    throw error;
+  }
+}
+
+export const getEmulatorsDetailById = async (categorySlug,emulatorId) => {
+  try {
+    const response = await axios.get(`${EMULATORS_CATEGORIES}/${categorySlug}`);
+    const emulators = response.data.message;
+    // Find the specific emulator by ID
+    const emulator = emulators.find(e => e._id === emulatorId || e.emulator_id.toString() === emulatorId);
+    if (!emulator) {
+      throw new Error('Emulator not found');
+    }
+    console.log('Fetched emulator details:', emulator);
+    return emulator;
+  } catch (error) {
+    console.log('Error fetching emulator details by ID:', error);
+    throw error;
+  }
+}
