@@ -6,6 +6,8 @@ import GameScreen from "../pages/GameScreen";
 
 import GameDetailScreen from "../pages/GameDetailScreen";
 import EmulatorsCategoryScreen from "../pages/EmulatorsCategoryScreen";
+import EmulatorsScreen from "../pages/EmulatorsScreen";
+import EmulatorDetailScreen from "../pages/EmulatorDetailScreen";
 
 // Industrial Standard: Export the router directly instead of a function
 export const router = createBrowserRouter([
@@ -36,6 +38,14 @@ export const router = createBrowserRouter([
       {
         path: "emulators",
         element: <EmulatorsCategoryScreen />,
+      },
+      {
+        path: "emulators/:slug",
+        element: <EmulatorsScreen/>
+      },
+      {
+        path: "emulators/:slug/:id",
+        element: <EmulatorDetailScreen/>
       }
     ],
   },

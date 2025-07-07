@@ -37,6 +37,9 @@ const EmulatorsCategoryScreen = () => {
                 key={emulators._id || index}
                 title={emulators.name}
                 imageUrl={emulators.icon}
+                onClick={() => navigate(`/emulators/${emulators.slug}`, {
+                  state: { emulatorName: emulators.name },
+                })}
               />
             ))}
           </div>
@@ -56,6 +59,9 @@ const EmulatorsCategoryScreen = () => {
                 key={emulators._id || index}
                 title={emulators.name}
                 imageUrl={emulators.icon}
+                onClick={() => navigate(`/emulators/${emulators.slug}` , {
+                  state: { emulatorName: emulators.name },
+                })}
               />
             ))}
           </div>
