@@ -5,6 +5,7 @@ import {
   getGameById,
   postComment,
   getGameComments,
+  getEmulatorComments,
   reportIssue,
   getEmulatorsList,
   getEmulatorsBySlug,
@@ -275,4 +276,61 @@ export const useEmulatorDetails = (categorySlug, emulatorId) => {
   }, [categorySlug, emulatorId]);
 
   return { emulatorDetails, loading, error };
+};
+
+// Hook for fetching emulator comments
+export const useEmulatorComments = (emulatorId) => {
+  const [comments, setComments] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    if (!emulatorId) return;
+
+    const fetchComments = async () => {
+      try {
+        setLoading(true);
+        const data = await getEmulatorComments(emulatorId);
+        console.log(
+          "useEmulatorComments - received data:",
+          data,
+          "Type:",
+          typeof data,
+          "Is array:",
+          Array.isArray(data)
+        );
+        // Ensure data is always an array
+        setComments(Array.isArray(data) ? data : []);
+      } catch (err) {
+        setError(err);
+        setComments([]); // Set empty array on error
+        console.error("Failed to fetch emulator comments:", err);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchComments();
+  }, [emulatorId]);
+
+  const refetchComments = async () => {
+    try {
+      const data = await getEmulatorComments(emulatorId);
+      console.log(
+        "useEmulatorComments - refetch data:",
+        data,
+        "Type:",
+        typeof data,
+        "Is array:",
+        Array.isArray(data)
+      );
+      // Ensure data is always an array
+      setComments(Array.isArray(data) ? data : []);
+    } catch (err) {
+      console.error("Failed to refetch emulator comments:", err);
+      setComments([]); // Set empty array on error
+    }
+  };
+
+  return { comments, loading, error, refetchComments };
 };

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Send, CheckCircle, AlertCircle } from 'lucide-react';
 import { usePostComment } from '../../hooks/useApi';
 
-const CommentCard = ({ gameId, onCommentPosted }) => {
+const CommentCard = ({ gameId, emulatorId, onCommentPosted }) => {
   const [formData, setFormData] = useState({
     content: '',
     name: '',
@@ -32,8 +32,8 @@ const CommentCard = ({ gameId, onCommentPosted }) => {
         content: formData.content,
         name: formData.name,
         email: formData.email,
-        game: gameId,
-        commentType: 'game'
+        ...(gameId && { game: gameId, commentType: 'game' }),
+        ...(emulatorId && { emulator: emulatorId, commentType: 'emulator' })
       };
 
       await submitComment(commentData);
