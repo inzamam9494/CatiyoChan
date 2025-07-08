@@ -120,3 +120,17 @@ export const getEmulatorsDetailById = async (categorySlug,emulatorId) => {
     throw error;
   }
 }
+
+export const getEmulatorComments = async (emulatorId) => {
+  try {
+    const response = await axios.get(`${COMMENT}/emulator/${emulatorId}`);
+    console.log('Fetched emulator comments response:', response.data);
+    // The backend returns comments in response.data.data (from ApiResponse)
+    const comments = response.data.data || [];
+    console.log('Extracted emulator comments array:', comments);
+    return comments;
+  } catch (error) {
+    console.error('Error fetching emulator comments:', error);
+    throw error;
+  }
+};

@@ -2,4 +2,4 @@
 export { useResponsive, useBreakpoint } from './useMediaQuery'
 export { useMenu } from './useMenu'
 export { useSearch } from './useSearch'
-export { useRomsCategories, useGamesByCategory, useGameDetails, usePostComment, useGameComments, useReportIssue } from './useApi' 
+export { useRomsCategories, useGamesByCategory, useGameDetails, usePostComment, useGameComments, useEmulatorComments, useReportIssue } from './useApi' 
