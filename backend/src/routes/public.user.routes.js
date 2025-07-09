@@ -7,7 +7,8 @@ import {
   getEmulatorComments, 
   getAllComments, 
   deleteComment, 
-  updateComment 
+  updateComment, 
+  emulatorCommentController
 } from "../controllers/comment.controllers.js";
 import {
   reportIssue,
@@ -31,12 +32,18 @@ router.route("/emulators-categories/:slug").get(getEmulatorsByCategorySlug);
 // Comment routes
 router.route("/comments").post(createComment).get(getAllComments);
 router.route("/comments/game/:gameId").get(getGameComments);
-router.route("/comments/emulator/:emulatorId").get(getEmulatorComments);
+
 router.route("/comments/:commentId").delete(deleteComment).put(updateComment);
 
 // Help Center routes
 router.route("/help/report").post(reportIssue);
 router.route("/help/reports").get(getAllReports);
 router.route("/help/reports/:id").get(getReportById).delete(deleteReport);
+
+// Emulator comments
+router.route("/emulator-comments").post(
+  emulatorCommentController
+)
+router.route("/emulator-comments/:emulatorId").get(getEmulatorComments);
 
 export default router;

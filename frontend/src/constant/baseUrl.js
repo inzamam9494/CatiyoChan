@@ -14,6 +14,8 @@ export const HELP_CENTER = `${BASE_URL}/help`;
 
 export const EMULATORS_CATEGORIES = `${BASE_URL}/emulators-categories`
 
+export const EMULATOR_COMMENTS = `${BASE_URL}/emulator-comments`;
+
 // API Endpoints
 // export const API_ENDPOINTS = {
 //   // ROM Categories
