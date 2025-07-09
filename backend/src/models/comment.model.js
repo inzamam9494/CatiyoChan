@@ -12,8 +12,7 @@ const gameCommentSchema = new Schema(
     },
     email: {
       type: String,
-      require: true,
-      unique: true,
+      required: true,
       lowercase: true,
       trim: true,
     },

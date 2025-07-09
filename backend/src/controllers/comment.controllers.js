@@ -1,28 +1,41 @@
-
 import { asyncHandler } from "../utils/asyncHandler.js";
 import { ApiError } from "../utils/ApiError.js";
 import { ApiResponse } from "../utils/ApiResponse.js";
 import { GameComment } from "../models/comment.model.js";
+import { EmulatorComment } from "../models/emulators.comment.model.js";
 
 // Create a new comment
 const createComment = asyncHandler(async (req, res) => {
   const { content, name, email, game, emulator, commentType } = req.body;
 
+  console.log("Backend - Received comment data:", req.body);
+  console.log("Extracted fields:", {
+    content,
+    name,
+    email,
+    game,
+    emulator,
+    commentType,
+  });
+
   // Validate required fields
   if (!content || !name || !email || !commentType) {
-    throw new ApiError(400, "Content, name, email, and commentType are required");
+    throw new ApiError(
+      400,
+      "Content, name, email, and commentType are required"
+    );
   }
 
   // Validate commentType
-  if (!['game', 'emulator'].includes(commentType)) {
+  if (!["game", "emulator"].includes(commentType)) {
     throw new ApiError(400, "commentType must be either 'game' or 'emulator'");
   }
 
   // Validate reference based on commentType
-  if (commentType === 'game' && !game) {
+  if (commentType === "game" && !game) {
     throw new ApiError(400, "Game ID is required for game comments");
   }
-  if (commentType === 'emulator' && !emulator) {
+  if (commentType === "emulator" && !emulator) {
     throw new ApiError(400, "Emulator ID is required for emulator comments");
   }
 
@@ -31,14 +44,14 @@ const createComment = asyncHandler(async (req, res) => {
     content,
     name,
     email,
-    game: commentType === 'game' ? game : undefined,
-    emulator: commentType === 'emulator' ? emulator : undefined,
-    commentType
+    game: commentType === "game" ? game : undefined,
+    emulator: commentType === "emulator" ? emulator : undefined,
+    commentType,
   });
 
-  return res.status(201).json(
-    new ApiResponse(201, comment, "Comment created successfully")
-  );
+  return res
+    .status(201)
+    .json(new ApiResponse(201, comment, "Comment created successfully"));
 });
 
 // Get comments for a specific game
@@ -50,49 +63,49 @@ const getGameComments = asyncHandler(async (req, res) => {
   }
 
   const comments = await GameComment.find({
-    commentType: 'game',
-    game: gameId
+    commentType: "game",
+    game: gameId,
   })
-    .populate('game', 'game_name')
+    .populate("game", "game_name")
     .sort({ createdAt: -1 }); // Latest first
 
-  return res.status(200).json(
-    new ApiResponse(200, comments, "Game comments fetched successfully")
-  );
+  return res
+    .status(200)
+    .json(new ApiResponse(200, comments, "Game comments fetched successfully"));
 });
 
 // Get comments for a specific emulator
-const getEmulatorComments = asyncHandler(async (req, res) => {
-  const { emulatorId } = req.params;
+// const getEmulatorComments = asyncHandler(async (req, res) => {
+//   const { emulatorId } = req.params;
 
-  if (!emulatorId) {
-    throw new ApiError(400, "Emulator ID is required");
-  }
+//   if (!emulatorId) {
+//     throw new ApiError(400, "Emulator ID is required");
+//   }
 
-  const comments = await GameComment.find({
-    commentType: 'emulator',
-    emulator: emulatorId
-  })
-    .populate('emulator', 'name')
-    .sort({ createdAt: -1 }); // Latest first
+//   const comments = await GameComment.find({
+//     commentType: 'emulator',
+//     emulator: emulatorId
+//   })
+//     .populate('emulator', 'name')
+//     .sort({ createdAt: -1 }); // Latest first
 
-  return res.status(200).json(
-    new ApiResponse(200, comments, "Emulator comments fetched successfully")
-  );
-});
+//   return res.status(200).json(
+//     new ApiResponse(200, comments, "Emulator comments fetched successfully")
+//   );
+// });
 
 // Get all comments (admin use)
 const getAllComments = asyncHandler(async (req, res) => {
   const { page = 1, limit = 100, commentType } = req.query;
 
   const filter = {};
-  if (commentType && ['game', 'emulator'].includes(commentType)) {
+  if (commentType && ["game", "emulator"].includes(commentType)) {
     filter.commentType = commentType;
   }
 
   const comments = await GameComment.find(filter)
-    .populate('game', 'game_name')
-    .populate('emulator', 'name')
+    .populate("game", "game_name")
+    .populate("emulator", "name")
     .sort({ createdAt: -1 })
     .limit(limit * 1)
     .skip((page - 1) * limit);
@@ -100,12 +113,16 @@ const getAllComments = asyncHandler(async (req, res) => {
   const total = await GameComment.countDocuments(filter);
 
   return res.status(200).json(
-    new ApiResponse(200, {
-      comments,
-      totalPages: Math.ceil(total / limit),
-      currentPage: page,
-      total
-    }, "Comments fetched successfully")
+    new ApiResponse(
+      200,
+      {
+        comments,
+        totalPages: Math.ceil(total / limit),
+        currentPage: page,
+        total,
+      },
+      "Comments fetched successfully"
+    )
   );
 });
 
@@ -123,9 +140,9 @@ const deleteComment = asyncHandler(async (req, res) => {
     throw new ApiError(404, "Comment not found");
   }
 
-  return res.status(200).json(
-    new ApiResponse(200, {}, "Comment deleted successfully")
-  );
+  return res
+    .status(200)
+    .json(new ApiResponse(200, {}, "Comment deleted successfully"));
 });
 
 // Update a comment
@@ -151,16 +168,63 @@ const updateComment = asyncHandler(async (req, res) => {
     throw new ApiError(404, "Comment not found");
   }
 
-  return res.status(200).json(
-    new ApiResponse(200, comment, "Comment updated successfully")
-  );
+  return res
+    .status(200)
+    .json(new ApiResponse(200, comment, "Comment updated successfully"));
+});
+
+// This code defines the comment controller for handling game and emulator comments.
+
+const emulatorCommentController = asyncHandler(async (req, res) => {
+  const { content, name, email, emulator } = req.body;
+  console.log("Backend - Received emulator comment data:", req.body);
+  if (!content || !name || !email || !emulator) {
+    throw new ApiError(400, "Content, name, email, and emulator are required");
+  }
+  const existingComment = await EmulatorComment.findOne({
+  email: email,
+  emulator: emulator,
+  content: content,
+  createdAt: { $gte: new Date(Date.now() - 60000) }
+});
+  if (existingComment) {
+    throw new ApiError(400, "You have already commented on this emulator recently");
+  }
+  const comment = await EmulatorComment.create({
+    content,
+    name,
+    email,
+    emulator,
+  });
+
+  return res
+    .status(201)
+    .json(
+      new ApiResponse(201, comment, "Emulator comment created successfully")
+    );
+});
+
+const getEmulatorComments = asyncHandler(async (req, res) => {
+  const { emulatorId } = req.params;
+  if (!emulatorId) {
+    throw new ApiError(400, "Emulator ID is required");
+  }
+  const comments = await EmulatorComment.find({ emulator: emulatorId })
+    .populate("emulator", "name")
+    .sort({ createdAt: -1 }); // Latest first
+  return res
+    .status(200)
+    .json(
+      new ApiResponse(200, comments, "Emulator comments fetched successfully")
+    );
 });
 
 export {
   createComment,
   getGameComments,
+  emulatorCommentController,
   getEmulatorComments,
   getAllComments,
   deleteComment,
-  updateComment
+  updateComment,
 };
