@@ -1,21 +1,29 @@
 import { Router } from "express";
-import { getAllRomsCategories, getGamesByCategorySlug, getGameById } from "../controllers/roms.controllers.js";
-import { getAllEmulatorsCategories, getEmulatorsByCategorySlug } from "../controllers/emulators.controllers.js";
-import { 
-  createComment, 
-  getGameComments, 
-  getEmulatorComments, 
-  getAllComments, 
-  deleteComment, 
-  updateComment, 
-  emulatorCommentController
+import {
+  getAllRomsCategories,
+  getGamesByCategorySlug,
+  getGameById,
+} from "../controllers/roms.controllers.js";
+import {
+  getAllEmulatorsCategories,
+  getEmulatorsByCategorySlug,
+} from "../controllers/emulators.controllers.js";
+import {
+  createComment,
+  getGameComments,
+  getEmulatorComments,
+  getAllComments,
+  deleteComment,
+  updateComment,
+  emulatorCommentController,
 } from "../controllers/comment.controllers.js";
 import {
   reportIssue,
   getAllReports,
   getReportById,
-  deleteReport
+  deleteReport,
 } from "../controllers/help.center.controllers.js";
+import { requires } from "../controllers/requires.controllers.js";
 
 const router = Router();
 
@@ -41,9 +49,9 @@ router.route("/help/reports").get(getAllReports);
 router.route("/help/reports/:id").get(getReportById).delete(deleteReport);
 
 // Emulator comments
-router.route("/emulator-comments").post(
-  emulatorCommentController
-)
+router.route("/emulator-comments").post(emulatorCommentController);
 router.route("/emulator-comments/:emulatorId").get(getEmulatorComments);
+
+router.route("/requires").post(requires);
 
 export default router;

@@ -20,12 +20,16 @@ import { useEmulatorComments } from "../hooks/useApi";
 const EmulatorDetailScreen = () => {
   const { isMobile, isDesktop } = useResponsive();
   const location = useLocation();
-  const { emulatorId } = useParams();
+  const { id: emulatorId } = useParams();
   const { showModal, openModal, closeModal } = useModel();
 
   const emulatorData = location.state?.emulatorData || {};
   const loading = false;
   const error = null;
+
+  // Debug logging
+  console.log('EmulatorDetailScreen - emulatorId from params:', emulatorId);
+  console.log('EmulatorDetailScreen - emulatorData:', emulatorData);
 
   // Get comments for this emulator
   const { comments, loading: commentsLoading, error: commentsError, refetchComments } = useEmulatorComments(emulatorId);
@@ -35,7 +39,12 @@ const EmulatorDetailScreen = () => {
 
   // Handle comment posted successfully
   const handleCommentPosted = () => {
-    refetchComments();
+    console.log('EmulatorDetailScreen - handleCommentPosted called with emulatorId:', emulatorId);
+    if (emulatorId) {
+      refetchComments();
+    } else {
+      console.error('EmulatorDetailScreen - Cannot refetch comments: emulatorId is missing!');
+    }
   };
 
   // Handle download click
@@ -147,7 +156,8 @@ const EmulatorDetailScreen = () => {
             <p className="text-lg">{emulatorData.description || "No description available."}</p>
           </div>
           
-          <RequestHelpCard onClick={openModal}/>
+          <RequestHelpCard 
+          onClick={openModal}/>
           
           <CommentCard
             emulatorId={emulatorId}
@@ -286,6 +296,7 @@ const EmulatorDetailScreen = () => {
         showModal={showModal}
         closeModal={closeModal}
         gameName={emulatorData?.name}
+        category={"Emulator"}
       />
     </div>
   );

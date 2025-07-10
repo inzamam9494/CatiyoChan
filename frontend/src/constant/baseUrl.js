@@ -16,6 +16,8 @@ export const EMULATORS_CATEGORIES = `${BASE_URL}/emulators-categories`
 
 export const EMULATOR_COMMENTS = `${BASE_URL}/emulator-comments`;
 
+export const REQUIRES = `${BASE_URL}/requires`;
+
 // API Endpoints
 // export const API_ENDPOINTS = {
 //   // ROM Categories

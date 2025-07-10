@@ -43,8 +43,19 @@ const Header = () => {
                     EMULATORS
                   </Link>
                 </li>
-                <li className="text-lg cursor-pointer hover:text-cyan-200 transition-colors">REQUEST</li>
-                <li className="text-lg cursor-pointer hover:text-cyan-200 transition-colors">BLOG</li>
+                <li className="text-lg cursor-pointer hover:text-cyan-200 transition-colors">
+                  <Link
+                    to="/required_roms_emulator"
+                    className="text-lg cursor-pointer hover:text-cyan-200 transition-colors">
+                      REQUEST
+                  </Link>
+                  </li>
+                <li className="text-lg cursor-pointer hover:text-cyan-200 transition-colors">
+                  <Link
+                    to="/blog"
+                   className="text-lg cursor-pointer hover:text-cyan-200 transition-colors">
+                  BLOG
+                  </Link></li>
               </ul>
             </div>
           </nav>
@@ -111,20 +122,20 @@ const Header = () => {
                   >
                     EMULATORS
                   </Link>
-                  <a 
-                    href="#" 
+                  <Link 
+                    to="/required_roms_emulator" 
                     className="block text-white text-xl font-semibold py-4 px-4 border-b border-white/10 hover:text-cyan-300 hover:bg-white/5 rounded-lg transition-all duration-200"
                     onClick={toggleMenu}
                   >
                     REQUEST
-                  </a>
-                  <a 
-                    href="#" 
+                  </Link>
+                  <Link 
+                    to="/blog"
                     className="block text-white text-xl font-semibold py-4 px-4 border-b border-white/10 hover:text-cyan-300 hover:bg-white/5 rounded-lg transition-all duration-200"
                     onClick={toggleMenu}
                   >
                     BLOG
-                  </a>
+                  </Link>
                 </nav>
               </div>
             </div>
