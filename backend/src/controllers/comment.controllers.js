@@ -206,17 +206,26 @@ const emulatorCommentController = asyncHandler(async (req, res) => {
 
 const getEmulatorComments = asyncHandler(async (req, res) => {
   const { emulatorId } = req.params;
+  
+  console.log('Backend - Fetching comments for emulator:', emulatorId);
+  
   if (!emulatorId) {
     throw new ApiError(400, "Emulator ID is required");
   }
-  const comments = await EmulatorComment.find({ emulator: emulatorId })
-    .populate("emulator", "name")
-    .sort({ createdAt: -1 }); // Latest first
-  return res
-    .status(200)
-    .json(
+  
+  try {
+    const comments = await EmulatorComment.find({ emulator: emulatorId })
+      .sort({ createdAt: -1 }); // Latest first
+    
+    console.log('Backend - Found emulator comments:', comments);
+    
+    return res.status(200).json(
       new ApiResponse(200, comments, "Emulator comments fetched successfully")
     );
+  } catch (error) {
+    console.error('Backend - Error fetching emulator comments:', error);
+    throw new ApiError(500, "Failed to fetch emulator comments");
+  }
 });
 
 export {

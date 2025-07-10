@@ -268,6 +268,7 @@ const GameDetailScreen = () => {
         showModal={showModal}
         closeModal={closeModal}
         gameName={gameDetails?.game_name}
+        category={"Game"}
       />
     </div>
   );

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { X, Send } from 'lucide-react';
 import { useReportIssue } from '../../hooks/useApi';
 
-const HelpModal = ({ showModal, closeModal, gameName }) => {
+const HelpModal = ({ showModal, closeModal, gameName, category }) => {
   const [formData, setFormData] = useState({
     name: gameName || '',
     url: '',
@@ -68,7 +68,7 @@ const HelpModal = ({ showModal, closeModal, gameName }) => {
         
         {/* Content */}
         <form onSubmit={handleSubmit}>
-          <p className='text-cyan-400 text-xl mt-2 mb-2'>Game: {gameName}</p>
+          <p className='text-cyan-400 text-xl mt-2 mb-2'>{category} : {gameName}</p>
           
           {/* Success/Error Messages */}
           {success && (
@@ -83,7 +83,7 @@ const HelpModal = ({ showModal, closeModal, gameName }) => {
           )}
           
           <div>
-            <p className='font-mono pt-2 text-lg'>Game Name</p>
+            <p className='font-mono pt-2 text-lg'>{category} Name</p>
             <input 
               type="text" 
               name="name"

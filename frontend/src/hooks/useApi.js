@@ -10,6 +10,8 @@ import {
   getEmulatorsList,
   getEmulatorsBySlug,
   getEmulatorsDetailById,
+  emulatorPostComment,
+  postRequiresRomOrEmulator,
 } from "../services/apiService";
 
 // Simple hook for ROM categories - fetches data automatically
@@ -279,6 +281,33 @@ export const useEmulatorDetails = (categorySlug, emulatorId) => {
 };
 
 // Hook for fetching emulator comments
+export const usePostEmulatorComment = () => {
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
+  const [success, setSuccess] = useState(false);
+
+  const submitComment = async (commentData) => {
+    try {
+      setLoading(true);
+      setError(null);
+      setSuccess(false);
+
+      const response = await emulatorPostComment(commentData);
+      setSuccess(true);
+      return response;
+    } catch (err) {
+      setError(err);
+      console.error("Failed to post emulator comment:", err);
+      throw err;
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  return { submitComment, loading, error, success };
+}
+
+
 export const useEmulatorComments = (emulatorId) => {
   const [comments, setComments] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -315,6 +344,13 @@ export const useEmulatorComments = (emulatorId) => {
 
   const refetchComments = async () => {
     try {
+      console.log('useEmulatorComments - refetch called with emulatorId:', emulatorId);
+      
+      if (!emulatorId) {
+        console.error('useEmulatorComments - refetch: emulatorId is missing!');
+        return;
+      }
+      
       const data = await getEmulatorComments(emulatorId);
       console.log(
         "useEmulatorComments - refetch data:",
@@ -334,3 +370,30 @@ export const useEmulatorComments = (emulatorId) => {
 
   return { comments, loading, error, refetchComments };
 };
+
+// Hook for posting requires ROM or emulator
+export const usePostRequiresRomOrEmulator = () => {
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
+  const [success, setSuccess] = useState(false);
+
+  const submitRequires = async (data) => {
+    try {
+      setLoading(true);
+      setError(null);
+      setSuccess(false);
+
+      const response = await postRequiresRomOrEmulator(data);
+      setSuccess(true);
+      return response;
+    } catch (err) {
+      setError(err);
+      console.error("Failed to post requires ROM or emulator:", err);
+      throw err;
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  return { submitRequires, loading, error, success };
+}
