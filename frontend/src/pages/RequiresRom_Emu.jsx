@@ -3,7 +3,7 @@ import { useResponsive } from "../hooks";
 
 const RequiresRom_Emu = () => {
   const { isMobile, isDesktop } = useResponsive();
-  const {submitRequires, loading, error, success} = useApi();
+  // const {submitRequires, loading, error, success} = useApi();
 
   return (
     <div>
