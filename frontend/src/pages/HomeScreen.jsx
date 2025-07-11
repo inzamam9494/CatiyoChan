@@ -6,7 +6,14 @@ import { useResponsive, useMenu, useSearch } from '../hooks'
 const HomeScreen = () => {
   // Custom hooks for clean separation of concerns
   const { isMobile, isDesktop } = useResponsive()
-  const { searchQuery, setSearchQuery, handleSearch, clearSearch } = useSearch()
+  const { 
+    searchQuery, 
+    setSearchQuery, 
+    handleSearch, 
+    clearSearch, 
+    isSearching, 
+    searchError 
+  } = useSearch()
 
   return (
     <div>
@@ -44,13 +51,26 @@ const HomeScreen = () => {
                 
                 <button
                   onClick={handleSearch}
-                  className="bg-gradient-to-r from-cyan-500 to-cyan-600 hover:from-cyan-800 hover:to-cyan-900  px-8 py-3 rounded-full font-semibold transition-all duration-200 transform hover:scale-105 shadow-lg cursor-pointer"
+                  disabled={isSearching}
+                  className={`px-8 py-3 rounded-full font-semibold transition-all duration-200 transform hover:scale-105 shadow-lg cursor-pointer ${
+                    isSearching 
+                      ? 'bg-gray-400 cursor-not-allowed' 
+                      : 'bg-gradient-to-r from-cyan-500 to-cyan-600 hover:from-cyan-800 hover:to-cyan-900'
+                  }`}
                 >
-                  Search
+                  {isSearching ? 'Searching...' : 'Search'}
                 </button>
               </div>
             </div>
           
+            {/* Error Message */}
+            {searchError && (
+              <div className="mt-4 text-center">
+                <p className="text-red-400 bg-red-900/20 px-4 py-2 rounded-lg">
+                  {searchError}
+                </p>
+              </div>
+            )}
         </div>
         </div>
       )}
@@ -96,10 +116,24 @@ const HomeScreen = () => {
               
               <button
                 onClick={handleSearch}
-                className="w-full bg-gradient-to-r from-cyan-500 to-cyan-600 hover:from-cyan-600 hover:to-cyan-700 px-6 py-3 rounded-full font-semibold transition-all duration-200 text-white"
+                disabled={isSearching}
+                className={`w-full px-6 py-3 rounded-full font-semibold transition-all duration-200 text-white ${
+                  isSearching 
+                    ? 'bg-gray-400 cursor-not-allowed' 
+                    : 'bg-gradient-to-r from-cyan-500 to-cyan-600 hover:from-cyan-600 hover:to-cyan-700'
+                }`}
               >
-                Search
+                {isSearching ? 'Searching...' : 'Search'}
               </button>
+              
+              {/* Error Message */}
+              {searchError && (
+                <div className="mt-4 text-center">
+                  <p className="text-red-400 bg-red-900/20 px-3 py-2 rounded-lg text-sm">
+                    {searchError}
+                  </p>
+                </div>
+              )}
             </div>
           </div>
         </div>

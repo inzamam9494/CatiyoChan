@@ -376,18 +376,53 @@ export const usePostRequiresRomOrEmulator = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const [success, setSuccess] = useState(false);
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    requiresRomEmu: "",})
 
-  const submitRequires = async (data) => {
+    // Handle input changes - updates form data when user types
+    const handleInputChange = (e, field) => {
+      setFormData(prev => ({
+        ...prev,
+        [field]: e.target.value
+      }))
+    }
+
+    // Handle form submission
+    const handleSubmit = async (e) => {
+      e.preventDefault();
+      
+      if(!formData.name || !formData.email || !formData.requiresRomEmu) {
+        setError("All fields are required");
+        return;
+      }
+      
+      try {
+        await submitRequires(formData);
+        
+        // Reset form on success
+        setFormData({ name: "", email: "", requiresRomEmu: "" });
+        
+      } catch (error) {
+        const errorMessage = error.message || error.toString() || 'Failed to submit form';
+        setError(errorMessage);
+        console.error("Form submission failed:", error);
+      }
+    }
+
+  const submitRequires = async (formData) => {
     try {
       setLoading(true);
       setError(null);
       setSuccess(false);
 
-      const response = await postRequiresRomOrEmulator(data);
+      const response = await postRequiresRomOrEmulator(formData);
       setSuccess(true);
       return response;
     } catch (err) {
-      setError(err);
+      const errorMessage = err.message || err.toString() || 'An unexpected error occurred';
+      setError(errorMessage);
       console.error("Failed to post requires ROM or emulator:", err);
       throw err;
     } finally {
@@ -395,5 +430,13 @@ export const usePostRequiresRomOrEmulator = () => {
     }
   };
 
-  return { submitRequires, loading, error, success };
+  return { 
+    submitRequires, 
+    loading, 
+    error, 
+    success, 
+    formData, 
+    handleInputChange, 
+    handleSubmit 
+  };
 }

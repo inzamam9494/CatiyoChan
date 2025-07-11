@@ -1,4 +1,4 @@
-import moongose, { Schema } from "mongoose";
+import mongoose, { Schema } from "mongoose";
 
 const RequiresRomEmuSchema = new Schema(
   {
@@ -11,6 +11,8 @@ const RequiresRomEmuSchema = new Schema(
       type: String,
       required: true,
       trim: true,
+      unique: true,
+      lowercase: true,
     },
     requiresRomEmu: {
       type: String,
@@ -22,7 +24,7 @@ const RequiresRomEmuSchema = new Schema(
     timestamps: true,
   }
 );
-export const RequiresRomEmu = moongose.model(
+export const RequiresRomEmu = mongoose.model(
   "RequiresRomEmu",
   RequiresRomEmuSchema
 );

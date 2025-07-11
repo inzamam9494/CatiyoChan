@@ -5,6 +5,7 @@ import {
   HELP_CENTER,
   EMULATORS_CATEGORIES,
   EMULATOR_COMMENTS,
+  REQUIRES,
 } from "../constant/baseUrl";
 
 export const getRomsCategories = async () => {
@@ -177,6 +178,80 @@ export const postRequiresRomOrEmulator = async (data) => {
     return response.data; // Return full response data
   } catch (error) {
     console.log("Error posting requires ROM or emulator:", error);
+    throw error;
+  }
+};
+
+// Search functionality - searches both games and emulators
+export const searchContent = async (query) => {
+  try {
+    const searchQuery = query.toLowerCase().trim();
+
+    // Get all games from all categories
+    const romsCategories = await getRomsCategories();
+    let allGames = [];
+
+    for (const category of romsCategories) {
+      try {
+        const games = await getGamesByCategory(category.slug);
+        allGames.push(
+          ...games.map((game) => ({
+            ...game,
+            type: "game",
+            category: category.slug,
+            categoryName: category.name,
+          }))
+        );
+      } catch (error) {
+        console.error(`Error fetching games for category ${category.slug}:`, error);
+      }
+    }
+
+    // Get all emulators
+    const emulatorCategories = await getEmulatorsList();
+    let allEmulators = [];
+
+    for (const category of emulatorCategories) {
+      try {
+        const emulators = await getEmulatorsBySlug(category.slug);
+        allEmulators.push(
+          ...emulators.map((emulator) => ({
+            ...emulator,
+            type: "emulator",
+            category: category.slug,
+            categoryName: category.name,
+          }))
+        );
+      } catch (error) {
+        console.error(`Error fetching emulators for category ${category.slug}:`, error);
+      }
+    }
+
+    // Search in games
+    const matchingGames = allGames.filter(
+      (game) =>
+        game.game_name?.toLowerCase().includes(searchQuery) ||
+        game.game_details?.genre?.toLowerCase().includes(searchQuery) ||
+        game.game_details?.developer?.toLowerCase().includes(searchQuery) ||
+        game.game_details?.publisher?.toLowerCase().includes(searchQuery)
+    );
+
+    // Search in emulators
+    const matchingEmulators = allEmulators.filter(
+      (emulator) =>
+        emulator.name?.toLowerCase().includes(searchQuery) ||
+        emulator.description?.toLowerCase().includes(searchQuery) ||
+        emulator.emulator_details?.developer?.toLowerCase().includes(searchQuery) ||
+        emulator.emulator_details?.publisher?.toLowerCase().includes(searchQuery)
+    );
+
+    return {
+      games: matchingGames,
+      emulators: matchingEmulators,
+      totalResults: matchingGames.length + matchingEmulators.length,
+    };
+  } catch (error) {
+    console.error("Error searching content:", error);
     throw error;
   }
 };
