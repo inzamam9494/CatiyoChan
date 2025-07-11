@@ -25,7 +25,7 @@ const EmulatorDetailScreen = () => {
 
   const emulatorData = location.state?.emulatorData || {};
   const loading = false;
-  const error = null;
+  const error = false; // Allow component to render with fallback data
 
   // Debug logging
   console.log('EmulatorDetailScreen - emulatorId from params:', emulatorId);
@@ -61,22 +61,43 @@ const EmulatorDetailScreen = () => {
     }
   };
 
+  if (loading) {
+    return (
+      <div className="text-center p-4">
+        <p>Loading emulator details...</p>
+      </div>
+    );
+  }
+
   if (error) {
     return (
       <div className="text-center p-4 text-red-500">
         <p>Failed to load emulator details. Please try again later.</p>
+        <p className="text-sm text-gray-500 mt-2">
+          Debug: emulatorData = {JSON.stringify(emulatorData)}
+        </p>
+        <p className="text-sm text-gray-500">
+          Debug: location.state = {JSON.stringify(location.state)}
+        </p>
       </div>
     );
   }
 
   const details = emulatorData.emulator_details || {};
+  
+  // Fallback data for testing
+  const displayData = {
+    name: emulatorData.name || "Unknown Emulator",
+    description: emulatorData.description || "No description available.",
+    icon: emulatorData.icon || "https://via.placeholder.com/250x350?text=Emulator"
+  };
   return (
     <div>
       {/* isDesktop */}
       {isDesktop && (
         <div className="desktop-view ml-60 mr-60">
           <h1 className="my-6 p-2 text-4xl font-bold">
-            {emulatorData.name}
+            {displayData.name}
           </h1>
           {/* Emulator details section */}
           <div className="flex flex-row justify-between items-center p-4">
@@ -143,8 +164,8 @@ const EmulatorDetailScreen = () => {
             </div>
             <div>
               <img
-                src={emulatorData.icon || "https://via.placeholder.com/250x350?text=Emulator"}
-                alt={emulatorData.name}
+                src={displayData.icon}
+                alt={displayData.name}
                 className="w-64 h-auto m-2 border-2 border-cyan-400 rounded-xl p-2"
               />
             </div>
@@ -191,13 +212,13 @@ const EmulatorDetailScreen = () => {
       {isMobile && (
         <div className="mobile-view ml-4 mr-4">
           <h1 className="my-4 p-2 text-2xl font-bold">
-            {emulatorData.name}
+            {displayData.name}
           </h1>
           <div className="flex flex-col justify-between items-center p-4">
             <div>
               <img
-                src={emulatorData.icon || "https://via.placeholder.com/250x350?text=Emulator"}
-                alt={emulatorData.name}
+                src={displayData.icon}
+                alt={displayData.name}
                 className="w-48 h-auto border-2 border-cyan-400 rounded-xl p-2 mb-4"
               />
             </div>
@@ -229,7 +250,17 @@ const EmulatorDetailScreen = () => {
 
                 <div className="flex items-center gap-3 text-lg text-cyan-400">
                   <Globe className="w-5 h-5" />
-                  <span>Website: {details.website ? "Available" : "Unknown"}</span>
+                  <span>
+                    Website: 
+                    {details.website ? (
+                      <button 
+                        onClick={handleWebsite}
+                        className="ml-2 text-blue-400 hover:text-blue-600 underline"
+                      >
+                        Visit Official Site
+                      </button>
+                    ) : "Unknown"}
+                  </span>
                 </div>
               </div>
 
@@ -258,7 +289,7 @@ const EmulatorDetailScreen = () => {
           {/* Description section  */}
           <div className="flex flex-col justify-center items-start p-4">
             <h2 className="text-2xl font-semibold">Description</h2>
-            <p className="text-lg">{emulatorData.description || "No description available."}</p>
+            <p className="text-lg">{displayData.description}</p>
           </div>
           
           <RequestHelpCard onClick={openModal} />
@@ -295,7 +326,7 @@ const EmulatorDetailScreen = () => {
       <HelpModal 
         showModal={showModal}
         closeModal={closeModal}
-        gameName={emulatorData?.name}
+        gameName={displayData.name}
         category={"Emulator"}
       />
     </div>

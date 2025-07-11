@@ -10,6 +10,7 @@ import EmulatorsScreen from "../pages/EmulatorsScreen";
 import EmulatorDetailScreen from "../pages/EmulatorDetailScreen";
 import RequiresRom_Emu from "../pages/RequiresRom_Emu";
 import BlogScreen from "../pages/BlogScreen";
+import SearchResultsScreen from "../pages/SearchResultsScreen";
 
 // Industrial Standard: Export the router directly instead of a function
 export const router = createBrowserRouter([
@@ -52,6 +53,10 @@ export const router = createBrowserRouter([
       {
         path: "required_roms_emulator",
         element: <RequiresRom_Emu/>
+      },
+      {
+        path: "search-results",
+        element: <SearchResultsScreen/>
       },
       {
         path: "blog",

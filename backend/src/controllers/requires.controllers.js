@@ -1,22 +1,40 @@
-import { ApiError } from "../utils/ApiError";
-import { ApiResponse } from "../utils/ApiResponse";
-import { asyncHandler } from "../utils/asyncHandler";
+import { ApiError } from "../utils/ApiError.js";
+import { ApiResponse } from "../utils/ApiResponse.js";
+import { asyncHandler } from "../utils/asyncHandler.js";
+import { RequiresRomEmu } from "../models/requires.model.js";
 
 const requires = asyncHandler(async (req, res) => {
-  const { name, email, requirements } = req.body;
+  const { name, email, requiresRomEmu } = req.body;
 
   // Validate required fields
-  if (!name || !email || !requirements) {
+  if (!name || !email || !requiresRomEmu) {
     throw new ApiError(400, "Name, email, and requirements are required");
   }
-  // Create a new requires entry
-  const newRequires = {
+
+  // Check if user with same email already submitted a request
+  const existingRequest = await RequiresRomEmu.findOne({ 
+    $or: [
+      { email: email.toLowerCase() },
+      { name: name.trim(), email: email.toLowerCase() }
+    ]
+  });
+  
+  if (existingRequest) {
+    if (existingRequest.email === email.toLowerCase()) {
+      throw new ApiError(409, "A request with this email already exists. Please use a different email or contact support.");
+    } else {
+      throw new ApiError(409, "A request with this name and email combination already exists.");
+    }
+  }
+
+  // Save to database
+  const newRequires = await RequiresRomEmu.create({
     name,
     email,
-    requirements,
-  };
-  // Here you would typically save the newRequires to a database
-  // For demonstration, we will just return it in the response
+    requiresRomEmu,
+  });
+
+  // Return success response
   return res
     .status(201)
     .json(
