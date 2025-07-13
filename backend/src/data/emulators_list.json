@@ -5,7 +5,7 @@
                 "name": "Yuzu",
                 "slug": "yuzu",
                 "description": "Nintendo Switch emulator for Windows, Linux, and Android.",
-                "icon": "https://yuzu-emu.org/static/assets/img/yuzu-logo.png",
+                "icon": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Yuzu_logo_2019.svg/1200px-Yuzu_logo_2019.svg.png",
                 "emulator_details":
                     {
                         "publisher": "Yuzu Emulator Team",
