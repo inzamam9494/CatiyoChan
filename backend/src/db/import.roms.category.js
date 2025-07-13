@@ -1,8 +1,20 @@
 import mongoose from "mongoose";
 import { RomsCategory } from "../models/roms.category.model.js";
 import dotenv from "dotenv";
+import { readFileSync } from "fs";
+import { fileURLToPath } from "url";
+import { dirname, join } from "path";
+
 dotenv.config({ path: "./.env" });
-import romsCategoryData from "../data/roms_category.json" assert { type: "json" };
+
+// Get current file path and directory
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+
+// Read JSON file
+const romsCategoryData = JSON.parse(
+  readFileSync(join(__dirname, "../data/roms_category.json"), "utf8")
+);
 
 mongoose.connect(process.env.MONGODB_URI, {
   useNewUrlParser: true, useUnifiedTopology: true,
