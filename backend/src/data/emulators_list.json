@@ -1,124 +1,216 @@
 {
-    "emulators_list" : {
-        "Nintendo Switch Virtual Console" : [
+    "emulators_list": {
+        "Nintendo Switch Virtual Console": [
             {
                 "name": "Yuzu",
                 "slug": "yuzu",
-                "description": "Nintendo Switch emulator for Windows, Linux, and Android.",
+                "description": "Yuzu is an open-source emulator that allows you to play Nintendo Switch games on platforms such as Windows, Android and Linux.\nYuzu allows you to experience all of your Nintendo Switch titles on different devices at the same level of performance your console provides.\nYuzu provides an easy-to-use interface where you can get up and running with emulating your favorite Switch games in no time.\nStart playing your Switch games like you never experienced before. Play your favorite titles in 4K, transfer your games, and play with your friends in multiplayer. Built with portability in mind, you don’t have to worry about compatibility with popular devices.",
                 "icon": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Yuzu_logo_2019.svg/1200px-Yuzu_logo_2019.svg.png",
-                "emulator_details":
-                    {
-                        "publisher": "Yuzu Emulator Team",
-                        "release_date": "2018-01-14",
-                        "platforms": ["Windows", "Linux", "Android"],
-                        "website": "https://yuzu-emu.org/",
-                        "developer": "Yuzu Emulator Team",
-                        "download_link" : "https://yuzu-emu.org/downloads/"
-                    }
+                "emulator_details": {
+                    "publisher": "Yuzu Emulator Team",
+                    "release_date": "2018-01-14",
+                    "platforms": [
+                        "Windows",
+                        "Linux",
+                        "Android"
+                    ],
+                    "website": "https://yuzu-emulator.net/",
+                    "developer": "Yuzu Emulator Team",
+                    "download_link": "https://gplinks.co/DKNc65Cv"
+                }
             },
             {
                 "name": "Ryujinx",
                 "slug": "ryujinx",
-                "description": "Nintendo Switch emulator for Windows, Linux, and macOS.",
-                "icon": "https://ryujinx.org/assets/logo.png",
-                "emulator_details":
-                    {
-                        "publisher": "Ryujinx Team",
-                        "release_date": "2018-10-08",
-                        "platforms": ["Windows", "Linux", "macOS"],
-                        "website": "https://ryujinx.org/",
-                        "developer": "Ryujinx Team",
-                        "download_link" : "https://ryujinx.org/download/"
-                    }
-                
+                "description": "Ryujinx APK is an advanced Nintendo Switch emulator that allows users to seamlessly play Switch games on Android devices as well as Windows, macOS, and Linux systems. The app focuses on delivering smooth gameplay with high compatibility and customizable settings. Ryujinx has an intuitive interface, allowing users to easily adjust graphics, controls, and sounds for a personalized gaming experience. Highly rated by users for its frequent updates and stable performance, Ryujinx APK stands out as one of the best emulator apps for Nintendo Switch fans. Unlock your favorite Switch games anytime, anywhere with Ryujinx APK.",
+                "icon": "https://raw.githubusercontent.com/Ryubing/Assets/refs/heads/main/RyujinxApp_1024.png",
+                "emulator_details": {
+                    "publisher": "Ryujinx Team",
+                    "release_date": "2018-10-08",
+                    "platforms": [
+                        "Windows",
+                        "Linux",
+                        "macOS"
+                    ],
+                    "website": "https://ryujinx.app/",
+                    "developer": "Ryujinx Team",
+                    "download_link": "https://gplinks.co/0ERPW9m"
+                }
+            },
+            {
+                "name": "Egg NS",
+                "slug": "egg_ns",
+                "description": "Egg NS Emulator is a software that allows you to run Nintendo Switch games on your mobile phone. Players can run Egg NS on their mobile phones to play Nintendo Switch games, and it brings a different control experience to Switch fans. The Egg NS emulator was developed by NXTeam Studios in the United States over a period of two years, and is now available. NXTeam will continue its efforts to optimize the performance, stability and compatibility of the Egg NS emulator. Our heart still lies within the Egg NS emulator and we are always active in developing New and Innovative Products that we ourselves use in our everyday gaming lives. Get Starded! Your support has enabled us to be the best that we can be.",
+                "icon": "https://image.winudf.com/v2/image1/Y29tLnhpYW9qaS5nYW1lc2lybnNlbXVsYXRvcl9pY29uXzE2NTk1NjIwOTVfMDg4/icon.png?w=186&fakeurl=1",
+                "emulator_details": {
+                    "publisher": "NXTeam Studios",
+                    "release_date": "2020-05-01",
+                    "platforms": [
+                        "Android"
+                    ],
+                    "website": "https://eggns.com/",
+                    "developer": "NXTeam Studios",
+                    "download_link": "https://gplinks.co/vRJBz"
+                }
+            },
+            {
+                "name": "Skyline",
+                "slug": "skyline",
+                "description": "Skyline is an open-source Nintendo Switch emulator for Android that you can use to emulate the Nintendo console on your smartphone. Its name comes from the Nintendo Switch software code name \"Horizon\", for which \"Skyline\" is a synonym.\n\nAmong the formats that the emulator is capable of reading are NSP, XCI, NRO, NSO and NCA. If you don't know the file format of the game you want to play, they are sorted by \"all\" in the main tab, so that you can see all those on your device. If a game still doesn't appear, then in the settings, you can choose which folder you store the games in, and that is where the emulator will read them from.\n\nAdvertisement\n\nRemove ads and more with Turbo\nAfter telling the app where your game can be found and entering the production keys, you'll be able to run it. Some games may perform better than others, and others may present some problems when emulated. The game controls appear on the screen.\n\nThe Skyline emulator has many options: for example, you can force the \"dock\" mode so that the game performs at maximum power, as it would if you had the Nintendo Switch in the dock. You can also edit the graphics to improve its performance.\n\nSo if you want to emulate your Nintendo Switch games on Android, downloading the Skyline APK is an excellent way to do this.",
+                "icon": "https://img.utdstc.com/icon/e00/4d2/e004d2cf85916bca17574e778d1897aca09f4e39e8b436cde260492b2c8616aa:200",
+                "emulator_details": {
+                    "publisher": "Skyline Team",
+                    "release_date": "2020-01-01",
+                    "platforms": [
+                        "Android"
+                    ],
+                    "website": "https://skylineemulator.com/",
+                    "developer": "Skyline Team",
+                    "download_link": "https://gplinks.co/7e8L"
+                }
+            },
+            {
+                "name": "Shudachi",
+                "slug": "shudachi",
+                "description": "Welcome to Sudachi Emulator, the cutting-edge solution for experiencing Nintendo Switch games on multiple devices.\n\nDeveloped with high performance and user experience in mind, Sudachi enables fans to run their favorite Nintendo titles with enhanced graphics, smooth gameplay, and customizable settings for an unparalleled experience.\n\nSuper Smash Bros Screenshot\nWhat Sets Sudachi Apart?\nSudachi Emulator isn’t just about running games—it’s about bringing them to life.\n\nBy focusing on high compatibility and optimized performance, Sudachi ensures that you can play a wide range of Nintendo Switch games, from big titles to indie gems, with exceptional detail.\n\nOur advanced architecture also means better load times, improved graphics rendering, and lower hardware requirements, making the experience accessible and enjoyable for everyone.\n\nYuzu Compatibility List\nKey Features of Sudachi Emulator\n- Enhanced Graphics: Enjoy visuals that push beyond the limits of the Switch console with upscaling, custom resolutions, and shader support.\n- Easy Game Configuration: Customizable settings allow you to fine-tune game controls, resolution, and other elements to fit your device perfectly.\n- Performance Optimization: Sudachi is built to perform smoothly on a variety of devices, reducing lag and maximizing your gameplay quality.\n- Community and Support: Join a vibrant community of fans, access detailed guides, and get real-time support for a seamless experience.\nGetting started with Sudachi Emulator is simple. Download, configure your game settings, and dive into your favorite Nintendo titles on a new level.\n\nReady to explore? Check out our guide and start playing today!",
+                "icon": "https://sudachiemu.com/wp-content/uploads/2025/06/sudachi-logo-new.webp",
+                "emulator_details": {
+                    "publisher": "emuplace",
+                    "release_date": "October 8, 2024",
+                    "platforms": [
+                        "Android"
+                    ],
+                    "website": "https://sudachiemu.com/home/",
+                    "developer": "emuplace",
+                    "download_link": "https://gplinks.co/NyRp446d"
+                }
+            },
+            {
+                "name" : "Citron",
+                "slug" : "citron",
+                "description": "Citron is a Nintendo Switch emulator for Android and Windows, focused on delivering a high-performance and user-friendly experience for playing homebrew games and exploring new titles. It's designed with both enthusiasts and developers in mind, and it's important to note that Citron is intended for legal homebrew use only and is not affiliated with Nintendo. Citron aims to provide a stable and efficient platform for running homebrew applications, offering features like high compatibility, customizable controls, and regular updates to enhance the gaming experience. The emulator is open-source, allowing the community to contribute to its development and improvement.",
+                "icon": "https://git.citron-emu.org/uploads/-/system/group/avatar/7/fulllogonormal.png",   
+                "emulator_details": {
+                    "publisher": "Citron Emulator Team",
+                    "release_date": "December 2024",
+                    "platforms": [
+                        "Android"
+                    ],
+                    "website": "https://citron-emu.org/",
+                    "developer": "Zephyron",
+                    "download_link": "https://gplinks.co/D21Sp"
+                }
+            },
+            {
+                "name" : "Eden",
+                "slug" : "eden",
+                "description": "Eden is an experimental open-source emulator for the Nintendo Switch, built with performance and stability in mind. It is written in C++ with cross-platform support for Windows, Linux and Android.",
+                "icon": "https://eden-emu.org/assets/img/logo.png",
+                "emulator_details": {
+                    "publisher": "Eden Emulator Team",
+                    "release_date": "May 11, 2025",
+                    "platforms": [
+                        "Android"
+                    ],
+                    "website": "https://eden-emu.dev/",
+                    "developer": "Eden Emulator Team",
+                    "download_link": "https://gplinks.co/HuJt"
+                }
             }
         ],
-        "Windows Emulators" : [
+        "Windows Emulators": [
             {
                 "name": "DOSBox",
                 "slug": "dosbox",
                 "description": "DOS emulator for running old DOS games on modern systems.",
                 "icon": "https://www.dosbox.com/images/dosbox_logo.png",
-                "emulator_details":
-                    {
-                        "publisher": "DOSBox Team",
-                        "release_date": "2002-07-27",
-                        "platforms": ["Windows", "Linux", "macOS"],
-                        "website": "https://www.dosbox.com/",
-                        "developer": "DOSBox Team",
-                        "download_link" : "https://www.dosbox.com/download.php?main=1"
-                    }
-                
+                "emulator_details": {
+                    "publisher": "DOSBox Team",
+                    "release_date": "2002-07-27",
+                    "platforms": [
+                        "Windows",
+                        "Linux",
+                        "macOS"
+                    ],
+                    "website": "https://www.dosbox.com/",
+                    "developer": "DOSBox Team",
+                    "download_link": "https://www.dosbox.com/download.php?main=1"
+                }
             },
             {
                 "name": "Wine",
                 "slug": "wine",
                 "description": "Compatibility layer for running Windows applications on Unix-like operating systems.",
                 "icon": "https://www.winehq.org/images/winehq-logo.png",
-                "emulator_details":
-                    {
-                        "publisher": "WineHQ",
-                        "release_date": "1993-06-17",
-                        "platforms": ["Linux", "macOS"],
-                        "website": "https://www.winehq.org/",
-                        "developer": "WineHQ Team",
-                        "download_link" : "https://www.winehq.org/download"
-                    }
-                
+                "emulator_details": {
+                    "publisher": "WineHQ",
+                    "release_date": "1993-06-17",
+                    "platforms": [
+                        "Linux",
+                        "macOS"
+                    ],
+                    "website": "https://www.winehq.org/",
+                    "developer": "WineHQ Team",
+                    "download_link": "https://www.winehq.org/download"
+                }
             }
         ],
-        "PlayStation 3 Emulators" : [
+        "PlayStation 3 Emulators": [
             {
                 "name": "RPCS3",
                 "slug": "rpcs3",
                 "description": "PlayStation 3 emulator for Windows, Linux, and macOS.",
                 "icon": "https://rpcs3.net/static/img/logo.png",
-                "emulator_details":
-                    {
-                        "publisher": "RPCS3 Team",
-                        "release_date": "2011-05-01",
-                        "platforms": ["Windows", "Linux", "macOS"],
-                        "website": "https://rpcs3.net/",
-                        "developer": "RPCS3 Team",
-                        "download_link" : "https://rpcs3.net/download"
-                    }
-                
+                "emulator_details": {
+                    "publisher": "RPCS3 Team",
+                    "release_date": "2011-05-01",
+                    "platforms": [
+                        "Windows",
+                        "Linux",
+                        "macOS"
+                    ],
+                    "website": "https://rpcs3.net/",
+                    "developer": "RPCS3 Team",
+                    "download_link": "https://rpcs3.net/download"
+                }
             }
         ],
-        "PlayStation 4 Emulators" : [
+        "PlayStation 4 Emulators": [
             {
                 "name": "shadPS4",
                 "slug": "shadps4",
                 "description": "PlayStation 4 emulator for Windows.",
                 "icon": "https://shadps4.com/assets/img/logo.png",
-                "emulator_details":
-                    {
-                        "publisher": "shadPS4 Team",
-                        "release_date": "2020-01-01",
-                        "platforms": ["Windows"],
-                        "website": "https://shadps4.com/",
-                        "developer": "shadPS4 Team",
-                        "download_link" : "https://shadps4.com/download"
-                    }
-                
+                "emulator_details": {
+                    "publisher": "shadPS4 Team",
+                    "release_date": "2020-01-01",
+                    "platforms": [
+                        "Windows"
+                    ],
+                    "website": "https://shadps4.com/",
+                    "developer": "shadPS4 Team",
+                    "download_link": "https://shadps4.com/download"
+                }
             }
         ],
-        "PlayStation 2 Emulators" : [
+        "PlayStation 2 Emulators": [
             {
                 "name": "PCSX2",
                 "slug": "pcsx2",
                 "description": "PlayStation 2 emulator for Windows, Linux, and macOS.",
                 "icon": "https://pcsx2.net/static/img/logo.png",
-                "emulator_details":
-                    {
-                        "publisher": "PCSX2 Team",
-                        "release_date": "2002-07-12",
-                        "platforms": ["Windows", "Linux", "macOS"],
-                        "website": "https://pcsx2.net/",
-                        "developer": "PCSX2 Team",
-                        "download_link" : "https://pcsx2.net/download"
-                    }
-                
+                "emulator_details": {
+                    "publisher": "PCSX2 Team",
+                    "release_date": "2002-07-12",
+                    "platforms": [
+                        "Windows",
+                        "Linux",
+                        "macOS"
+                    ],
+                    "website": "https://pcsx2.net/",
+                    "developer": "PCSX2 Team",
+                    "download_link": "https://pcsx2.net/download"
+                }
             }
         ]
     }
