@@ -86,10 +86,10 @@
                 }
             },
             {
-                "name" : "Citron",
-                "slug" : "citron",
+                "name": "Citron",
+                "slug": "citron",
                 "description": "Citron is a Nintendo Switch emulator for Android and Windows, focused on delivering a high-performance and user-friendly experience for playing homebrew games and exploring new titles. It's designed with both enthusiasts and developers in mind, and it's important to note that Citron is intended for legal homebrew use only and is not affiliated with Nintendo. Citron aims to provide a stable and efficient platform for running homebrew applications, offering features like high compatibility, customizable controls, and regular updates to enhance the gaming experience. The emulator is open-source, allowing the community to contribute to its development and improvement.",
-                "icon": "https://git.citron-emu.org/uploads/-/system/group/avatar/7/fulllogonormal.png",   
+                "icon": "https://git.citron-emu.org/uploads/-/system/group/avatar/7/fulllogonormal.png",
                 "emulator_details": {
                     "publisher": "Citron Emulator Team",
                     "release_date": "December 2024",
@@ -102,8 +102,8 @@
                 }
             },
             {
-                "name" : "Eden",
-                "slug" : "eden",
+                "name": "Eden",
+                "slug": "eden",
                 "description": "Eden is an experimental open-source emulator for the Nintendo Switch, built with performance and stability in mind. It is written in C++ with cross-platform support for Windows, Linux and Android.",
                 "icon": "https://eden-emu.org/assets/img/logo.png",
                 "emulator_details": {
@@ -116,62 +116,172 @@
                     "developer": "Eden Emulator Team",
                     "download_link": "https://gplinks.co/HuJt"
                 }
+            },
+            {
+                "name": "Kenji-NX",
+                "slug": "kenji-nx",
+                "description": "Kenji-NX is an open-source Nintendo Switch emulator, originally created by gdkchan, written in C#. This emulator aims at providing excellent accuracy and performance, a user-friendly interface and consistent builds. It was written from scratch and development on the project began in September 2017. Kenji-NX is available on GitHub under the MIT license.\nOn October 1st 2024, Ryujinx was discontinued as the creator was forced to abandon the project.\nThis fork is not a Ryujinx revival project; it aims to be a middle ground between GreemDev's Ryujinx fork and the more preservative ryujinx-mirror fork. It brings over many of the front-facing features from the aforementioned forks with additional contributions from KeatonTheBot and others.",
+                "icon": "https://avatars.githubusercontent.com/u/204518244?s=200&v=4",
+                "emulator_details": {
+                    "publisher": "Kenji-NX Team",
+                    "release_date": "September 2017",
+                    "platforms": [
+                        "Android"
+                    ],
+                    "website": "https://github.com/Kenji-NX",
+                    "developer": "Kenji-NX Team",
+                    "download_link": "https://gplinks.co/aCUw"
+                }
+            },
+            {
+                "name": "Nyushu",
+                "slug": "nyushu",
+                "description": "The Nyushu Emulator is a Nintendo Switch ROM console emulator, offering enhanced performance and optimization.\nNyushu Emulator is an upgraded version of the popular Yuzu emulator, designed specifically for Android devices with lower GPU capabilities. It offers smoother gameplay and enhanced performance, making it a top choice for mobile gamers.",
+                "icon": "https://nyushu.online/wp-content/uploads/2024/09/Nyushu-icon.png",
+                "emulator_details": {
+                    "publisher": "Nyushu Emulator Team",
+                    "release_date": "May 23, 2024",
+                    "platforms": [
+                        "Android"
+                    ],
+                    "website": "https://nyushu.online/",
+                    "developer": "Nyushu Emulator Team",
+                    "download_link": "https://gplinks.co/MAVfrN"
+                }
+            },
+            {
+                "name": "Pine",
+                "slug": "pine",
+                "description": "Pine is an experimental, open-source emulator designed to run Nintendo Switch games on ARMv8 Android™ devices.\nIt is licensed under the GNU General Public License v3.0 or later.\nThe emulator is a clone of Skyline, another Nintendo Switch emulator, and shares similar features and interface.\nTo use Pine, you need to download and install the APK file on your Android device and then set up folders for GPU drivers, product keys, and games within the app.\nPerformance can vary depending on your phone's hardware, with a recommended setup being an Android 10+ device with at least a Snapdragon 865 processor and 6GB of RAM for optimal experience.",
+                "icon": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQLG0LSrIl3sLObPkTxKketOCt1SntOwOOHjA&s",
+                "emulator_details": {
+                    "publisher": "Pine Emulator Team",
+                    "release_date": "Jul 25, 2024",
+                    "platforms": [
+                        "Android"
+                    ],
+                    "website": "https://github.com/Ishan09811/pine",
+                    "developer": "Pine Emulator Team",
+                    "download_link": "https://gplinks.co/frEbU"
+                }
+            },
+            {
+                "name": "MeloNX",
+                "slug": "melonx",
+                "description": "\"MeloNX\" (or \"MelonX\") is a Nintendo Switch emulator designed specifically for iOS devices, allowing users to play Switch games on their iPhones or iPads.\nHere's some key information about MeloNX:\nAvailability: MeloNX is not available on the official App Store due to its use of JIT (Just-In-Time) compilation. Users need to sideload the emulator using third-party tools like AltStore or developer certificates.\nPerformance: The emulator aims to provide smooth performance, with some users reporting good frame rates for certain games like \"Mario 3D World\" and \"Donkey Kong Tropical Freeze\" on high-end iPhones.\nFeatures: MeloNX offers a dedicated video-out mode, allowing users to connect their iPhone to an external display and enjoy games on a larger screen, according to Reddit. It also supports controller input for the game menu in this mode.\nMemory Entitlement: To achieve optimal performance, MeloNX requires an extended memory entitlement which can be installed via sideloading methods like AltStore or SideStore.",
+                "icon": "https://avatars.githubusercontent.com/u/183658658?s=200&v=4",
+                "emulator_details": {
+                    "publisher": "MeloNX Team",
+                    "release_date": "February 13, 2025",
+                    "platforms": [
+                        "IOS"
+                    ],
+                    "website": "https://melonx.org/",
+                    "developer": " stossy11@sidestore.io",
+                    "download_link": "https://gplinks.co/3xYz4"
+                }
             }
         ],
         "Windows Emulators": [
             {
-                "name": "DOSBox",
-                "slug": "dosbox",
-                "description": "DOS emulator for running old DOS games on modern systems.",
-                "icon": "https://www.dosbox.com/images/dosbox_logo.png",
+                "name": "Winlator",
+                "slug": "winlator",
+                "description": "Winlator is an Android application that enables you to run Windows (x86_64) applications and games on your Android device.\nKey features:\n- Compatibility: Winlator leverages Wine and Box86/Box64 to create a compatibility layer for Windows x86 and x64 software.\n- Gaming Focus: While it can run various applications, Winlator is primarily known for its ability to emulate PC games on Android, including both 2D and some 3D titles.\n- Offline Functionality: Once games are downloaded and installed within Winlator, you can play them without an internet connection.\n- User-friendly Interface: Winlator aims to be easy to use for both beginners and experienced users.\n- Customization: It offers various customizable settings to optimize performance, resolution, and more.\n- Control Options: Winlator includes built-in touch controls and supports external gamepads, keyboards, and mice.\n- Driver Support: It provides different graphics driver options like Turnip (for Snapdragon Adreno GPUs), VirGL (Universal, suitable for other GPUs), and LLVMpipe (software renderer, slower).\n- Game Management: You can create containers within Winlator to manage different games and applications, and even create shortcuts for easy access.\n- Performance Optimization: Winlator allows you to tweak settings like Box86/Box64 presets, resolution, and other parameters to enhance in-game performance and stability, especially for Unity games.",
+                "icon": "https://androidlife.xyz/wp-content/uploads/2025/02/winlator-apk.jpg",
                 "emulator_details": {
-                    "publisher": "DOSBox Team",
-                    "release_date": "2002-07-27",
+                    "publisher": "Winlator Team",
+                    "release_date": "August 2023",
                     "platforms": [
-                        "Windows",
-                        "Linux",
-                        "macOS"
+                        "Android"
                     ],
-                    "website": "https://www.dosbox.com/",
-                    "developer": "DOSBox Team",
-                    "download_link": "https://www.dosbox.com/download.php?main=1"
+                    "website": "https://winlator.org/",
+                    "developer": "brunodev85",
+                    "download_link": "https://gplinks.co/ZhIqNP1q"
                 }
             },
             {
-                "name": "Wine",
-                "slug": "wine",
-                "description": "Compatibility layer for running Windows applications on Unix-like operating systems.",
-                "icon": "https://www.winehq.org/images/winehq-logo.png",
+                "name": "GameHub",
+                "slug": "gamehub",
+                "description": "Game Management Platform: A unified library for organizing and launching games from various platforms like Steam, GOG, Humble Bundle, and Humble Trove, supporting both native Linux games and those running on Wine/Proton, DOSBox, RetroArch, and ScummVM.\nMobile App with Mini-games: An Android application offering a collection of casual and brain-training minigames, including puzzle games, arcade games, and board games like 2048, Sudoku, Chess, UNO, and more. It emphasizes convenience by combining many games in one app.\nGaming Hub (Samsung): A built-in feature on Samsung devices that automatically gathers and organizes your mobile games, allows for game optimization, and offers \"Instant Plays\" — a selection of games that can be launched without installation.\nCross-platform Gaming Platform: A versatile platform (like the one developed by GameSir) that allows playing PC games on Android devices through high-precision compatibility and supports PC emulators, cloud gaming, and game streaming. It allows for both controller and touch controls.\nGaming Community Hub: An online platform or community connecting gamers, enthusiasts, and developers to share insights, discover new games, and engage in discussions about gaming technology and culture.\nIn essence, GameHub acts as a centralized location for various gaming activities, whether it's managing game libraries, enjoying a collection of mini-games, launching games on a mobile device, or connecting with a gaming community.",
+                "icon": "https://gamehub.xiaoji.com/static/images/new/logo.png",
                 "emulator_details": {
-                    "publisher": "WineHQ",
-                    "release_date": "1993-06-17",
+                    "publisher": "GameSir",
+                    "release_date": "December 5, 2022",
                     "platforms": [
-                        "Linux",
-                        "macOS"
+                        "Android",
+                        "iOS"
                     ],
-                    "website": "https://www.winehq.org/",
-                    "developer": "WineHQ Team",
-                    "download_link": "https://www.winehq.org/download"
+                    "website": "https://gamehub.xiaoji.com/",
+                    "developer": "tkashkin",
+                    "download_link": "https://gamehub.xiaoji.com/download/"
+                }
+            },
+            {
+                "name": "Horizan Emulator",
+                "slug": "horizon_emulator",
+                "description": "Horizon Emu (or Horizon Emulator) is an application for Android that allows users to run Windows x86_64 applications, including some games, on their devices. It's important to note that a fake, paid version of Horizon Emu exists on the Google Play Store, so users should be cautious and download the official version from its GitHub page to avoid potential viruses.\nHere's a summary of its features and important information:\nFunctionality: It acts as a Windows emulator for Android, allowing the execution of Windows applications, primarily targeting games.\nOpen Source: Horizon Emu is an open-source project.\nSystem Requirements:\nMinimum Android Version: Android 9 or above.\nCPU: Any CPU with AArch64 architecture.\nGPU: Any GPU with Turnip support (meaning Adreno GPUs are generally supported, while Mali GPUs may not be).\nRoot: Root access is not required.",
+                "icon": "https://github.com/HorizonEmuTeam/Horizon-Emu/raw/main/ProjectLogo.png",
+                "emulator_details": {
+                    "publisher": "Horizon Emulator Team",
+                    "release_date": "May 2024",
+                    "platforms": [
+                        "Android"
+                    ],
+                    "website": "https://horizonemulator.com/",
+                    "developer": "Horizon Emulator Team",
+                    "download_link": "https://gplinks.co/ITM9aZ9m"
+                }
+            },
+            {
+                "name": "Micewine Emulator",
+                "slug": "micewine",
+                "description": "MiceWine is a project that aims to run Windows applications and games on Android smartphones. It is similar to other Windows emulators for Android, like Winlator and Horizon Emulator.\nHere's how MiceWine works:\nIt uses a customized build of Wine compiled for Android.\nIt also uses Box64, a user-space emulator that allows running x86-64 Linux programs (like Windows applications compiled with Wine) on ARM64 Linux systems (like Android devices).\nIn essence, MiceWine creates a compatibility layer that translates Windows API calls into native Android API calls on-the-fly, allowing Windows applications to run on Android devices without requiring a full Windows installation. This eliminates the performance and memory penalties associated with traditional emulation or virtualization methods.\nHowever, it's important to note that MiceWine is still in active development, and compatibility with certain applications or games may vary. Some users have reported issues like black screens or graphical glitches",
+                "icon": "https://www.emuready.com/assets/emulators/micewine.png",
+                "emulator_details": {
+                    "publisher": "KreitinnSoftware",
+                    "release_date": "September 03, 2024",
+                    "platforms": [
+                        "Android"
+                    ],
+                    "website": "https://micewine.pro/",
+                    "developer": "KreitinnSoftware",
+                    "download_link": "https://gplinks.co/Umf17TL"
                 }
             }
         ],
         "PlayStation 3 Emulators": [
             {
+                "name": "aPS3e",
+                "slug": "aps3e",
+                "description": "Native PS3 Emulation: Designed to run directly on Android devices for better performance. Growing Game Compatibility: Supports a growing number of PS3 titles, including popular ones like GTA V, Demon's Souls, and God of War, though not all games are guaranteed to work smoothly. Touch & Controller Support: Features on-screen controls and partial support for Bluetooth controllers for a more console-like experience. No Ads (Free Version): The basic version is free and ad-free, with a premium version available for those who want to support the development team.",
+                "icon": "https://play-lh.googleusercontent.com/hr-DzBQ8j7sUoK0AyGM-LnVPyJFP3W-6VQ4vJev7fUsM2mgNTisANfNAaN5RQbFvlOk=w240-h480-rw",
+                "emulator_details": {
+                    "publisher": "aenu",
+                    "release_date": "November 2024",
+                    "platforms": [
+                        "Android"
+                    ],
+                    "website": "https://aps3e.org/",
+                    "developer": "aenu",
+                    "download_link": "https://gplinks.co/IdNw1ocE"
+                }
+            },
+            {
                 "name": "RPCS3",
                 "slug": "rpcs3",
-                "description": "PlayStation 3 emulator for Windows, Linux, and macOS.",
-                "icon": "https://rpcs3.net/static/img/logo.png",
+                "description": "Official Port: An official Android port of RPCS3 is currently under development.\nEarly Stages: While it shows promise, with some demanding games like God of War 3 running on it, the Android port is still in its early stages and may have limited compatibility and performance compared to the PC version.\nMinimum Requirements: Requires Android 12 or above and a high-end device with a Snapdragon 8 Gen 2 processor or above, and at least 12 GB of RAM for playable performance.\nDevelopment Progress: The official port is being actively developed, and performance and compatibility are expected to improve with updates.",
+                "icon": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQSNQZLpNiOsrYT3-GZBdeUR9hgion__nTaXg&s",
                 "emulator_details": {
                     "publisher": "RPCS3 Team",
-                    "release_date": "2011-05-01",
+                    "release_date": "May 23, 2011",
                     "platforms": [
                         "Windows",
                         "Linux",
-                        "macOS"
+                        "Android"
                     ],
                     "website": "https://rpcs3.net/",
-                    "developer": "RPCS3 Team",
-                    "download_link": "https://rpcs3.net/download"
+                    "developer": "DH and Hykem",
+                    "download_link": "https://gplinks.co/JjJs3"
                 }
             }
         ],
@@ -195,21 +305,55 @@
         ],
         "PlayStation 2 Emulators": [
             {
-                "name": "PCSX2",
-                "slug": "pcsx2",
-                "description": "PlayStation 2 emulator for Windows, Linux, and macOS.",
-                "icon": "https://pcsx2.net/static/img/logo.png",
+                "name": "DamonPS2",
+                "slug": "damonps2",
+                "description": "DamonPS2 is available in both free and Pro versions. The Pro version offers additional features like HD rendering, gamepad support, and the ability to save game progress using memory cards.\nCriticisms: Users have reported issues with stability, compatibility, and performance, even on high-end devices. Concerns have also been raised about the app's licensing and its alleged use of the open-source PCSX2 code without proper attribution.\nIn short, DamonPS2 allows you to play a wide range of PS2 games on your Android device, but it's essential to be aware of the potential performance and compatibility issues.",
+                "icon": "https://play-lh.googleusercontent.com/aSTpJURB3bL0NVI5L-hVQ9OP8J7NNJf_5T9qQayK7yypWTumCfr85EtXpnlBu4cvljE",
+                "emulator_details": {
+                    "publisher": "DamonPS2 Emulator Studio",
+                    "release_date": "January 2018",
+                    "platforms": [
+                        "Android"
+                    ],
+                    "website": "http://damonemu.com/#about",
+                    "developer": "DamonPS2 Team",
+                    "download_link": "https://gplinks.co/AVmiq1qO"
+                }
+            },
+            {
+                "name": "PPSS22",
+                "slug": "ppss22",
+                "description": "PPSS22 Emulator is a PS2 (PlayStation 2) emulator available for Android devices.\nHere's a summary of its features and other relevant information:\nPlatform: Android.\nPurpose: Emulates PlayStation 2 games on Android devices.\nKey Features:\nGood compatibility with PS2 games.\nSupports external game controllers.\nAllows easy saving and loading of game states.\nAims for fast game speeds, similar to the original console.\nOffers network gaming capabilities.\nSupports compressed game ROMs in zipped/7z/rar formats.\nRuns PS2 games efficiently on ARM devices with X64 architecture.",
+                "icon": "https://play-lh.googleusercontent.com/1Gugp03xyWsArdbO_kFkt-iXBOFTBzZF0qAPh-uEsu70G7EaVy8op_aI3SZXQZm86g",
+                "emulator_details": {
+                    "publisher": "Blue Oliver's",
+                    "release_date": "July 26, 2020",
+                    "platforms": [
+                        "Android"
+                    ],
+                    "website": "https://pcsx2.net/",
+                    "developer": "PPSS22 Team",
+                    "download_link": "https://gplinks.co/Aw5V"
+                }
+            },
+            {
+                "name": "Play!",
+                "slug": "play",
+                "description": "PCSX2 from their official website. Nightly builds often include the newest features and fixes. You may need a tool like 7-Zip to extract the downloaded files.\nAcquire PS2 BIOS files: For legal reasons, PCSX2 doesn't come with the necessary PS2 BIOS files. You'll need to obtain these files yourself, either by extracting them from your own PS2 console or by finding them online (though downloading them may have legal implications depending on your region and the specific laws).\nGet PS2 game ROMs (ISO files): You'll also need the game files in ISO format to play them with the emulator. Legally, this generally involves creating backups of games you physically own.\nConfigure PCSX2:\nDuring the initial setup wizard, select your preferred language.\nPoint PCSX2 to your PS2 BIOS files.\nAdjust graphics settings based on your PC's hardware. You can try different rendering options like Vulkan, OpenGL, or Direct3D for better performance or compatibility with your graphics card.\nConsider setting the internal resolution to match your monitor's resolution or even higher for improved visuals.\nEnable widescreen patches (if available) for a modern aspect ratio.\nConfigure controls using your keyboard or a game controller.\nExplore other settings for further optimization, such as audio synchronization and latency.",
+                "icon": "https://images.emulatorgames.net/playstation-2/play.webp",
                 "emulator_details": {
                     "publisher": "PCSX2 Team",
-                    "release_date": "2002-07-12",
+                    "release_date": "March 23, 2002",
                     "platforms": [
                         "Windows",
                         "Linux",
-                        "macOS"
+                        "macOS",
+                        "Android",
+                        "iOS"
                     ],
-                    "website": "https://pcsx2.net/",
-                    "developer": "PCSX2 Team",
-                    "download_link": "https://pcsx2.net/download"
+                    "website": "https://purei.org/downloads.php",
+                    "developer": " Linuzappz and Shadow",
+                    "download_link": "https://gplinks.co/G3sJsf"
                 }
             }
         ]
