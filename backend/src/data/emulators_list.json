@@ -289,17 +289,19 @@
             {
                 "name": "shadPS4",
                 "slug": "shadps4",
-                "description": "PlayStation 4 emulator for Windows.",
-                "icon": "https://shadps4.com/assets/img/logo.png",
+                "description": "Emulator/Compatibility Layer: shadPS4 allows you to run PlayStation 4 games on a different platform (like your PC) by translating the PS4's instructions and resources into something your computer can understand.\nFree and Open-Source: The software is available for free, and its source code is accessible for anyone to inspect, modify, and improve.\nPlatform Support: It is designed to work on Windows, Linux, and macOS operating systems.\nCurrent Status: shadPS4 is currently in early development and can only emulate some games to varying degrees of support.",
+                "icon": "https://upload.wikimedia.org/wikipedia/commons/a/ad/Shadps4.png",
                 "emulator_details": {
                     "publisher": "shadPS4 Team",
-                    "release_date": "2020-01-01",
+                    "release_date": "September 29, 2023",
                     "platforms": [
-                        "Windows"
+                        "Windows",
+                        "Linux",
+                        "macOS"
                     ],
-                    "website": "https://shadps4.com/",
-                    "developer": "shadPS4 Team",
-                    "download_link": "https://shadps4.com/download"
+                    "website": "https://shadps4.net/",
+                    "developer": "George Moralis",
+                    "download_link": "https://gplinks.co/rES9JH"
                 }
             }
         ],
@@ -354,6 +356,48 @@
                     "website": "https://purei.org/downloads.php",
                     "developer": " Linuzappz and Shadow",
                     "download_link": "https://gplinks.co/G3sJsf"
+                }
+            }
+        ],
+        "PlayStation Vita Emulators": [
+            {
+                "name": "Vita3K",
+                "slug": "vita3k",
+                "description": "Vita3K is the world's first functional experimental open-source PlayStation Vita emulator available for Windows, Linux, macOS, and Android. It allows users to play a variety of PlayStation Vita games and homebrew applications on their computer or Android device. Here are some key features and aspects of Vita3K: Cross-platform compatibility (Windows, macOS, Linux, Android), open-source development on GitHub, support for commercial and homebrew games, virtual and physical controller input, and ongoing experimental development. Note: Not all games run perfectly—some may have graphical glitches or performance issues, emulation requires significant hardware resources, and savestates are not currently supported (use in-game saves).",
+                "icon": "https://victorraulrr.net/wp-content/uploads/2023/02/Vita3K-Android-1.png",
+                "emulator_details": {
+                    "publisher": "Vita3K Team",
+                    "release_date": "January 28, 2018",
+                    "platforms": [
+                        "Android",
+                        "Windows",
+                        "Linux",
+                        "macOS"
+                    ],
+                    "website": "https://vita3k.org/",
+                    "developer": "volunteers Team",
+                    "download_link": "https://gplinks.co/o1Tz2"
+                }
+            }
+        ],
+        "Nintendo 3DS Emulators": [
+            {
+                "name": "Citra",
+                "slug": "citra",
+                "description": "Citra is an open-source emulator for the Nintendo 3DS, allowing users to play 3DS games on various platforms, including Windows, macOS, Linux, and Android. It supports both 32-bit and 64-bit systems and offers features like high-resolution rendering, controller support, and online multiplayer. Citra is known for its active development community and compatibility with a wide range of 3DS titles.",
+                "icon": "https://citra-emu.org/assets/img/citra-logo.png",
+                "emulator_details": {
+                    "publisher": "Citra Team",
+                    "release_date": "June 8, 2014",
+                    "platforms": [
+                        "Windows",
+                        "Linux",
+                        "macOS",
+                        "Android"
+                    ],
+                    "website": "https://citra-emu.org/",
+                    "developer": "Citra Team",
+                    "download_link": "https://gplinks.co/2b1a"
                 }
             }
         ]
