@@ -24,6 +24,35 @@
             "name" : "PS2",
             "slug" : "ps2",
             "icon" : "https://logowik.com/content/uploads/images/ps2-playstation-2-monogram5452.logowik.com.webp"
+        },{
+            "name" : "PS Vita",
+            "slug" : "ps-vita",
+            "icon" : "https://i.pinimg.com/564x/fe/02/a8/fe02a8d5641e6390ef39a3972c1e9dd8.jpg"
+        },
+        {
+            "name" : "Nintendo 3DS",
+            "slug" : "nintendo-3ds",
+            "icon" : "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTKL1vpfk1YUir2xQe3sKfq19CE6F4uDSlQ5w&s"
+        },
+        {
+            "name" : "Nintendo Wii",
+            "slug" : "nintendo-wii",
+            "icon" : "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1c/Wii_logo.png/1200px-Wii_logo.png"
+        },
+        {
+            "name" : "Nintendo Wii U",
+            "slug" : "nintendo-wii-u",
+            "icon" : "https://www.nintendoworldreport.com/media/30292/4/1.png"
+        },
+        {
+            "name" : "Xbox",
+            "slug" : "xbox",
+            "icon" : "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f9/Xbox_one_logo.svg/2048px-Xbox_one_logo.svg.png"
+        },
+        {
+            "name" : "Xbox 360",
+            "slug" : "xbox-360",
+            "icon" : "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTP9anaaP-qTdxYBSmHwJE1LodgmXldbGsltw&s"
         }
     ]
 }

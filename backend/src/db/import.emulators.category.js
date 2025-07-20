@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-import { EmulatorCategory } from "../models/emulators.category.model.js";
+import { EmulatorsCategory } from "../models/emulators.category.model.js";
 import dotenv from "dotenv";
 import { readFileSync } from "fs";
 import { fileURLToPath } from "url";
@@ -19,8 +19,8 @@ const emulatorsCategoryData = JSON.parse(
 mongoose.connect(process.env.MONGODB_URI, {
   useNewUrlParser: true, useUnifiedTopology: true,})
   .then(async () => {
-    await EmulatorCategory.deleteMany({});
-    await EmulatorCategory.insertMany(emulatorsCategoryData.emulators_category);
+    await EmulatorsCategory.deleteMany({});
+    await EmulatorsCategory.insertMany(emulatorsCategoryData.emulators_category);
     console.log("Emulators categories imported successfully!");
     process.exit();
   })
