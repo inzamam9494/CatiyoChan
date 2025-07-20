@@ -382,24 +382,47 @@
         ],
         "Nintendo 3DS Emulators": [
             {
-                "name": "Citra",
-                "slug": "citra",
-                "description": "Citra is an open-source emulator for the Nintendo 3DS, allowing users to play 3DS games on various platforms, including Windows, macOS, Linux, and Android. It supports both 32-bit and 64-bit systems and offers features like high-resolution rendering, controller support, and online multiplayer. Citra is known for its active development community and compatibility with a wide range of 3DS titles.",
-                "icon": "https://citra-emu.org/assets/img/citra-logo.png",
+                "name": "Azahar",
+                "slug": "azahar",
+                "description": "Azahar is a merger of two projects that emerged after Citra was discontinued: PabloMK7's Citra fork and Lime3DS. The developers aim to establish Azahar as the new primary platform for the continued development of the 3DS emulator. Azahar is available for Windows, MacOS, Android, and Linux. Features include save states, customizable controls, configuration options for graphics and resolution, and an extensive compatibility list. Azahar Plus, a fork of Azahar, adds support for 3DS files and the ability to download system files from official servers without needing an actual 3DS. Azahar is designed to be user-friendly, allowing users to start playing within minutes of installation. Some users have reported issues with games crashing or running slowly, but deleting the shader folder has reportedly resolved these problems for some. Azahar Plus is said to offer significant performance improvements, delivering up to 40 extra FPS compared to the regular Azahar, even on lower-end Android devices.",
+                "icon": "https://play-lh.googleusercontent.com/q9qryLDkMP750ruc-HabS3atyJIF2YnVEH7Ly-scFdGZK1t7mDURl9Sk01qECsNNwJI",
                 "emulator_details": {
-                    "publisher": "Citra Team",
-                    "release_date": "June 8, 2014",
+                    "publisher": "Azahar Team",
+                    "release_date": "May 6, 2025",
                     "platforms": [
                         "Windows",
                         "Linux",
                         "macOS",
                         "Android"
                     ],
-                    "website": "https://citra-emu.org/",
-                    "developer": "Citra Team",
-                    "download_link": "https://gplinks.co/2b1a"
+                    "website": "https://azahar-emu.org/",
+                    "developer": "Azahar Team",
+                    "download_link": "https://gplinks.co/unBpVti"
                 }
-            }
+            },
+            {
+
+            },
+            {
+                "name": "Citra",
+                "slug": "citra",
+                "description": "Citra is an open-source emulator designed to run Nintendo 3DS games on various platforms, including Windows, macOS, Linux, and Android. It allows users to play 3DS games with enhanced graphics and features not available on the original hardware.\nKey features:\n- Platform Compatibility: Citra is available for Windows, macOS, Linux, and Android devices.\n- Enhanced Graphics: Allows for upscaling games to higher resolutions than the original 3DS hardware.\n- Performance Optimization: Offers customizable settings for performance tweaks to tailor gameplay to your device's capabilities.\n- Networking Support: Enables networked multiplayer for games originally designed for local play.\n- Save States: Allows users to save game progress at any point.\n- User-Friendly Interface: Designed for easy game loading, configuration, and feature access.\n- Controller Support: Supports external physical controllers, including Bluetooth gamepads on Android.",
+                "icon": "https://img.utdstc.com/icon/673/865/673865025e6c0a0f30c7b334aaea2f491f2606bcbf10652871d7c64f8402d91d:200",
+                "emulator_details": {
+                    "publisher": "Citra Team",
+                    "release_date": "April 24, 2014",
+                    "platforms": [
+                        "Windows",
+                        "Linux",
+                        "macOS",
+                        "Android"
+                    ],
+                    "website": "https://citra-emulator.com/",
+                    "developer": "bunnei",
+                    "download_link": "https://gplinks.co/a2rjI"
+                }
+            },
+            {}
         ]
     }
 }

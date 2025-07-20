@@ -13,7 +13,7 @@ const __dirname = dirname(__filename);
 
 // Read JSON file
 const emulatorsListData = JSON.parse(
-  readFileSync(join(__dirname, "../data/emulators_list.json"), "utf8")
+  readFileSync(join(__dirname, "../data/emulators_list.json"), "utf8") 
 );
 
 mongoose.connect(process.env.MONGODB_URI, {
