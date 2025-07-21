@@ -105,7 +105,7 @@
                 "name": "Eden",
                 "slug": "eden",
                 "description": "Eden is an experimental open-source emulator for the Nintendo Switch, built with performance and stability in mind. It is written in C++ with cross-platform support for Windows, Linux and Android.",
-                "icon": "https://eden-emu.org/assets/img/logo.png",
+                "icon": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ-7NddY-5sUSRa6cX_LoFga_UbtDr37i8hOwr8iQQ4asGD2cLiLHFJ49j01OJ5zgQnIrw&usqp=CAU",
                 "emulator_details": {
                     "publisher": "Eden Emulator Team",
                     "release_date": "May 11, 2025",
@@ -254,7 +254,7 @@
                 "name": "aPS3e",
                 "slug": "aps3e",
                 "description": "Native PS3 Emulation: Designed to run directly on Android devices for better performance. Growing Game Compatibility: Supports a growing number of PS3 titles, including popular ones like GTA V, Demon's Souls, and God of War, though not all games are guaranteed to work smoothly. Touch & Controller Support: Features on-screen controls and partial support for Bluetooth controllers for a more console-like experience. No Ads (Free Version): The basic version is free and ad-free, with a premium version available for those who want to support the development team.",
-                "icon": "https://play-lh.googleusercontent.com/hr-DzBQ8j7sUoK0AyGM-LnVPyJFP3W-6VQ4vJev7fUsM2mgNTisANfNAaN5RQbFvlOk=w240-h480-rw",
+                "icon": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQXB2INpf9STYIYfJKCv7iybBbNAk22vR4feQ&s",
                 "emulator_details": {
                     "publisher": "aenu",
                     "release_date": "November 2024",
@@ -342,7 +342,7 @@
                 "name": "Play!",
                 "slug": "play",
                 "description": "PCSX2 from their official website. Nightly builds often include the newest features and fixes. You may need a tool like 7-Zip to extract the downloaded files.\nAcquire PS2 BIOS files: For legal reasons, PCSX2 doesn't come with the necessary PS2 BIOS files. You'll need to obtain these files yourself, either by extracting them from your own PS2 console or by finding them online (though downloading them may have legal implications depending on your region and the specific laws).\nGet PS2 game ROMs (ISO files): You'll also need the game files in ISO format to play them with the emulator. Legally, this generally involves creating backups of games you physically own.\nConfigure PCSX2:\nDuring the initial setup wizard, select your preferred language.\nPoint PCSX2 to your PS2 BIOS files.\nAdjust graphics settings based on your PC's hardware. You can try different rendering options like Vulkan, OpenGL, or Direct3D for better performance or compatibility with your graphics card.\nConsider setting the internal resolution to match your monitor's resolution or even higher for improved visuals.\nEnable widescreen patches (if available) for a modern aspect ratio.\nConfigure controls using your keyboard or a game controller.\nExplore other settings for further optimization, such as audio synchronization and latency.",
-                "icon": "https://images.emulatorgames.net/playstation-2/play.webp",
+                "icon": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTEwD2WBx6gvZHGhcKbEc6k9KBfbxuN2lFYCA&s",
                 "emulator_details": {
                     "publisher": "PCSX2 Team",
                     "release_date": "March 23, 2002",
@@ -385,7 +385,7 @@
                 "name": "Azahar",
                 "slug": "azahar",
                 "description": "Azahar is a merger of two projects that emerged after Citra was discontinued: PabloMK7's Citra fork and Lime3DS. The developers aim to establish Azahar as the new primary platform for the continued development of the 3DS emulator. Azahar is available for Windows, MacOS, Android, and Linux. Features include save states, customizable controls, configuration options for graphics and resolution, and an extensive compatibility list. Azahar Plus, a fork of Azahar, adds support for 3DS files and the ability to download system files from official servers without needing an actual 3DS. Azahar is designed to be user-friendly, allowing users to start playing within minutes of installation. Some users have reported issues with games crashing or running slowly, but deleting the shader folder has reportedly resolved these problems for some. Azahar Plus is said to offer significant performance improvements, delivering up to 40 extra FPS compared to the regular Azahar, even on lower-end Android devices.",
-                "icon": "https://play-lh.googleusercontent.com/q9qryLDkMP750ruc-HabS3atyJIF2YnVEH7Ly-scFdGZK1t7mDURl9Sk01qECsNNwJI",
+                "icon": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS9934iBLlG7AYYQwmOuiKOsJiFdWy-yhtSWQ&s",
                 "emulator_details": {
                     "publisher": "Azahar Team",
                     "release_date": "May 6, 2025",
@@ -401,7 +401,41 @@
                 }
             },
             {
-
+                "name": "MMandarine3DS",
+                "slug": "mandarine3ds",
+                "description": "Mandarine3DS is an open-source Nintendo 3DS emulator that is a fork of Citra Enhanced, an earlier fork of the official Citra emulator.\nHere's what you need to know about Mandarine3DS:\nOpen-source: It is developed openly and the code is available on GitHub.\nFeatures and enhancements: Mandarine3DS focuses on improving performance and adding features not present in the main Citra builds, such as Vulkan optimization, multiplayer support, and various Android-specific fixes and enhancements. It includes features like:\nFrame skipping to improve performance.\nCustom CPU ticks (though caution is advised with settings them too high as it may cause freezing).\nReal-time audio.\nAdreno GPU Boost.\nSupport for favorites, desktop shortcuts, and play time tracking.\nImproved game titles and Discord RPC for PC users.\nA dedicated layout settings tab for PC users.\nVulkan support (recommended for Android 10 and above devices).\nCompatibility: Mandarine3DS supports games in 3DS and CIA formats.\nPlatforms: It is available for Android and PC (Windows, Mac, Linux).\nAvailability: You can find the latest builds on the Mandarine3DS GitHub Releases page.\nCommunity: The developers encourage users to report any bugs they encounter on GitHub or via their Discord server. You can also find discussions and news about Mandarine3DS on subreddits like r/EmulationOnAndroid and r/emulation.\nNote: Mandarine3DS is a fork of Citra, and as such, some features might be experimental and may not be present in the official Citra releases. While it aims to enhance the 3DS emulation experience, be mindful that it may introduce bugs or compatibility issues not present in the official Citra build. ",
+                "icon": "https://avatars.githubusercontent.com/u/170400363?s=280&v=4",
+                "emulator_details": {
+                    "publisher": "Mandarine Team",
+                    "release_date": "August 10, 2024",
+                    "platforms": [
+                        "Windows",
+                        "Linux",
+                        "Android"
+                    ],
+                    "website": "https://mandarine3ds.github.io/",
+                    "developer": "Mandarine Team",
+                    "download_link": "https://gplinks.co/GEJm8c"
+                }
+            },
+            {
+                "name": "Cytrus",
+                "slug": "cytrus",
+                "description": "Based on the provided search results, Cytrus is a Nintendo 3DS emulator that is available for Android devices. It's written in C++ and can be found on GitHub.\nHere's some information regarding Cytrus for Android:\nWhat it is: Cytrus is a 3DS emulator that aims to allow users to play Nintendo 3DS games on their Android devices.\nAvailability: You can find the Cytrus project on GitHub. It's important to note that the official Citra emulator project, which was also a prominent 3DS emulator, has been discontinued. This means that projects like Cytrus, and others based on the Citra codebase, are now important for 3DS emulation on Android.\nAlternatives: While Cytrus is a 3DS emulator, there are other options available for Android, often based on the discontinued Citra emulator. These include Lime3DS, Azahar, and other forks that aim to continue development and improve performance. When choosing an emulator, factors like device compatibility, performance, and features should be considered.\nSetup: Setting up a 3DS emulator on Android generally involves downloading and installing the APK file, granting necessary permissions, and configuring settings. While specific instructions might vary slightly between different emulator forks, online guides and videos can provide detailed walkthroughs.",
+                "icon": "https://img.utdstc.com/icon/673/865/673865025e6c0a0f30c7b334aaea2f491f2606bcbf10652871d7c64f8402d91d:200",
+                "emulator_details": {
+                    "publisher": "Cytrus Team",
+                    "release_date": "March 15, 2025",
+                    "platforms": [
+                        "Windows",
+                        "Linux",
+                        "macOS",
+                        "Android"
+                    ],
+                    "website": "https://cytrus.emuplace.app/",
+                    "developer": "Sudachi dev",
+                    "download_link": "https://gplinks.co/r1Rc"
+                }
             },
             {
                 "name": "Citra",
@@ -422,7 +456,232 @@
                     "download_link": "https://gplinks.co/a2rjI"
                 }
             },
-            {}
+            {
+                "name": "Panda3DS",
+                "slug": "panda3ds",
+                "description": "Panda3DS is a Nintendo 3DS emulator that is available for various platforms, including Android (arm64). It's still in the early stages of development, but it shows great potential.\nPanda3DS on Android can be summarized as follows:\nAvailability: The Android APK (arm64) can be downloaded.\nPerformance: Some users have reported excellent performance, with some games running over 100 FPS.\nFeatures: Lua scripting, Discord bot support, cheats, controller support, and basic amiibo support are included.\nLimitations: Because it's still under development, there are limitations:\nCompatibility: Some games may have graphical or audio issues.\nSettings: A comprehensive configuration menu is currently lacking.\nAudio: Audio support is experimental and can be slow.\n.CIA files: Currently, .cia files are not supported, though this is planned for the future.",
+                "icon": "https://d4.alternativeto.net/rxZCHKWBvagX9cqdeu-ppfQwVPtkdASxhPKAjF0lw6A/rs:fit:140:140:0/g:ce:0:0/exar:1/YWJzOi8vZGlzdC9pY29ucy9wYW5kYTNkc18yMjc3NzkuanBn.png",
+                "emulator_details": {
+                    "publisher": "Panda3DS Team",
+                    "release_date": "July 9, 2023",
+                    "platforms": [
+                        "Windows",
+                        "Linux",
+                        "macOS",
+                        "Android"
+                    ],
+                    "website": "https://panda3ds.com/",
+                    "developer": "Panda3DS Team",
+                    "download_link": "https://gplinks.co/cvlHeEgp"
+                }
+            },
+            {
+                "name": "Mikage",
+                "slug": "mikage",
+                "description": "Mikage is a Nintendo 3DS emulator designed for PC and Android, aiming to provide an authentic 3DS console experience.\nCurrent status:\nMikage is still under development, but it's making significant progress. It can already boot the 3DS HOME Menu and play a good number of commercial games and homebrew applications. Mikage is focused on optimization, utilizing the Vulkan graphics API and an ARM64 JIT for enhanced performance. The developers also aim to capture the full 3DS experience, including features beyond just game emulation like applets (e.g., Mii Maker) and the HOME Menu itself.\nGetting Mikage:\nCurrently, Mikage is not publicly available for download. However, a Developer Edition, primarily for those interested in contributing to the project, was released in late 2024 and is open-source. You can support Mikage's development through Patreon.\nLooking ahead:\nThe developers are prioritizing a polished and user-friendly public release, so a specific release date hasn't been announced yet. Mikage aims to be a robust and performant emulator, pushing the boundaries of 3DS emulation.",
+                "icon": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRwFN-IimaEzArMwhGZlROx9GOojSB2xSII6w&s",
+                "emulator_details": {
+                    "publisher": "Neobrain Team",
+                    "release_date": "January 2025",
+                    "platforms": [
+                        "Windows",
+                        "Android"
+                    ],
+                    "website": "https://mikage.app/",
+                    "developer": "Neobrain Team",
+                    "download_link": "https://www.patreon.com/mikage"
+                }
+            },
+            {
+                "name": "Folium",
+                "slug": "folium",
+                "description": "Folium is a multi-system emulator available on the Apple App Store, allowing users to play retro console games, including those from the Nintendo 3DS. It supports various consoles like Game Boy Advance, Nintendo DS/DSi, NES, SNES, and PlayStation 1, in addition to the 3DS.\nWhile Folium offers a platform for enjoying 3DS games on iOS devices, some users have reported experiencing issues like crashes, overheating, and performance limitations, particularly on older iPhone models. However, the developers are actively working to address these concerns and improve the app's stability and performance.\nIt is important to note that emulators like Folium do not provide games or system files, which users must obtain separately. Additionally, smooth emulation may depend on the device's processing power, with some games potentially running slower on older models.\nAlternative 3DS emulators are available for other platforms. Citra, a discontinued open-source emulator for Windows, macOS, Linux, and Android, was widely considered one of the best before its discontinuation. However, new options like Azahar have emerged as promising alternatives for 3DS emulation, offering improved performance and compatibility across various platforms",
+                "icon": "https://d4.alternativeto.net/Kc1XdUq5raJlP3v4aOVeNemks4pHVf4z-KyqgyFiVSU/rs:fit:280:280:0/g:ce:0:0/exar:1/YWJzOi8vZGlzdC9pY29ucy9mb2xpdW1fMjM0NTk3LmpwZw.png",
+                "emulator_details": {
+                    "publisher": "Folium Team",
+                    "release_date": "May 31, 2024",
+                    "platforms": [
+                        "Windows",
+                        "Linux",
+                        "macOS",
+                        "Android"
+                    ],
+                    "website": "https://folium.emuplace.app/",
+                    "developer": "Folium Team",
+                    "download_link": "https://folium.emuplace.app/"
+                }
+            }
+        ],
+        "PlayStation Portable Emulators": [
+            {
+                "name": "PPSSPP",
+                "slug": "ppsspp",
+                "description": "PPSSPP (short for \"PlayStation Portable Simulator Suitable for Playing Portably\") is a popular, free and open-source emulator that allows you to play PlayStation Portable (PSP) games on various devices.\nKey features:\n- High Compatibility: PPSSPP boasts excellent compatibility with a wide range of PSP titles, with nearly all games being playable on the emulator.\n- Enhanced Graphics: It allows for higher resolutions, antialiasing, image scaling, and supports shaders, improving the visual quality of PSP games beyond their original capabilities.\n- Save States: You can save your game progress at any point and load it later, regardless of whether the game supports in-game saves.\n- Customizable Controls: You can customize the on-screen touch controls or utilize external gamepads and controllers for a more comfortable and precise gaming experience.\n- Multi-platform Availability: PPSSPP is available for a wide range of operating systems, including Windows, macOS, Linux, Android, iOS, Nintendo Wii U, Nintendo Switch, and Xbox Series X/S.\n- Multiplayer Functionality: It supports ad hoc wireless networking, allowing you to play multiplayer games with other users on the same network or even over the internet.",
+                "icon": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dc/PPSSPP_logo.svg/1200px-PPSSPP_logo.svg.png",
+                "emulator_details": {
+                    "publisher": "Henrik Rydgård",
+                    "release_date": "July 1, 2012",
+                    "platforms": [
+                        "Windows",
+                        "Linux",
+                        "macOS",
+                        "Android",
+                        "iOS"
+                    ],
+                    "website": "https://www.ppsspp.org/",
+                    "developer": "Henrik Rydgård",
+                    "download_link": "https://www.ppsspp.org/downloads.html"
+                }
+            }
+        ],
+        "Nintendo Wii Emulators": [
+            {
+                "name": "Dolphin Emulator",
+                "slug": "dolphin",
+                "description": "Dolphin Emulator is a free and open-source program that emulates Nintendo GameCube and Wii consoles, allowing users to play these games on various platforms, including Windows, Linux, macOS, Android, Xbox One, and Xbox Series X/S.\nKey features:\n- Platform Compatibility: Supports a wide range of operating systems, allowing for flexibility in gaming setup.\n- High Definition Graphics: Runs games in full HD (1080p), surpassing the original consoles' resolutions (GameCube: 480i, Wii: 480p).\n- Performance Enhancements: Offers features like customizable graphics settings, including internal resolution scaling, anti-aliasing, and anisotropic filtering, to improve visual fidelity.\n- Controller Flexibility: Supports standard PC input devices like keyboard and mouse, or allows the use of original GameCube controllers via a USB adapter and Wii Remotes via Bluetooth.\n- Multiplayer Options: Includes a Netplay feature for online multiplayer gaming, even for games originally limited to local multiplayer.\n- Save Features: Supports virtual GameCube Memory Cards, emulated Wii flash memory, and save states for flexible game saving.\n- Additional Functionality: Allows for region-free game execution, creation of tool-assisted speedruns, and implementation of cheat codes.",
+                "icon": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTw6gad8Qm2zfVGf1xhC5irB0Y647HmThloQg&s",
+                "emulator_details": {
+                    "publisher": "Dolphin Emulator Team",
+                    "release_date": "July 13, 2003",
+                    "platforms": [
+                        "Windows",
+                        "Linux",
+                        "macOS",
+                        "Android",
+                        "iOS"
+                    ],
+                    "website": "https://dolphin-emu.org/",
+                    "developer": "Hykem and decompilation team",
+                    "download_link": "https://gplinks.co/MVFLIfTy"
+                }
+            },
+            {
+                "name": "RetroArch",
+                "slug": "retroarch",
+                "description": "RetroArch is a free and open-source, cross-platform frontend for emulators, game engines, video games, media players, and other applications. It is known for its ability to run classic games on various systems through its graphical interface. Key features include support for a wide array of retro consoles and handheld devices through downloadable 'cores', cross-platform compatibility (Windows, macOS, Linux, Android, iOS, PlayStation, Nintendo consoles, smart TVs, and web browsers), advanced features like shaders, netplay, rewind, save states, automatic controller configuration, input lag compensation, and a highly customizable interface. RetroArch's open-source nature encourages community involvement and continuous development, ensuring regular updates and improvements.",
+                "icon": "https://img.utdstc.com/icon/c55/e1b/c55e1bfc1aa1b65a87b07b51abb1224b3851c6dd987a154972915d04e8fb0feb:200",
+                "emulator_details": {
+                    "publisher": "Libretro Team",
+                    "release_date": "May 26, 2010",
+                    "platforms": [
+                        "Windows",
+                        "Linux",
+                        "macOS",
+                        "Android",
+                        "iOS"
+                    ],
+                    "website": "https://www.retroarch.com/",
+                    "developer": "Libretro Team",
+                    "download_link": "https://gplinks.co/nplC"
+                }
+            }
+        ],
+        "Nintendo Wii U Emulators": [
+            {
+                "name": "Cemu Emulator",
+                "slug": "cemu",
+                "description": "Cemu is a prominent Wii U emulator that enables users to play Wii U games and applications on their PC or Android devices. It has gained popularity for its ability to run many Wii U games smoothly, even at resolutions higher than the original console's 1080p, and even reaching up to 4K resolution on capable hardware. Key features include high compatibility with popular Wii U titles such as The Legend of Zelda: Breath of the Wild, Mario Kart 8, and Xenoblade Chronicles X; enhanced visuals with support for higher resolutions and community-developed graphics packs; comprehensive controller support for Wii U GamePad, Pro Controller, Classic Controller, as well as Xbox and PlayStation controllers, keyboard, and mouse; and online play through official Nintendo servers (with some limitations on macOS and Linux).",
+                "icon": "https://img.utdstc.com/icon/259/e9f/259e9fcbb50e3cf75a8b397f46d582d207f2ed32cac7b31741a65400e0c69026:200",
+                "emulator_details": {
+                    "publisher": "Cemu Team",
+                    "release_date": "October 13, 2015",
+                    "platforms": [
+                        "Windows",
+                        "Linux",
+                        "macOS",
+                        "Android"
+                    ],
+                    "website": "https://cemu.info/",
+                    "developer": "Exzap and Petergov",
+                    "download_link": "https://gplinks.co/uF5G"
+                }
+            }
+        ],
+        "Xbox Emulators": [
+            {
+                "name": "Xemu",
+                "slug": "xemu",
+                "description": "Xemu is a free and open-source emulator that allows you to play original Xbox games on Windows, macOS, and Linux systems. It's praised for its ease of use and extensive compatibility list, with over 900 playable titles – representing more than 90% of the original Xbox's game catalog.\nKey features and benefits:\n- Low-Level Emulation: Xemu accurately emulates the original Xbox hardware, ensuring high compatibility with games and applications.\n- Cross-Platform Support: It runs natively on Windows, macOS, and Linux, with downloadable binaries or the option to build from source.\n- Enhanced Graphics & Controls: Customize your experience with adjustable resolution scaling (up to 4K), controller support (automatically detecting Xbox controllers), and keyboard control options.\n- Networking: Connect to other Xemu instances or even real Xbox consoles for multiplayer gaming, supporting tunneling services and Xbox Live recreation projects.\n- Save States: Enjoy the convenience of saving and loading your game progress at any point.\n- Active Community: Join the Xemu Discord server for support, troubleshooting, and multiplayer matches.\nGetting started with Xemu:\n1. Download: Get the latest version of Xemu for your operating system from the official XEMU website or from Uptodown.\n2. Required Files: To run Xemu, you'll need the following files, which are not included with the emulator due to legal reasons and must be obtained legally by dumping them from your own Xbox console or by downloading them from sites like the Internet Archive:\n   - MCPX Boot ROM Image (e.g., mcpx_1.0.bin)\n   - Flash ROM Image (BIOS) (e.g., COMPLEX 4627)\n   - Hard Disk Image (e.g., xbox_hdd.qcow2)\n3. Configure Xemu:\n   - Launch Xemu.\n   - Go to Machine → Settings.\n   - Configure the paths to your required files: MCPX ROM path, BIOS ROM path, and HDD Image path.\n   - Click Save.",
+                "icon": "https://avatars.githubusercontent.com/u/61253676?s=280&v=4",
+                "emulator_details": {
+                    "publisher": "Xemu Team",
+                    "release_date": "March 1, 2018",
+                    "platforms": [
+                        "Windows",
+                        "Linux",
+                        "macOS"
+                    ],
+                    "website": "https://xemu.app/",
+                    "developer": "Xemu Team",
+                    "download_link": "https://gplinks.co/zOJuDz"
+                }
+            },
+            {
+                "name": "Xenia Emulator",
+                "slug": "xenia",
+                "description": "Xenia is an open-source research project that aims to emulate Xbox 360 games on modern Windows PCs. Started in 2013, it has progressed significantly, allowing many Xbox 360 games to be played on PC.\nHere's a summary of key information about Xenia:\n1. What it is and how it works\nExperimental Xbox 360 Emulator: Xenia is an actively developed project focused on emulating the Xbox 360's hardware and software, enabling Xbox 360 games to run on Windows computers.\nReverse-Engineering Based: All information for emulation is obtained through reverse engineering of legally acquired devices, games, and publicly available information.\nNot for Illegal Activities: The developers emphasize that Xenia is not for enabling illegal activities and any discussion of such will result in a ban from their communities.\nOpen Source: The code and content are covered under a BSD license, allowing for open collaboration and contributions on platforms like GitHub.\n2. Key features and capabilities\nPlays Xbox 360 Games: Xenia can run a variety of Xbox 360 games on PC, with a growing list of compatible titles, some even playable from start to finish.\nWindows and Linux Support: Primarily developed for Windows, Xenia can also be run on Linux using Wine and Vulkan. However, Linux/SteamOS support is experimental, with higher compatibility for Xbox Live Arcade titles.\nSupports XInput Controllers: By default, Xenia works with XInput controllers like Xbox 360 and Xbox One controllers.\nOptional Manager Tool: Xenia Manager, a separate project, provides a user-friendly interface to manage Xenia settings, install game patches, and organize game saves.",
+                "icon": "https://img.utdstc.com/icon/fc5/c3b/fc5c3bb9553c9e722935198c09766008266e8bdfc60ee7b4fbaa103b522b0c58:200",
+                "emulator_details": {
+                    "publisher": "Xenia Team",
+                    "release_date": "January 2015",
+                    "platforms": [
+                        "Windows",
+                        "Linux"
+                    ],
+                    "website": "https://xenia.jp/",
+                    "developer": "Ben Vanik",
+                    "download_link": "https://xenia.jp/download/"
+                }
+            },
+            {
+                "name": "Xeon Emulator",
+                "slug": "xeon",
+                "description": "Xenon is an experimental Xbox 360 emulator for Windows and Linux, currently in early development and capable of booting the Xbox 360 Linux Loader (XeLL) and some small programs, but not commercial games. It is open-source and actively developed. Note: Xeon is also the name of a processor family by Intel, which can be used for emulation, but older models may lack features required by modern emulators.",
+                "icon": "https://cdn2.steamgriddb.com/thumb/97527c98e8ebb83766c402684ee39bb4.jpg",
+                "emulator_details": {
+                    "publisher": "Xeon Team",
+                    "release_date": "March 2020",
+                    "platforms": [
+                        "Windows"
+                    ],
+                    "website": "https://xeon.emulator.com/",
+                    "developer": "Xeon Team",
+                    "download_link": "https://xeon.emulator.com/download/"
+                }
+            },
+            {
+                "name": "CxBx Emulator",
+                "slug": "cxbx",
+                "description": "Cxbx-Reloaded is an open-source emulator that allows users to play original Xbox games on Windows PCs. It uses High-Level Emulation (HLE), which converts Xbox game executables into native Windows applications instead of simulating the entire Xbox hardware. This approach can potentially improve performance for compatible games.\nKey features and characteristics:\n- No BIOS required: Cxbx-Reloaded includes its own HLE kernel, so a separate Xbox BIOS file is not needed.\n- Growing compatibility: Cxbx-Reloaded is under development, but its compatibility list is extensive, with many games listed as \"playable\" or \"in-game\". The full compatibility list is available on its official website.\n- User-friendly interface: The emulator is designed for easy configuration of graphics, sound, and controls.\n- System requirements: You need a 64-bit Windows 7 or later OS, a multi-core CPU with SSE2 support (Intel i5/AMD Ryzen or better), at least 4GB of RAM (8GB recommended), and a GPU supporting Direct3D 9.0c with Pixel Shader Model 2.x and Vertex Shader Model 3.0.\n- Game compatibility: It works with Xbox executable files (.xbe) and game data. The recommended way to prepare game files is by extracting them from your Xbox games using a modded Xbox and transferring the entire game folder via FTP.\n- Configuration options: You can customize settings like display and render resolution, EEPROM settings (NTSC 480p, widescreen), and controller configurations (XInput and DirectInput are supported).\n- Performance enhancements: Cxbx-Reloaded can use hardware vertex processing and shader caching. For best performance, use a high-performance power plan and close unnecessary background applications.\n- Networking: Low-level emulation (LLE) for networking is implemented, allowing for system-link play in compatible games. This feature is enabled by default and requires proper setup.",
+                "icon": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQT66PAYNP7dQj1i4yYK38OU6f5TtEClTHIfw&s",
+                "emulator_details": {
+                    "publisher": "CxBx Team",
+                    "release_date": "March 1, 2003",
+                    "platforms": [
+                        "Windows"
+                    ],
+                    "website": "https://cxbx-reloaded.co.uk/",
+                    "developer": "CxBx Team",
+                    "download_link": "https://gplinks.co/RBv5SLX"
+                }
+            },
+            {
+                "name": "Vrbox",
+                "slug": "vrbox",
+                "description": "While \"VR Box\" generally refers to simple VR headsets designed for smartphones, the term \"VR Box emulator\" likely refers to software that simulates a VR environment, often to allow users to experience VR content without owning a high-end headset or to run VR games and apps on non-VR devices.\nHere's a look at different types of VR emulators and related concepts:\n1. Emulators for accessing VR content on computers or non-VR devices\nVirtualBox: Oracle VirtualBox is a general-purpose virtualization software that lets you run multiple operating systems on a single machine. While not specifically a VR emulator, you could install an Android OS within VirtualBox and then potentially run Android-based VR applications within that virtual environment. However, performance might be limited.\nAndroid Emulators: Tools like BlueStacks, Nox Player, and LDPlayer allow users to run Android applications and games on their PCs. Some of these emulators might support running VR applications, especially those designed for mobile VR platforms like Google Cardboard or Daydream.\nEmuVR: EmuVR is a unique emulator that recreates a retro gaming environment in VR, allowing users to play classic console games within a virtual room. This is distinct from emulating a VR headset itself, but rather provides a VR environment for playing emulated games.\n2. Emulators for developing and testing VR applications\nVR Emulators within Development Tools: Many VR development software, such as VR Builder within Unity, offer built-in VR emulators. These allow developers to test their applications without needing a physical VR headset. They often involve using keyboard and mouse controls to simulate VR interactions.\nController Emulators: Tools like the Google VR Controller Emulator (now deprecated) were used to simulate VR controller input from a separate device, like a smartphone. This allowed for testing controller interactions in a VR environment without a physical controller.\n3. Alternative approaches\nTrinus VR: Trinus VR is a software solution that allows users to stream PC VR games to their mobile phone, effectively using the phone as a VR headset. This isn't strictly an emulator, but it achieves a similar result of experiencing PC VR content on a different device.",
+                "icon": "https://www.xbox360pcemulator.com/xboxlogo_rotated.png",
+                "emulator_details": {
+                    "publisher": "Vrbox Team",
+                    "release_date": "June 15, 2023",
+                    "platforms": [
+                        "Windows",
+                        "Linux"
+                    ],
+                    "website": "https://www.xbox360pcemulator.com/",
+                    "developer": "Vrbox Team",
+                    "download_link": "https://www.xbox360pcemulator.com/download.html"
+                }
+            }
         ]
     }
 }

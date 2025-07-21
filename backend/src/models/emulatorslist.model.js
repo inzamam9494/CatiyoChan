@@ -57,6 +57,7 @@ const emulatorsListSchema = new Schema({
   "PlayStation 4 Emulators": [emulatorSchema],
   "PlayStation 2 Emulators": [emulatorSchema],
   "PlayStation Vita Emulators": [emulatorSchema],
+  "PlayStation Portable Emulators": [emulatorSchema],
   "Nintendo 3DS Emulators": [emulatorSchema],
   "Nintendo Wii Emulators": [emulatorSchema],
   "Nintendo Wii U Emulators": [emulatorSchema],
