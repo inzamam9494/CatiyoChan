@@ -31,12 +31,12 @@ const getEmulatorsByCategorySlug = asyncHandler(async (req, res, next) => {
     "ps3": "PlayStation 3 Emulators",
     "ps4": "PlayStation 4 Emulators",
     "ps2": "PlayStation 2 Emulators",
-    "ps-vita": "PlayStation Vita Emulators", 
+    "ps-vita": "PlayStation Vita Emulators",
+    "psp": "PlayStation Portable Emulators",
     "nintendo-3ds": "Nintendo 3DS Emulators",
     "nintendo-wii": "Nintendo Wii Emulators",
     "nintendo-wii-u": "Nintendo Wii U Emulators",
     "xbox": "Xbox Emulators",
-    "xbox-360": "Xbox 360 Emulators",
   };
   const emulatorsListKey = categoryMap[slug];
   if (!emulatorsListKey) {
