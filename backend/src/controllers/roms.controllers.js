@@ -30,7 +30,12 @@ const getGamesByCategorySlug = asyncHandler(async (req, res, next) => {
         "windows": "Windows Game List",
         "ps3": "PS3 Game List",
         "ps4": "PS4 Game List",
-        "ps2": "PS2 Game List"
+        "ps2": "PS2 Game List",
+        "psp": "PSP Game List",
+        "ps-vita": "PS Vita Game List",
+        "nintendo-3ds": "Nintendo 3DS Game List",
+        "nintendo-wii": "Nintendo Wii Game List",
+        "xbox": "Xbox Game List",
     };
     
     const gameListKey = categoryMap[slug];
@@ -73,7 +78,12 @@ const getGameById = asyncHandler(async (req, res, next) => {
         "windows": "Windows Game List",
         "ps3": "PS3 Game List",
         "ps4": "PS4 Game List",
-        "ps2": "PS2 Game List"
+        "ps2": "PS2 Game List",
+        "psp": "PSP Game List",
+        "ps-vita": "PS Vita Game List",
+        "nintendo-3ds": "Nintendo 3DS Game List",
+        "nintendo-wii": "Nintendo Wii Game List",
+        "xbox": "Xbox Game List",
     };
 
     for (const [slug, categoryKey] of Object.entries(categoryMap)) {
