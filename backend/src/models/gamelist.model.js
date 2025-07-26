@@ -71,7 +71,12 @@ const gameListSchema = new Schema({
   "PS3 Game List": [gameSchema],
   "PS4 Game List": [gameSchema],
   "PS2 Game List": [gameSchema],
-  "Windows Game List": [gameSchema]
+  "Windows Game List": [gameSchema],
+  "PSP Game List": [gameSchema],
+  "PS Vita Game List": [gameSchema],
+  "Nintendo 3DS Game List": [gameSchema],
+  "Nintendo Wii Game List": [gameSchema],
+  "Xbox Game List": [gameSchema],
 },
 {
   timestamps: true,
