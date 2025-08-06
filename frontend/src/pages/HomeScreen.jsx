@@ -36,7 +36,7 @@ const HomeScreen = () => {
                   onChange={(e) => setSearchQuery(e.target.value)}
                   onKeyPress={(e) => e.key === 'Enter' && handleSearch(e)}
                   placeholder="Search for roms..."
-                  className="flex-1 bg-transparent text-white placeholder-white/60 text-lg outline-none py-3 pr-4"
+                  className="flex-1 bg-transparent text-white placeholder-white/60 text-lg outline-none py-3 pr-5"
                 />
                 {searchQuery && (
                   // Clear button to reset the search input
