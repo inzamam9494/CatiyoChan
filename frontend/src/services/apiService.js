@@ -40,32 +40,63 @@ export const getGamesByCategory = async (categorySlug, page = 1, limit = 20) => 
 
 export const getGameById = async (categorySlug, gameId) => {
   try {
-    const response = await axios.get(`${ROMS_CATEGORIES}/${categorySlug}`);
+    console.log("Searching for game with ID:", gameId, "in category:", categorySlug);
+    
     let games = [];
+    let page = 1;
+    let hasMore = true;
+    const limit = 500; // Maximum allowed by backend (increased from 100)
+    
+    // Search through pages until we find the game or run out of pages
+    while (hasMore && games.length === 0) {
+      console.log(`Fetching page ${page} for category ${categorySlug}`);
+      const response = await axios.get(`${ROMS_CATEGORIES}/${categorySlug}?page=${page}&limit=${limit}`);
+      
+      let pageGames = [];
+      
+      // Handle both paginated and legacy response formats
+      if (response.data.message && response.data.message.games) {
+        // New paginated format
+        pageGames = response.data.message.games;
+        hasMore = response.data.message.pagination?.hasMore || false;
+        console.log(`Page ${page}: found ${pageGames.length} games, hasMore: ${hasMore}`);
+      } else if (Array.isArray(response.data.message)) {
+        // Legacy format - all games in one response
+        pageGames = response.data.message;
+        hasMore = false; // No more pages in legacy format
+        console.log(`Legacy format: found ${pageGames.length} games`);
+      } else {
+        console.error("Unexpected response format:", response.data.message);
+        throw new Error("Unexpected response format from server");
+      }
 
-    // Handle both paginated and legacy response formats
-    if (response.data.message && response.data.message.games) {
-      // New paginated format
-      games = response.data.message.games;
-    } else if (Array.isArray(response.data.message)) {
-      // Legacy format
-      games = response.data.message;
-    } else {
-      console.error("Unexpected response format:", response.data.message);
-      throw new Error("Unexpected response format from server");
+      // Look for the specific game in this page
+      const foundGame = pageGames.find(
+        (g) => g.game_id?.toString() === gameId?.toString() || 
+               g._id?.toString() === gameId?.toString() ||
+               g.game_id === parseInt(gameId)
+      );
+
+      if (foundGame) {
+        console.log("Found game:", foundGame);
+        return foundGame;
+      }
+
+      // If not found and there are more pages, continue to next page
+      if (hasMore) {
+        page++;
+        // Safety check to avoid infinite loops
+        if (page > 50) {
+          console.warn("Stopped searching after 50 pages");
+          hasMore = false;
+        }
+      }
     }
 
-    // Find the specific game by ID
-    const game = games.find(
-      (g) => g.game_id?.toString() === gameId || g._id === gameId
-    );
-
-    if (!game) {
-      throw new Error("Game not found");
-    }
-
-    console.log("Fetched game details:", game);
-    return game;
+    // If we get here, the game was not found
+    console.error("Game not found after searching all pages. Searched for ID:", gameId);
+    throw new Error("Game not found");
+    
   } catch (error) {
     console.error("Error fetching game by ID:", error);
     throw error;

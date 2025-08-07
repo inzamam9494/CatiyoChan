@@ -32,8 +32,8 @@ const getGamesByCategorySlug = asyncHandler(async (req, res, next) => {
         throw new ApiError(400, "Page number must be greater than 0");
     }
     
-    if (limitNum < 1 || limitNum > 100) {
-        throw new ApiError(400, "Limit must be between 1 and 100");
+    if (limitNum < 1 || limitNum > 500) {
+        throw new ApiError(400, "Limit must be between 1 and 500");
     }
     
     // Map slug to gamelist key 
@@ -125,7 +125,11 @@ const getGameById = asyncHandler(async (req, res, next) => {
 
     for (const [slug, categoryKey] of Object.entries(categoryMap)) {
         if (gamelistDoc[categoryKey]) {
-            const game = gamelistDoc[categoryKey].find(game => game._id.toString() === id || game.id === id);
+            const game = gamelistDoc[categoryKey].find(game => 
+                game._id?.toString() === id || 
+                game.id?.toString() === id || 
+                game.game_id?.toString() === id
+            );
             if (game) {
                 foundGame = game;
                 foundCategory = slug;

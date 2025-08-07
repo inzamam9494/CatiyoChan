@@ -30,7 +30,8 @@ const GameDetailScreen = () => {
   console.log('gameDetails.game_id:', gameDetails?.game_id);
   
   // Get comments for this game - use the actual game ID from gameDetails
-  const gameId = gameDetails?._id || gameDetails?.game_id || id;
+  // Convert to number to ensure consistency
+  const gameId = gameDetails?.game_id || parseInt(id) || gameDetails?._id;
   const { comments, loading: commentsLoading, error: commentsError, refetchComments } = useGameComments(gameId);
   
   // Debug: Check comments data type and structure
@@ -236,7 +237,7 @@ const GameDetailScreen = () => {
           </div>
           <RequestHelpCard onClick={openModal} />
           <CommentCard 
-            gameId={id}
+            gameId={gameId}
             onCommentPosted={handleCommentPosted}
           />
            <div className="flex flex-col justify-center items-start p-2 border-2 border-cyan-400 rounded-lg mt-12">
