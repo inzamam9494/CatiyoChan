@@ -2,4 +2,5 @@
 export { useResponsive, useBreakpoint } from './useMediaQuery'
 export { useMenu } from './useMenu'
 export { useSearch } from './useSearch'
-export { useRomsCategories, useGamesByCategory, useGameDetails, usePostComment, useGameComments, useEmulatorComments, useReportIssue, usePostRequiresRomOrEmulator } from './useApi' 
+export { useInfiniteScroll } from './useInfiniteScroll'
+export { useRomsCategories, useGamesByCategory, usePaginatedGames, useGameDetails, usePostComment, useGameComments, useEmulatorComments, useReportIssue, usePostRequiresRomOrEmulator } from './useApi' 

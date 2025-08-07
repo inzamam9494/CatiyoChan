@@ -19,11 +19,19 @@ export const getRomsCategories = async () => {
   }
 };
 
-export const getGamesByCategory = async (categorySlug) => {
+export const getGamesByCategory = async (categorySlug, page = 1, limit = 20) => {
   try {
-    const response = await axios.get(`${ROMS_CATEGORIES}/${categorySlug}`);
+    const response = await axios.get(`${ROMS_CATEGORIES}/${categorySlug}?page=${page}&limit=${limit}`);
     console.log("Fetched games for category:", response.data.message);
-    return response.data.message;
+    
+    // Check if the response is paginated (new format) or legacy format
+    if (response.data.message && response.data.message.games) {
+      // New paginated format
+      return response.data.message;
+    } else {
+      // Legacy format - return as is for backward compatibility
+      return response.data.message;
+    }
   } catch (error) {
     console.error("Error fetching games by category:", error);
     throw error;
@@ -32,20 +40,63 @@ export const getGamesByCategory = async (categorySlug) => {
 
 export const getGameById = async (categorySlug, gameId) => {
   try {
-    const response = await axios.get(`${ROMS_CATEGORIES}/${categorySlug}`);
-    const games = response.data.message;
+    console.log("Searching for game with ID:", gameId, "in category:", categorySlug);
+    
+    let games = [];
+    let page = 1;
+    let hasMore = true;
+    const limit = 500; // Maximum allowed by backend (increased from 100)
+    
+    // Search through pages until we find the game or run out of pages
+    while (hasMore && games.length === 0) {
+      console.log(`Fetching page ${page} for category ${categorySlug}`);
+      const response = await axios.get(`${ROMS_CATEGORIES}/${categorySlug}?page=${page}&limit=${limit}`);
+      
+      let pageGames = [];
+      
+      // Handle both paginated and legacy response formats
+      if (response.data.message && response.data.message.games) {
+        // New paginated format
+        pageGames = response.data.message.games;
+        hasMore = response.data.message.pagination?.hasMore || false;
+        console.log(`Page ${page}: found ${pageGames.length} games, hasMore: ${hasMore}`);
+      } else if (Array.isArray(response.data.message)) {
+        // Legacy format - all games in one response
+        pageGames = response.data.message;
+        hasMore = false; // No more pages in legacy format
+        console.log(`Legacy format: found ${pageGames.length} games`);
+      } else {
+        console.error("Unexpected response format:", response.data.message);
+        throw new Error("Unexpected response format from server");
+      }
 
-    // Find the specific game by ID
-    const game = games.find(
-      (g) => g._id === gameId || g.game_id.toString() === gameId
-    );
+      // Look for the specific game in this page
+      const foundGame = pageGames.find(
+        (g) => g.game_id?.toString() === gameId?.toString() || 
+               g._id?.toString() === gameId?.toString() ||
+               g.game_id === parseInt(gameId)
+      );
 
-    if (!game) {
-      throw new Error("Game not found");
+      if (foundGame) {
+        console.log("Found game:", foundGame);
+        return foundGame;
+      }
+
+      // If not found and there are more pages, continue to next page
+      if (hasMore) {
+        page++;
+        // Safety check to avoid infinite loops
+        if (page > 50) {
+          console.warn("Stopped searching after 50 pages");
+          hasMore = false;
+        }
+      }
     }
 
-    console.log("Fetched game details:", game);
-    return game;
+    // If we get here, the game was not found
+    console.error("Game not found after searching all pages. Searched for ID:", gameId);
+    throw new Error("Game not found");
+    
   } catch (error) {
     console.error("Error fetching game by ID:", error);
     throw error;
@@ -182,18 +233,41 @@ export const postRequiresRomOrEmulator = async (data) => {
   }
 };
 
-// Search functionality - searches both games and emulators
-export const searchContent = async (query) => {
+// Search functionality - searches both games and emulators with pagination
+export const searchContent = async (query, page = 1, limit = 10) => {
   try {
     const searchQuery = query.toLowerCase().trim();
 
-    // Get all games from all categories
-    const romsCategories = await getRomsCategories();
-    let allGames = [];
+    // If we implement search pagination on backend, use this:
+    // const response = await axios.get(`${SEARCH_ENDPOINT}?q=${encodeURIComponent(searchQuery)}&page=${page}&limit=${limit}`);
+    // return response.data.message;
 
-    for (const category of romsCategories) {
+    // Current implementation - fetch and filter (for now)
+    let allGames = [];
+    let allEmulators = [];
+
+    // Get limited categories for performance
+    const romsCategories = await getRomsCategories();
+    const emulatorCategories = await getEmulatorsList();
+
+    // Limit the number of categories to search to improve performance
+    const maxCategoriesToSearch = 5;
+    const limitedRomsCategories = romsCategories.slice(0, maxCategoriesToSearch);
+    const limitedEmulatorCategories = emulatorCategories.slice(0, maxCategoriesToSearch);
+
+    // Get games from limited categories
+    for (const category of limitedRomsCategories) {
       try {
-        const games = await getGamesByCategory(category.slug);
+        // Fetch only first page of each category for better performance
+        const gamesData = await getGamesByCategory(category.slug, 1, 20);
+        let games = [];
+        
+        if (gamesData && gamesData.games) {
+          games = gamesData.games;
+        } else if (Array.isArray(gamesData)) {
+          games = gamesData.slice(0, 20); // Limit to first 20 in legacy format
+        }
+        
         allGames.push(
           ...games.map((game) => ({
             ...game,
@@ -207,15 +281,15 @@ export const searchContent = async (query) => {
       }
     }
 
-    // Get all emulators
-    const emulatorCategories = await getEmulatorsList();
-    let allEmulators = [];
-
-    for (const category of emulatorCategories) {
+    // Get emulators from limited categories
+    for (const category of limitedEmulatorCategories) {
       try {
         const emulators = await getEmulatorsBySlug(category.slug);
+        // Limit emulators per category
+        const limitedEmulators = Array.isArray(emulators) ? emulators.slice(0, 20) : [];
+        
         allEmulators.push(
-          ...emulators.map((emulator) => ({
+          ...limitedEmulators.map((emulator) => ({
             ...emulator,
             type: "emulator",
             category: category.slug,
@@ -227,7 +301,7 @@ export const searchContent = async (query) => {
       }
     }
 
-    // Search in games
+    // Search in games with more specific matching
     const matchingGames = allGames.filter(
       (game) =>
         game.game_name?.toLowerCase().includes(searchQuery) ||
@@ -245,10 +319,34 @@ export const searchContent = async (query) => {
         emulator.emulator_details?.publisher?.toLowerCase().includes(searchQuery)
     );
 
+    // Sort results by relevance (exact matches first)
+    const sortByRelevance = (items, query, nameField) => {
+      return items.sort((a, b) => {
+        const aName = a[nameField]?.toLowerCase() || '';
+        const bName = b[nameField]?.toLowerCase() || '';
+        
+        // Exact matches first
+        if (aName === query && bName !== query) return -1;
+        if (bName === query && aName !== query) return 1;
+        
+        // Starts with query
+        if (aName.startsWith(query) && !bName.startsWith(query)) return -1;
+        if (bName.startsWith(query) && !aName.startsWith(query)) return 1;
+        
+        // Alphabetical order
+        return aName.localeCompare(bName);
+      });
+    };
+
+    const sortedGames = sortByRelevance(matchingGames, searchQuery, 'game_name');
+    const sortedEmulators = sortByRelevance(matchingEmulators, searchQuery, 'name');
+
     return {
-      games: matchingGames,
-      emulators: matchingEmulators,
-      totalResults: matchingGames.length + matchingEmulators.length,
+      games: sortedGames,
+      emulators: sortedEmulators,
+      totalResults: sortedGames.length + sortedEmulators.length,
+      searchedCategories: limitedRomsCategories.length + limitedEmulatorCategories.length,
+      totalCategories: romsCategories.length + emulatorCategories.length
     };
   } catch (error) {
     console.error("Error searching content:", error);
