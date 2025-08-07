@@ -27,11 +27,11 @@ const SearchResultsScreen = () => {
   }
 
   const handleGameClick = (game) => {
-    navigate(`/games/${game.category}/${game._id}`);
+    navigate(`/games/${game.category}/${game.game_id || game._id}`);
   };
 
   const handleEmulatorClick = (emulator) => {
-    navigate(`/emulators/${emulator.category}/${emulator._id}`, {
+    navigate(`/emulators/${emulator.category}/${emulator.slug || emulator._id}`, {
       state: { emulatorData: emulator }
     });
   };
@@ -56,8 +56,11 @@ const SearchResultsScreen = () => {
           <div className={`grid ${isDesktop ? 'grid-cols-4' : 'grid-cols-2'} gap-4`}>
             {results.games.map((game, index) => (
               <GameCard
-                key={game._id || index}
+                key={game.game_id || game._id || index}
                 game={game}
+                title={game.game_name}
+                imgUrl={game.game_image || "https://via.placeholder.com/150x150?text=Game"}
+                size={game.game_details?.filesize || game.game_size || "Unknown"}
                 onClick={() => handleGameClick(game)}
               />
             ))}
@@ -74,7 +77,7 @@ const SearchResultsScreen = () => {
           <div className={`grid ${isDesktop ? 'grid-cols-4' : 'grid-cols-2'} gap-4`}>
             {results.emulators.map((emulator, index) => (
               <div 
-                key={emulator._id || index}
+                key={emulator.slug || emulator._id || index}
                 onClick={() => handleEmulatorClick(emulator)}
                 className="bg-gray-800 rounded-lg p-4 hover:bg-gray-700 transition-colors cursor-pointer border border-cyan-400"
               >

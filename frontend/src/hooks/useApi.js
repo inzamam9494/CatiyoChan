@@ -68,6 +68,103 @@ export const useGamesByCategory = (categorySlug) => {
   return { games, loading, error };
 };
 
+// New hook for paginated games with infinite scroll
+export const usePaginatedGames = (categorySlug, pageSize = 20) => {
+  const [games, setGames] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const [loadingMore, setLoadingMore] = useState(false);
+  const [error, setError] = useState(null);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [hasMore, setHasMore] = useState(true);
+  const [totalGames, setTotalGames] = useState(0);
+
+  // Initial load
+  useEffect(() => {
+    if (!categorySlug) return;
+    
+    const fetchInitialGames = async () => {
+      try {
+        setLoading(true);
+        setError(null);
+        setGames([]);
+        setCurrentPage(1);
+        setHasMore(true);
+        
+        const data = await getGamesByCategory(categorySlug, 1, pageSize);
+        
+        if (data && data.games && data.pagination) {
+          // New paginated format from backend
+          setGames(data.games);
+          setTotalGames(data.pagination.totalGames);
+          setHasMore(data.pagination.hasMore);
+        } else if (Array.isArray(data)) {
+          // Legacy format - all games returned at once
+          setGames(data);
+          setTotalGames(data.length);
+          setHasMore(false); // No more pages in legacy format
+        } else {
+          console.error('Unexpected data format:', data);
+          setError(new Error('Unexpected response format'));
+        }
+      } catch (err) {
+        setError(err);
+        console.error("Failed to fetch initial games:", err);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchInitialGames();
+  }, [categorySlug, pageSize]);
+
+  // Load more games
+  const loadMore = async () => {
+    if (loadingMore || !hasMore) return;
+
+    try {
+      setLoadingMore(true);
+      setError(null);
+      
+      const nextPage = currentPage + 1;
+      const newData = await getGamesByCategory(categorySlug, nextPage, pageSize);
+      
+      if (newData && newData.games && newData.pagination) {
+        // New paginated format
+        const newGames = newData.games;
+        
+        if (newGames.length > 0) {
+          setGames(prev => [...prev, ...newGames]);
+          setCurrentPage(nextPage);
+          setTotalGames(newData.pagination.totalGames);
+          setHasMore(newData.pagination.hasMore);
+        } else {
+          setHasMore(false);
+        }
+      } else {
+        // If we get here in legacy format, we shouldn't be loading more
+        setHasMore(false);
+      }
+      
+    } catch (err) {
+      setError(err);
+      console.error("Failed to load more games:", err);
+    } finally {
+      setLoadingMore(false);
+    }
+  };
+
+  return { 
+    games, 
+    loading, 
+    loadingMore, 
+    error, 
+    hasMore, 
+    totalGames,
+    loadMore,
+    currentPage 
+  };
+};
+
 // Hook for fetching specific game details
 export const useGameDetails = (categorySlug, gameId) => {
   const [gameDetails, setGameDetails] = useState(null);

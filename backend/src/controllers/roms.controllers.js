@@ -17,10 +17,23 @@ const getAllRomsCategories = asyncHandler(async (req, res, next) => {
 
 const getGamesByCategorySlug = asyncHandler(async (req, res, next) => {
     const { slug } = req.params;
+    const { page = 1, limit = 20 } = req.query;
     
     // Validate slug parameter
     if (!slug) {
         throw new ApiError(400, "Category slug is required");
+    }
+    
+    // Convert page and limit to numbers and validate
+    const pageNum = parseInt(page);
+    const limitNum = parseInt(limit);
+    
+    if (pageNum < 1) {
+        throw new ApiError(400, "Page number must be greater than 0");
+    }
+    
+    if (limitNum < 1 || limitNum > 100) {
+        throw new ApiError(400, "Limit must be between 1 and 100");
     }
     
     // Map slug to gamelist key 
@@ -52,8 +65,32 @@ const getGamesByCategorySlug = asyncHandler(async (req, res, next) => {
         throw new ApiError(404, `No games found for category: ${gameListKey}`);
     }
 
+    const allGames = gamelistDoc[gameListKey];
+    const totalGames = allGames.length;
+    
+    // Calculate pagination
+    const startIndex = (pageNum - 1) * limitNum;
+    const endIndex = startIndex + limitNum;
+    const paginatedGames = allGames.slice(startIndex, endIndex);
+    
+    // Calculate pagination metadata
+    const totalPages = Math.ceil(totalGames / limitNum);
+    const hasMore = pageNum < totalPages;
+    const hasPrevious = pageNum > 1;
+
     res.status(200).json(
-        new ApiResponse(200, `Games fetched successfully for ${slug}`, gamelistDoc[gameListKey])
+        new ApiResponse(200, `Games fetched successfully for ${slug}`, {
+            games: paginatedGames,
+            pagination: {
+                currentPage: pageNum,
+                totalPages,
+                totalGames,
+                hasMore,
+                hasPrevious,
+                pageSize: limitNum,
+                count: paginatedGames.length
+            }
+        })
     );
 });
 
