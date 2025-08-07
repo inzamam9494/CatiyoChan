@@ -77,7 +77,7 @@ const GameScreen = () => {
             {games.map((game, index) => (
               <GameCard
                 key={game._id || game.game_id || index}
-                onClick={() => handleGameClick(game._id || game.game_id)}
+                onClick={() => handleGameClick(game.game_id || game._id)}
                 title={game.game_name}
                 imgUrl={game.game_image || "https://via.placeholder.com/250x350?text=Game"}
                 size={game.game_size}
@@ -136,7 +136,7 @@ const GameScreen = () => {
             {games.map((game, index) => (
               <GameCard
                 key={game._id || game.game_id || index}
-                onClick={() => handleGameClick(game._id || game.game_id)}
+                onClick={() => handleGameClick(game.game_id || game._id)}
                 title={game.game_name}
                 imgUrl={game.game_image || "https://via.placeholder.com/250x350?text=Game"}
                 size={game.game_size}

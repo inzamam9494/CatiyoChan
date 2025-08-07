@@ -41,11 +41,23 @@ export const getGamesByCategory = async (categorySlug, page = 1, limit = 20) => 
 export const getGameById = async (categorySlug, gameId) => {
   try {
     const response = await axios.get(`${ROMS_CATEGORIES}/${categorySlug}`);
-    const games = response.data.message;
+    let games = [];
+
+    // Handle both paginated and legacy response formats
+    if (response.data.message && response.data.message.games) {
+      // New paginated format
+      games = response.data.message.games;
+    } else if (Array.isArray(response.data.message)) {
+      // Legacy format
+      games = response.data.message;
+    } else {
+      console.error("Unexpected response format:", response.data.message);
+      throw new Error("Unexpected response format from server");
+    }
 
     // Find the specific game by ID
     const game = games.find(
-      (g) => g._id === gameId || g.game_id.toString() === gameId
+      (g) => g.game_id?.toString() === gameId || g._id === gameId
     );
 
     if (!game) {

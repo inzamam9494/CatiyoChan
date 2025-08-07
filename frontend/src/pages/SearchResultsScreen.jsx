@@ -27,7 +27,7 @@ const SearchResultsScreen = () => {
   }
 
   const handleGameClick = (game) => {
-    navigate(`/games/${game.category}/${game.game_id || game._id}`);
+    navigate(`/games/${game.category}/${game._id}`);
   };
 
   const handleEmulatorClick = (emulator) => {

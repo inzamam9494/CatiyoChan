@@ -10,8 +10,8 @@ const RomsScreen = () => {
   const { categories, loading, error } = useRomsCategories();
 
   const handleNavigateToGames = (category) => {
-    // Create URL-friendly slug from category name
-    const categorySlug = category.name.toLowerCase()
+    // Use the existing slug from the category data instead of creating one
+    const categorySlug = category.slug || category.name.toLowerCase()
       .replace(/\s+/g, '-')
       .replace(/[^\w-]/g, '');
     navigate(`/games/${categorySlug}`); 
