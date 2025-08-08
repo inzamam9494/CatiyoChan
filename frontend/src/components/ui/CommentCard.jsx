@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { Send } from 'lucide-react'
 import { usePostComment, usePostEmulatorComment } from '../../hooks/useApi'
 
-const CommentCard = ({ gameId, emulatorId, onCommentPosted }) => {
+const CommentCard = ({ gameId, gameCategory, emulatorId, emulatorCategory, onCommentPosted }) => {
   // Form state
   const [content, setContent] = useState('');
   const [name, setName] = useState('');
@@ -35,6 +35,7 @@ const CommentCard = ({ gameId, emulatorId, onCommentPosted }) => {
           name: name.trim(),
           email: email.trim(),
           game: gameId,
+          gameCategory: gameCategory,
           commentType: 'game'
         };
         
@@ -46,7 +47,9 @@ const CommentCard = ({ gameId, emulatorId, onCommentPosted }) => {
           content: content.trim(),
           name: name.trim(),
           email: email.trim(),
-          emulator: emulatorId
+          emulator: emulatorId,
+          emulatorCategory: emulatorCategory,
+          commentType: 'emulator'
         };
         
         console.log('Submitting emulator comment:', commentData);

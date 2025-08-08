@@ -39,7 +39,7 @@ router.route("/emulators-categories/:slug").get(getEmulatorsByCategorySlug);
 
 // Comment routes
 router.route("/comments").post(createComment).get(getAllComments);
-router.route("/comments/game/:gameId").get(getGameComments);
+router.route("/comments/game/:category/:gameId").get(getGameComments);
 
 router.route("/comments/:commentId").delete(deleteComment).put(updateComment);
 

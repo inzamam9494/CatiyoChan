@@ -6,7 +6,7 @@ import { EmulatorComment } from "../models/emulators.comment.model.js";
 
 // Create a new comment
 const createComment = asyncHandler(async (req, res) => {
-  const { content, name, email, game, emulator, commentType } = req.body;
+  const { content, name, email, game, gameCategory, emulator, emulatorCategory, commentType } = req.body;
 
   console.log("Backend - Received comment data:", req.body);
   console.log("Extracted fields:", {
@@ -14,7 +14,9 @@ const createComment = asyncHandler(async (req, res) => {
     name,
     email,
     game,
+    gameCategory,
     emulator,
+    emulatorCategory,
     commentType,
   });
 
@@ -32,11 +34,15 @@ const createComment = asyncHandler(async (req, res) => {
   }
 
   // Validate reference based on commentType
-  if (commentType === "game" && !game) {
-    throw new ApiError(400, "Game ID is required for game comments");
+  if (commentType === "game") {
+    if (!game || !gameCategory) {
+      throw new ApiError(400, "Game ID and category are required for game comments");
+    }
   }
-  if (commentType === "emulator" && !emulator) {
-    throw new ApiError(400, "Emulator ID is required for emulator comments");
+  if (commentType === "emulator") {
+    if (!emulator || !emulatorCategory) {
+      throw new ApiError(400, "Emulator ID and category are required for emulator comments");
+    }
   }
 
   // Create comment
@@ -45,7 +51,9 @@ const createComment = asyncHandler(async (req, res) => {
     name,
     email,
     game: commentType === "game" ? game : undefined,
+    gameCategory: commentType === "game" ? gameCategory : undefined,
     emulator: commentType === "emulator" ? emulator : undefined,
+    emulatorCategory: commentType === "emulator" ? emulatorCategory : undefined,
     commentType,
   });
 
@@ -56,18 +64,17 @@ const createComment = asyncHandler(async (req, res) => {
 
 // Get comments for a specific game
 const getGameComments = asyncHandler(async (req, res) => {
-  const { gameId } = req.params;
+  const { category, gameId } = req.params;
 
-  if (!gameId) {
-    throw new ApiError(400, "Game ID is required");
+  if (!gameId || !category) {
+    throw new ApiError(400, "Game ID and category are required");
   }
 
   const comments = await GameComment.find({
     commentType: "game",
-    game: gameId,
-  })
-    .populate("game", "game_name")
-    .sort({ createdAt: -1 }); // Latest first
+    game: parseInt(gameId),
+    gameCategory: category,
+  }).sort({ createdAt: -1 }); // Latest first
 
   return res
     .status(200)

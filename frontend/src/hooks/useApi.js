@@ -221,18 +221,18 @@ export const usePostComment = () => {
 };
 
 // Hook for fetching game comments
-export const useGameComments = (gameId) => {
+export const useGameComments = (gameId, category) => {
   const [comments, setComments] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    if (!gameId) return;
+    if (!gameId || !category) return;
 
     const fetchComments = async () => {
       try {
         setLoading(true);
-        const data = await getGameComments(gameId);
+        const data = await getGameComments(gameId, category);
         console.log(
           "useGameComments - received data:",
           data,
@@ -253,11 +253,11 @@ export const useGameComments = (gameId) => {
     };
 
     fetchComments();
-  }, [gameId]);
+  }, [gameId, category]);
 
   const refetchComments = async () => {
     try {
-      const data = await getGameComments(gameId);
+      const data = await getGameComments(gameId, category);
       console.log(
         "useGameComments - refetch data:",
         data,
