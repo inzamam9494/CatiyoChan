@@ -17,8 +17,10 @@ const gameCommentSchema = new Schema(
       trim: true,
     },
     game: {
-      type: Schema.Types.ObjectId,
-      ref: "GameList",
+      type: Number,
+    },
+    gameCategory: {
+      type: String,
     },
     emulator: {
       type: Schema.Types.ObjectId,

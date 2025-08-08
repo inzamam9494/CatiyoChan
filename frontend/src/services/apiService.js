@@ -114,9 +114,12 @@ export const postComment = async (commentData) => {
   }
 };
 
-export const getGameComments = async (gameId) => {
+export const getGameComments = async (gameId, category) => { 
   try {
-    const response = await axios.get(`${COMMENT}/game/${gameId}`);
+    if (!category) {
+      throw new Error('Category is required for fetching game comments');
+    }
+    const response = await axios.get(`${COMMENT}/game/${category}/${gameId}`);
     console.log("Fetched game comments response:", response.data);
     // The backend returns comments in response.data.data (from ApiResponse)
     const comments = response.data.data || [];
