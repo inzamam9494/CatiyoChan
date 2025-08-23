@@ -1,6 +1,6 @@
 # 🎮 CatiyoChan
 
-### A Full-Stack Gaming Community Platform for Emulators and ROMs
+### A Full-Stack Gaming Community Platform for Emulators and ROMs & BLOGS
 
 <div align="center">
 
